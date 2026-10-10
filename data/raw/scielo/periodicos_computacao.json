@@ -1,0 +1,32 @@
+[
+  {
+    "titulo": "Journal of the Brazilian Computer Society",
+    "issn": [
+      "0104-6500",
+      "1678-4804"
+    ],
+    "areas_wos": [
+      "COMPUTER SCIENCE, INFORMATION SYSTEMS"
+    ]
+  },
+  {
+    "titulo": "TEMA (São Carlos)",
+    "issn": [
+      "1677-1966",
+      "2179-8451"
+    ],
+    "areas_wos": [
+      "COMPUTER SCIENCE, INTERDISCIPLINARY APPLICATIONS",
+      "MATHEMATICS, APPLIED"
+    ]
+  },
+  {
+    "titulo": "JISTEM - Journal of Information Systems and Technology Management",
+    "issn": [
+      "1807-1775"
+    ],
+    "areas_wos": [
+      "COMPUTER SCIENCE, INFORMATION SYSTEMS"
+    ]
+  }
+]

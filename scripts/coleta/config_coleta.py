@@ -47,10 +47,10 @@ FONTES_POR_AREA = {
 }
 
 # --- Curadoria ---------------------------------------------------------
-# PENDENTE: aceitar variantes (cc-by-sa, cc-by-nc...)? Padrão: só CC-BY.
-LICENCAS_ACEITAS = {"cc-by"}
+# CC0 (domínio público) e CC-BY (só exige atribuição). SA/NC/ND ficam de fora.
+LICENCAS_ACEITAS = {"cc-by", "cc0"}
 
-# PENDENTE: artigos do Europe PMC fora do DOAJ/SciELO entram se indexados no MEDLINE?
+# Periódico indexado no MEDLINE (NLM Catalog) também conta como indexação válida.
 ACEITAR_MEDLINE = True
 
 # Conferência de área pelo assunto do periódico.

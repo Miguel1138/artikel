@@ -7,7 +7,7 @@ from comum import (get_json, limpar_texto, normalizar_doi, normalizar_idioma,
 from config_coleta import ANO_FIM, ANO_INICIO, CANDIDATOS_POR_CONSULTA, MAILTO
 
 BASE = "https://api.crossref.org/works"
-SELECT = "DOI,title,author,published,container-title,ISSN,volume,issue,page,abstract,license,language,URL"
+SELECT = "DOI,title,author,issued,container-title,ISSN,volume,issue,page,abstract,license,language,URL"
 
 
 def _params(extra):
@@ -36,7 +36,7 @@ def por_doi(doi):
 
 
 def _data(item):
-    partes = ((item.get("published") or {}).get("date-parts") or [[None]])[0]
+    partes = ((item.get("issued") or {}).get("date-parts") or [[None]])[0]
     if not partes or partes[0] is None:
         return None, None
     return partes[0], "-".join(f"{p:02d}" for p in partes)

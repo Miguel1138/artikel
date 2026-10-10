@@ -9,6 +9,7 @@ from collections import Counter, defaultdict
 import crossref
 import doaj
 import europepmc
+import medline
 import scielo
 from comum import CAMPOS, VAZIO, hoje, salvar_raw, sem_acento
 from config_coleta import (ACEITAR_MEDLINE, ANO_FIM, ANO_INICIO, AREA_LCC, ARQ_BASE,
@@ -82,7 +83,6 @@ def mesclar(destino, outro):
     for campo, valor in outro.items():
         if destino.get(campo) in VAZIO and valor not in VAZIO:
             destino[campo] = valor
-    destino["_medline"] = destino["_medline"] or outro["_medline"]
 
 
 def enriquecer(reg):
@@ -91,7 +91,7 @@ def enriquecer(reg):
     if not item:
         return False
     for campo, valor in crossref.normalizar(item).items():
-        if campo not in ("fonte", "_medline") and valor not in VAZIO:
+        if campo != "fonte" and valor not in VAZIO:
             reg[campo] = valor
     return True
 
@@ -103,7 +103,7 @@ def indexacao(reg, scielo_por_issn):
         ind.append("DOAJ")
     if any(i in scielo_por_issn for i in reg["issn"]):
         ind.append("SciELO")
-    if ACEITAR_MEDLINE and reg["_medline"]:
+    if ACEITAR_MEDLINE and any(map(medline.indexado, reg["issn"])):
         ind.append("MEDLINE")
     return ind, dados_doaj
 
@@ -206,7 +206,7 @@ def carregar(artigos, periodicos, funil):
     data, base = hoje(), []
     for n, reg in enumerate(artigos, 1):
         reg.update(id=f"art_{n:03d}", data_coleta=data)
-        base.append({c: reg.get(c) for c in CAMPOS})   # descarta campos internos (_data, _medline)
+        base.append({c: reg.get(c) for c in CAMPOS})   # descarta campos internos (_data)
     ARQ_BASE.write_text(json.dumps(base, ensure_ascii=False, indent=2), encoding="utf-8")
     ARQ_PERIODICOS.write_text(json.dumps(list(periodicos.values()), ensure_ascii=False, indent=2),
                               encoding="utf-8")

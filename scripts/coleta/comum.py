@@ -38,7 +38,9 @@ def get_json(url, params=None, tentativas=4, pausa=1.0):
         if r.status_code in (429, 500, 502, 503, 504):
             time.sleep(pausa * 2 ** i)
             continue
-        r.raise_for_status()
+        if r.status_code >= 400:
+            # A mensagem da API diz o parâmetro inválido; sem ela o erro fica opaco.
+            raise requests.HTTPError(f"{r.status_code} em {r.url}\n{r.text[:500]}", response=r)
         return r.json()
     raise RuntimeError(f"Falha após {tentativas} tentativas: {url}")
 
@@ -113,7 +115,7 @@ def normalizar_idioma(codigo):
 def novo_registro(fonte):
     """Registro vazio no esquema da base. Campos com '_' são internos e não vão para o JSON final."""
     r = {c: None for c in CAMPOS}
-    r.update(autores=[], palavras_chave=[], issn=[], fonte=fonte, _data=None, _medline=False)
+    r.update(autores=[], palavras_chave=[], issn=[], fonte=fonte, _data=None)
     return r
 
 
