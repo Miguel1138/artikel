@@ -88,7 +88,7 @@ Contrato completo da interface: [`web/README.md`](web/README.md).
 |---|---|
 | Base curada | 246 artigos · 107 periódicos · 100% CC-BY · 3 áreas |
 | Dataset de intenções | 199 frases · 5 intenções (39–40 por intenção) |
-| Testes automatizados | 70 passando (`python -m pytest -q`) |
+| Testes automatizados | 83 passando (`python -m pytest -q`) |
 | Acurácia de intenções | 1,000 (meta ≥ 0,85) |
 | Precisão@5 da recuperação | 0,743 (meta ≥ 0,60) |
 | Abstenção correta fora de escopo | 1,000 (meta ≥ 0,90) |

@@ -34,6 +34,11 @@ from preprocessamento import sem_acento, termos_relevantes  # noqa: E402
 # correta para "me escreve o referencial teórico"). Ver `melhor_desfecho`.
 ABSTENCAO_ACEITA = {"16"}
 
+# Marcadores do trecho gerado em `docs/avaliacao.md`. O que estiver fora deles é texto
+# escrito à mão (análise de falhas, reavaliações) e não pode ser sobrescrito.
+INICIO_GERADO = "<!-- GERADO POR tests/avaliar.py --md: nao editar dentro dos marcadores -->"
+FIM_GERADO = "<!-- FIM DO TRECHO GERADO -->"
+
 
 def ler_casos(caminho: Path = ARQ_CASOS) -> list[dict]:
     with caminho.open(encoding="utf-8", newline="") as fh:
@@ -210,8 +215,13 @@ def relatorio_texto(res: dict) -> str:
 
 
 def relatorio_md(res: dict) -> str:
-    """Versão para o relatório do Marco 6."""
-    l = ["# Avaliação — Artikel", "",
+    """Versão para o relatório do Marco 6.
+
+    O conteúdo gerado fica entre os marcadores `INICIO_GERADO` e `FIM_GERADO`, e o que
+    estiver fora deles é preservado. Sem isso, rodar `avaliar.py --md` apagava a análise de
+    falhas escrita à mão — foi o que aconteceu com a seção "Análise de 3 falhas".
+    """
+    l = [INICIO_GERADO, "# Avaliação — Artikel", "",
          f"Casos em `tests/casos_teste.csv`: **{res['total_casos']}** "
          f"(marco 5 do cronograma).", "",
          "## Métricas", "",
@@ -240,7 +250,27 @@ def relatorio_md(res: dict) -> str:
         for r in erros:
             l.append(f"| {r['id']} | {r['pergunta']} | {r['esperado']} | {r['previsto']} "
                      f"| {r['confianca']:.2f} | {r['tipo_resposta']} |")
+    l += ["", FIM_GERADO]
     return "\n".join(l) + "\n"
+
+
+def gravar_md(caminho: str, novo: str) -> None:
+    """Grava o relatório preservando o texto escrito à mão fora dos marcadores."""
+    arq = Path(caminho)
+    if not arq.exists():
+        arq.write_text(novo, encoding="utf-8")
+        return
+    antigo = arq.read_text(encoding="utf-8")
+    if INICIO_GERADO not in antigo or FIM_GERADO not in antigo:
+        # Arquivo escrito antes dos marcadores: não sobrescreve, avisa.
+        print(f"ATENÇÃO: {caminho} não tem os marcadores {INICIO_GERADO}/{FIM_GERADO}; "
+              "o arquivo foi mantido e o relatório gerado saiu em "
+              f"{caminho}.novo")
+        Path(caminho + ".novo").write_text(novo, encoding="utf-8")
+        return
+    antes = antigo[: antigo.index(INICIO_GERADO)]
+    depois = antigo[antigo.index(FIM_GERADO) + len(FIM_GERADO):]
+    arq.write_text(antes + novo.rstrip("\n") + depois, encoding="utf-8")
 
 
 def main() -> None:
@@ -255,8 +285,8 @@ def main() -> None:
         Path(args.json).write_text(json.dumps(res, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"JSON gravado em {args.json}")
     if args.md:
-        Path(args.md).write_text(relatorio_md(res), encoding="utf-8")
-        print(f"Markdown gravado em {args.md}")
+        gravar_md(args.md, relatorio_md(res))
+        print(f"Markdown gravado em {args.md} (conteúdo fora dos marcadores preservado)")
 
 
 if __name__ == "__main__":

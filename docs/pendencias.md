@@ -80,6 +80,36 @@ decide o corte é arredondado antes da comparação. Coberto por dois testes em
 `python scripts/diagnostico/_diag_determinismo.py 8` (roda a avaliação 8 vezes e acusa
 variação). Resultado depois da correção: 0,743 em 8 de 8 rodadas.
 
+### 5. Busca de tema ausente devolvia artigo de outra área (relatado pelo usuário)
+
+**Sintoma:** "preciso de artigos sobre computação quântica" devolvia 5 artigos de
+**Psicologia e Odontologia**. O mesmo acontecia com física quântica, criptografia quântica,
+direito penal, engenharia civil e medicina veterinária — nenhum desses temas existe na base.
+
+**Causa:** duas falhas somadas.
+
+1. O casamento de termo cortava a palavra em 5 letras e aceitava qualquer início de palavra.
+   "quântica" virava `quant`, que casava com **"quantitative"** — então um artigo de
+   Psicologia que diz "quantitative methods" contava como cobertura de computação quântica.
+2. O bônus de curadoria (indexado + recente = 0,08) era somado **depois** da guarda temática,
+   por cima de uma similaridade de 0,06. O artigo chegava a 0,14 e passava do limiar de
+   score — inclusive artigos sem **nenhuma** palavra da pergunta ("termos presentes: NENHUM"
+   com score 0,14). O bônus de desempate estava funcionando como se fosse relevância.
+
+**Correção:** o casamento passou a exigir palavra inteira ou flexão simples (e sinônimo
+declarado em `ALIASES`); o bônus só é aplicado quando o artigo cobre algum termo da pergunta;
+o limiar de cobertura subiu de 0,34 para **0,60**; e verbos/moldes de pergunta ("cadê",
+"acha", "manda", "quero"…) saíram da conta de cobertura.
+
+O valor 0,60 não foi escolhido por intuição:
+`python scripts/diagnostico/_diag_limiar_cobertura.py` compara 10 perguntas que devem achar
+artigo com 6 fora do recorte, em cinco limiares. Em 0,34 e 0,5 ainda passavam duas perguntas
+fora do tema; em 0,6 nenhuma passa e nenhuma pergunta legítima fica sem resposta.
+
+**Como verificar:** `python scripts/diagnostico/_verificar_retornos.py` (fala com a API real
+e confere 6 perguntas de dentro e 8 de fora do escopo) e quatro testes em
+`tests/test_recuperacao_periodicos.py`.
+
 ## Interface: de React via CDN para JavaScript local
 
 A primeira versão da interface usava React 18 + Babel carregados de `unpkg.com`, e **ficava
@@ -162,5 +192,5 @@ apaga no fim de cada teste. **Não troque por `tmp_path`**: os testes passam a f
 `PermissionError` neste ambiente.
 
 ```bash
-python -m pytest -q      # 70 testes
+python -m pytest -q      # 83 testes
 ```
