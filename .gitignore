@@ -1,0 +1,22 @@
+# Ambiente
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.tmp_*/
+.pytest_tmp*/
+
+# Cache da coleta (data/raw): ~330 MB de respostas brutas das APIs.
+# É reproduzível rodando `python scripts/coleta/pipeline.py`, então fica fora do
+# repositório; o Git só versiona o que é curado, em data/*.json.
+data/raw/
+# Exceção: a lista de periódicos SciELO por área já era versionada antes desta mudança
+# e é pequena — ela documenta o critério de área WoS usado na curadoria.
+!data/raw/.gitkeep
+!data/raw/scielo/periodicos_computacao.json
+!data/raw/scielo/periodicos_odontologia.json
+!data/raw/scielo/periodicos_psicologia.json
+
+# Saídas locais de avaliação
+*.log
