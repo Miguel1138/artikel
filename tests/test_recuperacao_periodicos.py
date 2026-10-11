@@ -135,3 +135,67 @@ def test_busca_e_repetivel(dir_temporario):
     primeira = [(c.artigo["id"], c.score) for c in motor.buscar("clareamento dental")]
     for _ in range(5):
         assert [(c.artigo["id"], c.score) for c in motor.buscar("clareamento dental")] == primeira
+
+
+# ------------------------------------------------------------------ caso reportado
+def test_consulta_sem_nenhum_termo_na_base_se_abstem():
+    """Computação quântica não existe na base: o correto é não recomendar nada.
+
+    Bug relatado: a busca devolvia artigos de Psicologia e Odontologia. O bônus de
+    curadoria (indexado + recente = 0,08) somava por cima de uma similaridade de 0,06 e
+    levava o artigo a 0,14, acima do limiar de score — inclusive artigos com **nenhuma**
+    palavra da pergunta.
+    """
+    motor = recuperacao.obter()
+    if not motor.pronto:
+        pytest.skip("base curada indisponível")
+
+    for consulta in ("preciso de artigos sobre computação quântica",
+                     "quero artigos sobre computação quântica",
+                     "tem estudos recentes sobre computação quântica?"):
+        candidatos = motor.buscar(consulta, k=5)
+        assert candidatos == [], (
+            f"{consulta!r} devolveu {len(candidatos)} artigo(s): "
+            + "; ".join(c.artigo.get("titulo", "")[:50] for c in candidatos)
+        )
+
+
+def test_bonus_de_curadoria_nao_substitui_relevancia():
+    """Artigo sem nenhum termo da pergunta não pode passar, por mais indexado que seja."""
+    motor = recuperacao.obter()
+    if not motor.pronto:
+        pytest.skip("base curada indisponível")
+
+    consulta = "astrofísica de neutrinos"
+    termos = motor._termos_consulta(consulta)
+    candidatos = motor.buscar(consulta, k=5)
+    for candidato in candidatos:
+        assert motor._cobertura(consulta, candidato.artigo, termos) > 0, (
+            "candidato recomendado sem nenhum termo da pergunta: "
+            f"{candidato.artigo.get('titulo', '')[:60]} (score {candidato.score})"
+        )
+
+
+def test_termo_curto_nao_casa_com_palavra_de_outro_radical(dir_temporario):
+    """'quântica' não pode casar com 'quantitative'.
+
+    O casamento cortava a palavra em 5 letras (`quant`) e aceitava qualquer início de
+    palavra: "quantitative methods", num artigo de Psicologia, contava como cobertura de
+    computação quântica.
+    """
+    motor = montar_motor(dir_temporario)
+    assert not motor._contem("students using snowball sampling quantitative", "quantica")
+    assert not motor._contem("high emotional and high quantitative demands", "quantica")
+    assert motor._contem("computacao quantica aplicada", "quantica")
+    assert motor._contem("quantum computing", "quantum")
+
+
+def test_termo_casa_com_flexao_simples(dir_temporario):
+    """A flexão de número e gênero continua casando (senão a busca perderia recall)."""
+    motor = montar_motor(dir_temporario)
+    assert motor._contem("caries infantil", "carie")
+    assert motor._contem("caries", "caries")
+    assert motor._contem("estudantes universitarios", "universitarios")
+    assert motor._contem("estudante universitario", "universitario")
+    assert motor._contem("clareamento dental", "dental")
+    assert not motor._contem("dentistry", "dental"), "sinônimo é papel de ALIASES, não do radical"

@@ -52,6 +52,14 @@ GENERICAS = {
     "need", "want", "about", "recent", "source", "sources", "reference", "references",
     "saude", "health", "healthcare", "clinica", "clinical", "paciente", "pacientes",
     "patient", "patients",
+    # Verbos e moldes de pergunta: aparecem em quase toda frase e não dizem o tema.
+    # Sem eles, "cadê artigos sobre periodontia" virava dois termos temáticos ("cade" e
+    # "periodontia") e a cobertura ficava abaixo do limiar mesmo achando o artigo certo.
+    "cade", "acha", "achar", "acho", "encontro", "encontrar", "busca", "buscar", "busco",
+    "procuro", "procurar", "manda", "mandar", "mostra", "mostrar", "lista", "listar",
+    "indica", "indicar", "sugere", "sugerir", "da", "dar", "ver", "quais", "qual",
+    "onde", "como", "tem", "existe", "existem", "ha", "find", "show", "list", "give",
+    "suggest", "looking", "search",
 }
 
 # Equivalências pt <-> en usadas na conferência de cobertura. São **sinônimos**, não
@@ -218,14 +226,23 @@ class Motor:
 
     @staticmethod
     def _contem(alvo: str, palavra: str) -> bool:
-        """True se `palavra` (radical) aparece como **início de palavra** no texto.
+        """True se `palavra` aparece no texto como palavra inteira ou flexão simples.
 
-        A comparação por `in` puro dava falso positivo: o radical de "maquina" ("maqui")
-        casava com "MARIANE" (m-a-r-i-a-n-e) e um artigo de Psicologia entrava na busca de
-        aprendizado de máquina. Aqui o radical precisa começar a palavra.
+        "quântica" precisa casar com "quantica"/"quanticas", **não** com "quantitative":
+        o radical de 5 letras (`quant`) casava com qualquer início de palavra e um artigo
+        de Psicologia que diz "quantitative methods" virava 0,5 de cobertura para a busca
+        de computação quântica. Antes eu cortava a palavra; agora o casamento é: termo
+        inteiro, termo + flexão, ou um equivalente pt/en declarado em ALIASES.
         """
-        radical = palavra[:5] if len(palavra) > 4 else palavra
-        return re.search(rf"(?<![0-9a-z]){re.escape(radical)}", alvo) is not None
+        if re.search(rf"(?<![0-9a-z]){re.escape(palavra)}(?:s|es)?(?![0-9a-z])", alvo):
+            return True
+        # "universitarios" cobre "universitario"; "carie" cobre "caries".
+        if re.search(rf"(?<![0-9a-z]){re.escape(palavra)}(?:a|o|as|os)(?![0-9a-z])", alvo):
+            return True
+        if palavra.endswith(("a", "o")) and \
+                re.search(rf"(?<![0-9a-z]){re.escape(palavra[:-1])}(?![0-9a-z])", alvo):
+            return True
+        return False
 
     def _conceitos(self, termos: set[str]) -> tuple[list[tuple[str, ...]], set[str]]:
         """Separa os termos da pergunta em conceitos compostos e termos soltos.
@@ -341,9 +358,16 @@ class Motor:
             sim = float(similaridades[i])
             if sim <= 0:
                 continue
+            cobertura = self._cobertura(consulta, artigo, termos)
             # Guarda temática: sem cobrir os termos que identificam o tema, a similaridade
             # vem só de palavras genéricas ("artigo", "estudo") e não deve recomendar.
-            if self._cobertura(consulta, artigo, termos) < cobertura_minima:
+            if cobertura < cobertura_minima:
+                continue
+            # O bônus de curadoria é desempate, não relevância. Sem esta guarda ele somava
+            # por cima de uma similaridade quase nula: um artigo de Psicologia que não tem
+            # nenhuma palavra da pergunta chegava a 0,14 só por ser indexado e recente, e
+            # passava do limiar de score.
+            if cobertura <= 0:
                 continue
             bonus, motivos = 0.0, []
 

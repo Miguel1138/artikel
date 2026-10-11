@@ -43,7 +43,14 @@ LIMIAR_SCORE = 0.10
 # Fração mínima dos termos de conteúdo da pergunta que precisam aparecer no artigo.
 # Sem isso, a pergunta "artigos sobre astrofísica de neutrinos" casa com um artigo de
 # odontologia só porque ambos compartilham palavras genéricas ("artigos").
-COBERTURA_MINIMA = 0.34
+#
+# Valor escolhido com dados, não por intuição:
+# `scripts/diagnostico/_diag_limiar_cobertura.py` compara 10 perguntas que devem achar
+# artigo com 6 fora do recorte. Em 0,34 e 0,5 duas perguntas fora do tema ainda devolviam
+# artigo ("física quântica" casava com "saúde física" num artigo de Psicologia; "direito
+# penal" com "penal" noutro). Em 0,6 nenhuma passa e nenhuma pergunta legítima fica sem
+# resposta.
+COBERTURA_MINIMA = 0.60
 # Quantos artigos a resposta de busca devolve (documento: top 3–5).
 TOP_K = 5
 # Artigos usados para calcular a Precisão@5 na avaliação.
