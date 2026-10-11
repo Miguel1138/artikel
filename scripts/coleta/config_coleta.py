@@ -41,9 +41,26 @@ SEMENTES = {
 
 # TAP: Europe PMC é complemento só para Odontologia e Psicologia.
 FONTES_POR_AREA = {
-    "computacao": ["crossref", "scielo"],
+    "computacao": ["crossref", "scielo", "doaj"],
     "odontologia": ["crossref", "scielo", "europepmc"],
     "psicologia": ["crossref", "scielo", "europepmc"],
+}
+
+# --- DOAJ Article Search ------------------------------------------------
+# O Crossref não cobre Computação no nível do recorte temático (devolve resultados de
+# áreas vizinhas). O DOAJ indexa por assunto LCC e deixa buscar no resumo, então entra
+# como fonte complementar só dessa área.
+# Cada entrada é a consulta que o cliente monta:
+#   bibjson.title:"<termo>" AND bibjson.subject.term:"<assunto>" AND bibjson.year:[ini TO fim]
+# O assunto entra entre aspas para o DOAJ casar o termo exato.
+DOAJ_ARTIGOS = {
+    "computacao": [
+        {"termo": "machine learning", "assunto": "Electronic computers. Computer science"},
+        {"termo": "artificial intelligence", "assunto": "Electronic computers. Computer science"},
+        {"termo": "natural language processing", "assunto": "Electronic computers. Computer science"},
+        {"termo": "information security", "assunto": "Electronic computers. Computer science"},
+        {"termo": "software engineering", "assunto": "Electronic computers. Computer science"},
+    ],
 }
 
 # --- Curadoria ---------------------------------------------------------

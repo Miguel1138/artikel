@@ -2,12 +2,14 @@
 Fonte principal; prevalece em conflitos de campos (decisão do Marco 2)."""
 from urllib.parse import quote
 
-from comum import (get_json, limpar_texto, normalizar_doi, normalizar_idioma,
-                   normalizar_licenca, novo_registro)
+from comum import (detetar_idioma, get_json, limpar_texto, normalizar_doi,
+                   normalizar_idioma, normalizar_licenca, novo_registro)
 from config_coleta import ANO_FIM, ANO_INICIO, CANDIDATOS_POR_CONSULTA, MAILTO
 
 BASE = "https://api.crossref.org/works"
-SELECT = "DOI,title,author,issued,container-title,ISSN,volume,issue,page,abstract,license,language,URL"
+# `language` não existe como select válido na rota /works (a API responde 400). O idioma é
+# inferido do título/resumo em `comum.detetar_idioma`.
+SELECT = "DOI,title,author,issued,container-title,ISSN,volume,issue,page,abstract,license,URL"
 
 
 def _params(extra):
@@ -17,8 +19,12 @@ def _params(extra):
     return p
 
 
-def buscar(consulta, limite=CANDIDATOS_POR_CONSULTA):
-    """Itens brutos mais recentes que casam com a consulta, já filtrados por período e licença."""
+def buscar(consulta, limite=CANDIDATOS_POR_CONSULTA, idioma=None):
+    """Itens brutos mais recentes que casam com a consulta, filtrados por período e licença.
+
+    `idioma` é o idioma usado na consulta (pt ou en): o Crossref não devolve `language` em
+    /works, então a consulta em português é a evidência mais confiável do idioma.
+    """
     dados = get_json(BASE, _params({
         "query.bibliographic": consulta,
         "filter": (f"from-pub-date:{ANO_INICIO}-01-01,until-pub-date:{ANO_FIM}-12-31,"
@@ -61,12 +67,15 @@ def _autores(item):
     return autores
 
 
-def normalizar(item):
+def normalizar(item, idioma_consulta=None):
     r = novo_registro("crossref")
     ano, data = _data(item)
+    titulo = limpar_texto((item.get("title") or [None])[0])
+    resumo = limpar_texto(item.get("abstract"))
+    detectado = detetar_idioma(titulo, resumo)
     r.update(
         doi=normalizar_doi(item.get("DOI")),
-        titulo=limpar_texto((item.get("title") or [None])[0]),
+        titulo=titulo,
         autores=_autores(item),
         ano=ano, _data=data,
         periodico=(item.get("container-title") or [None])[0],
@@ -74,8 +83,9 @@ def normalizar(item):
         volume=item.get("volume"),
         numero=item.get("issue"),
         paginas=item.get("page"),
-        resumo=limpar_texto(item.get("abstract")),
-        idioma=normalizar_idioma(item.get("language")),
+        resumo=resumo,
+        # prioridade: rótulo da API > detecção pelo texto > idioma da consulta
+        idioma=normalizar_idioma(item.get("language")) or detectado or idioma_consulta,
         licenca=_licenca(item),
         url=item.get("URL"),
     )

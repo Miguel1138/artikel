@@ -24,7 +24,11 @@ VAZIO = (None, "", [])
 
 
 def get_json(url, params=None, tentativas=4, pausa=1.0):
-    """GET com nova tentativa em 429/5xx. Retorna None em 404."""
+    """GET com nova tentativa em 429/5xx. Retorna None em 404.
+
+    Alguns serviços (DOAJ) respondem `Content-Type: application/json;charset=utf-8`, que
+    `r.json()` recusa por causa do charset. Por isso o parsing é feito do texto.
+    """
     for i in range(tentativas):
         try:
             r = _sessao.get(url, params=params, timeout=30)
@@ -41,7 +45,10 @@ def get_json(url, params=None, tentativas=4, pausa=1.0):
         if r.status_code >= 400:
             # A mensagem da API diz o parâmetro inválido; sem ela o erro fica opaco.
             raise requests.HTTPError(f"{r.status_code} em {r.url}\n{r.text[:500]}", response=r)
-        return r.json()
+        try:
+            return json.loads(r.text)
+        except ValueError:
+            return None
     raise RuntimeError(f"Falha após {tentativas} tentativas: {url}")
 
 
@@ -105,11 +112,38 @@ def limpar_texto(t):
 
 
 _IDIOMAS = {"en": "en", "eng": "en", "english": "en",
-            "pt": "pt", "por": "pt", "pt-br": "pt", "portuguese": "pt"}
+            "pt": "pt", "por": "pt", "pt-br": "pt", "portuguese": "pt",
+            "es": "es", "spa": "es", "spanish": "es"}
+
+# Palavras que só aparecem em português em título/resumo científico.
+_MARCAS_PT = (" de ", " da ", " do ", " para ", " com ", " dos ", " das ", " na ", " no ",
+              " uma ", " sobre ", " entre ", "ção ", "ções ", "ção.", "não ")
+_MARCAS_EN = (" of ", " the ", " and ", " for ", " with ", " from ", " this ", " study ",
+              " were ", " was ", " is ", " are ", " between ")
 
 
 def normalizar_idioma(codigo):
     return _IDIOMAS.get((codigo or "").strip().lower())
+
+
+def detetar_idioma(titulo, resumo=None):
+    """pt/en pelo texto, porque o Crossref não informa `language`.
+
+    Sem isso, artigos em português seriam descartados pelo filtro de idioma do pipeline —
+    e a base ficaria só em inglês, contrariando a premissa de equilíbrio de idioma.
+    """
+    amostra = " " + " ".join((titulo or "", resumo or "")).lower() + " "
+    if not amostra.strip():
+        return None
+    if any(c in amostra for c in "ãõçáéíóúâêôà"):
+        return "pt"
+    pt = sum(amostra.count(m) for m in _MARCAS_PT)
+    en = sum(amostra.count(m) for m in _MARCAS_EN)
+    if pt > en:
+        return "pt"
+    if en > pt:
+        return "en"
+    return None
 
 
 def novo_registro(fonte):
