@@ -177,7 +177,8 @@ periódicos SciELO e depende mais do Crossref — foi exatamente o que a coleta 
 |---|---|
 | `data/` | `raw/`, `knowledge_base.json`, `periodicos.json`, `faq_busca.json`, `intents.csv`, `relatorio_coleta.md` |
 | `scripts/coleta/` | `config_coleta.py`, `comum.py`, `crossref.py`, `scielo.py`, `europepmc.py`, `doaj.py`, `medline.py`, `pipeline.py` |
-| `scripts/` | `treinar_classificador.py`, diagnósticos (`_verificar_api.py`, `_diag_recuperacao.py`, `_diag_match.py`) |
+| `scripts/` | `treinar_classificador.py` |
+| `scripts/diagnostico/` | scripts de apoio, não importados pelo sistema: `_verificar_api.py`, `_diag_recuperacao.py`, `_diag_match.py`, `_diag_cache.py` |
 | `app/` | `main.py`, `config.py`, `schemas.py`, `fluxo.py`, `preprocessamento.py`, `intencoes.py`, `recuperacao.py`, `abnt.py`, `periodicos.py`, `faq.py`, `contexto.py`, `abstencao.py` |
 | `models/` | `intencoes.joblib` |
 | `tests/` | `casos_teste.csv`, `test_*.py`, `avaliar.py` |

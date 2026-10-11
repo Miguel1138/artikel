@@ -1,9 +1,9 @@
 """Diagnóstico do cache da coleta: mostra a forma dos arquivos de data/raw.
 
 Uso:
-    python scripts/coleta/_diag_cache.py                 # resumo por fonte
-    python scripts/coleta/_diag_cache.py doaj            # detalhe de uma fonte
-    python scripts/coleta/_diag_cache.py doaj periodicos_computacao_cc
+    python scripts/diagnostico/_diag_cache.py                 # resumo por fonte
+    python scripts/diagnostico/_diag_cache.py doaj            # detalhe de uma fonte
+    python scripts/diagnostico/_diag_cache.py doaj periodicos_computacao_cc
 """
 import json
 import sys

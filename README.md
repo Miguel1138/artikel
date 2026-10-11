@@ -48,13 +48,13 @@ node web/_verificar_interface.js                       # a interface desenha o c
 node web/_verificar_contrato.js http://127.0.0.1:8000  # a API real bate com o que o front lê
 ```
 
-Diagnósticos (ajudam a explicar o comportamento na demonstração):
+Diagnósticos (ajudam a explicar o comportamento na demonstração; ver
+[`scripts/diagnostico/README.md`](scripts/diagnostico/README.md)):
 
 ```bash
-python scripts/_verificar_api.py 8000        # as 11 perguntas simuladas contra a API no ar
-python scripts/_diag_recuperacao.py          # ranqueamento e recall por pergunta
-python scripts/_diag_recuperacao.py "preciso de artigos sobre clareamento dental"
-python scripts/_diag_match.py "clareamento dental" YouTube   # por que um artigo casou
+python scripts/diagnostico/_verificar_api.py 8000        # as 11 perguntas simuladas
+python scripts/diagnostico/_diag_recuperacao.py          # ranqueamento e recall
+python scripts/diagnostico/_diag_match.py "clareamento dental" YouTube   # por que casou
 ```
 
 Se a coleta ainda não rodou, a API sobe do mesmo jeito e responde `503`/abstenção
@@ -129,7 +129,8 @@ confiança, ação, regra, score). Os limiares ficam todos em `app/config.py`.
 |---|---|
 | `app/` | API e mecanismo de IA: `main.py`, `config.py`, `schemas.py`, `fluxo.py`, `preprocessamento.py`, `intencoes.py`, `recuperacao.py`, `abnt.py`, `periodicos.py`, `faq.py`, `contexto.py`, `abstencao.py` |
 | `scripts/coleta/` | clientes e pipeline ETL: `config_coleta.py`, `comum.py`, `crossref.py`, `scielo.py`, `europepmc.py`, `doaj.py`, `medline.py`, `pipeline.py`, `_diag_cache.py` |
-| `scripts/` | `treinar_classificador.py`, diagnósticos (`_verificar_api.py`, `_diag_recuperacao.py`, `_diag_match.py`) |
+| `scripts/` | `treinar_classificador.py` |
+| `scripts/diagnostico/` | scripts de apoio, não importados pelo sistema (`_verificar_api.py`, `_diag_recuperacao.py`, `_diag_match.py`, `_diag_cache.py`) |
 | `data/` | `raw/` (cache), `knowledge_base.json`, `periodicos.json`, `faq_busca.json`, `intents.csv`, `casos_teste.csv`, `relatorio_coleta.md` |
 | `models/` | `intencoes.joblib` |
 | `tests/` | `casos_teste.csv`, `test_*.py`, `avaliar.py` |
@@ -164,7 +165,7 @@ python scripts/coleta/pipeline.py --area odontologia
 > apagada. O merge roda sem rede e tem teste de regressão em
 > `tests/test_pipeline_coleta.py`.
 >
-> Para inspecionar o cache antes de rodar: `python scripts/coleta/_diag_cache.py`.
+ > Para inspecionar o cache antes de rodar: `python scripts/diagnostico/_diag_cache.py`.
 
 ### Estado da base
 
