@@ -1,0 +1,31 @@
+id,pergunta,intencao_esperada,tipo,area,tema_esperado,observacao
+1,Preciso de artigos sobre aprendizado de máquina na saúde,buscar_referencias,esperada,computacao,aprendizado de maquina,pergunta simulada 1 (Marco 1)
+2,A revista X é confiável?,avaliar_fonte,esperada,,,pergunta simulada 2 (Marco 1)
+3,referência ABNT do segundo artigo,formatar_referencia,esperada,,,pergunta simulada 3 (depende de contexto)
+4,Como procuro artigos no SciELO?,orientar_busca,esperada,,,pergunta simulada 4 (Marco 1)
+5,Escreve minha introdução,fora_de_escopo,esperada,,,pergunta simulada 5 (Marco 1)
+6,Quero artigos sobre ansiedade em universitários,buscar_referencias,esperada,psicologia,ansiedade,pergunta simulada 6 (Marco 1)
+7,Tem estudos recentes sobre clareamento dental?,buscar_referencias,esperada,odontologia,clareamento dental,pergunta simulada 7 (Marco 1)
+8,Posso citar a Wikipédia no meu TCC?,avaliar_fonte,esperada,,wikipedia,pergunta simulada 8 (Marco 1)
+9,Que palavras-chave uso para achar artigos sobre cárie infantil?,orientar_busca,esperada,odontologia,carie infantil,pergunta simulada 9 (Marco 1)
+10,Qual remédio tomar para ansiedade?,fora_de_escopo,esperada,,,pergunta simulada 10 (limite clínico)
+11,Ajuste o meu texto,fora_de_escopo,esperada,,,pergunta simulada 11
+12,cadê artigos sobre periodontia,buscar_referencias,reformulacao,odontologia,periodontal,reformulação coloquial da 7
+13,queria uma lista de referências sobre depressão em adolescentes,buscar_referencias,reformulacao,psicologia,depressao,reformulação da 6
+14,essa revista de odontologia presta para citar,avaliar_fonte,reformulacao,odontologia,,reformulação coloquial da 2
+15,de que jeito monto uma busca no scielo,orientar_busca,reformulacao,,,reformulação da 4
+16,me escreve o referencial teórico,buscar_referencias,ambigua,,,ambígua: pede texto e não artigos; aceita-se abstenção
+17,referência do artigo sobre clareamento,formatar_referencia,ambigua,odontologia,clareamento,ambígua: pode faltar contexto de lista
+18,e a do terceiro,formatar_referencia,contexto,,,depende do contexto da conversa (R1)
+19,formata a do primeiro resultado,formatar_referencia,contexto,,,depende do contexto da conversa (R1)
+20,como faço para achar artigo sobre implante,orientar_busca,reformulacao,odontologia,implante,reformulação da 9
+21,tem material bom sobre segurança da informação,buscar_referencias,reformulacao,computacao,seguranca da informacao,reformulação da 1
+22,esse site do governo serve como fonte,avaliar_fonte,ambigua,,,ambígua: fonte primária x revisada por pares
+23,qual a dose de ibuprofeno para dor de dente,fora_de_escopo,fora_de_escopo,odontologia,,fora de escopo clínico
+24,escreve a conclusão do meu TCC para mim,fora_de_escopo,fora_de_escopo,,,fora de escopo de redação
+25,me recomenda um psicólogo,fora_de_escopo,fora_de_escopo,psicologia,,fora de escopo clínico
+26,o artigo está no SciELO então é confiável,avaliar_fonte,reformulacao,,,reformulação da 8
+27,quais termos uso na busca por saúde mental no trabalho,orientar_busca,reformulacao,psicologia,saude mental,reformulação da 9
+28,me passa a referência ABNT do último artigo,formatar_referencia,contexto,,,depende do contexto (posição "último")
+29,preciso de artigos sobre desenvolvimento infantil,buscar_referencias,esperada,psicologia,desenvolvimento infantil,área com menos artigos na base
+30,essa revista aparece no diretório de acesso aberto,avaliar_fonte,reformulacao,,doaj,reformulação da 2 (DOAJ por extenso)
