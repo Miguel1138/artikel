@@ -1,0 +1,1306 @@
+[
+  {
+    "titulo": "RGO: Revista Gaúcha de Odontologia",
+    "issn": [
+      "1981-8637",
+      "0103-6971"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/rgo/"
+  },
+  {
+    "titulo": "Pesquisa Brasileira em Odontopediatria e Clínica Integrada",
+    "issn": [
+      "1983-4632",
+      "1519-0501"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO",
+      "Scopus"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://revista.uepb.edu.br/index.php/pboci/index"
+  },
+  {
+    "titulo": "Brazilian Journal of Oral Sciences",
+    "issn": [
+      "1677-3225"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO",
+      "Scopus"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://periodicos.sbu.unicamp.br/ojs/index.php/bjos"
+  },
+  {
+    "titulo": "Brazilian Dental Science",
+    "issn": [
+      "2178-6011"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://bds.ict.unesp.br/index.php/cob/index"
+  },
+  {
+    "titulo": "Journal of Esthetic and Restorative Dentistry",
+    "issn": [
+      "1496-4155",
+      "1708-8240"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/jerd.70269"
+  },
+  {
+    "titulo": "Clinical Oral Investigations",
+    "issn": [
+      "1436-3771"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s00784-026-07083-4"
+  },
+  {
+    "titulo": "Lasers in Medical Science",
+    "issn": [
+      "1435-604X"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s10103-026-04972-8"
+  },
+  {
+    "titulo": "Journal of Dentistry",
+    "issn": [
+      "0300-5712"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.jdent.2026.106839"
+  },
+  {
+    "titulo": "Dentistry Journal",
+    "issn": [
+      "2304-6767"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.mdpi.com/journal/dentistry"
+  },
+  {
+    "titulo": "BDJ Open",
+    "issn": [
+      "2056-807X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.nature.com/bdjopen/"
+  },
+  {
+    "titulo": "Journal of Prosthodontics",
+    "issn": [
+      "1059-941X",
+      "1532-849X"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/jopr.70160"
+  },
+  {
+    "titulo": "BMC Oral Health",
+    "issn": [
+      "1472-6831"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://bmcoralhealth.biomedcentral.com"
+  },
+  {
+    "titulo": "Odontology",
+    "issn": [
+      "1618-1247",
+      "1618-1255"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s10266-025-01292-1"
+  },
+  {
+    "titulo": "Brazilian Dental Journal",
+    "issn": [
+      "1806-4760",
+      "0103-6440"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.scielo.br/scielo.php?script=sci_serial&pid=0103-6440&lng=en&nrm=iso"
+  },
+  {
+    "titulo": "Brazilian Oral Research",
+    "issn": [
+      "1807-3107",
+      "1806-8324"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/bor/"
+  },
+  {
+    "titulo": "Dental Press Journal of Orthodontics",
+    "issn": [
+      "2177-6709",
+      "2176-9451"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/dpjo/"
+  },
+  {
+    "titulo": "JAMA Pediatrics",
+    "issn": [
+      "2168-6203"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1001/jamapediatrics.2026.2567"
+  },
+  {
+    "titulo": "European Archives of Paediatric Dentistry",
+    "issn": [
+      "1818-6300",
+      "1996-9805"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s40368-026-01233-8"
+  },
+  {
+    "titulo": "Revista de Odontologia da UNESP",
+    "issn": [
+      "1807-2577",
+      "0101-1774"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Medicine",
+      "Dentistry"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/rounesp/"
+  },
+  {
+    "titulo": "Journal of Applied Oral Science",
+    "issn": [
+      "1678-7765",
+      "1678-7757"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Open peer review",
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/jaos/"
+  },
+  {
+    "titulo": "Frontiers in Oral Health",
+    "issn": [
+      "2673-4842"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/oral-health"
+  },
+  {
+    "titulo": "Clinical and Experimental Dental Research",
+    "issn": [
+      "2057-4347",
+      "2057-4347"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://onlinelibrary.wiley.com/journal/20574347"
+  },
+  {
+    "titulo": "Journal of School Health",
+    "issn": [
+      "0022-4391",
+      "1746-1561"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/josh.70241"
+  },
+  {
+    "titulo": "International Dental Journal",
+    "issn": [
+      "0020-6539"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/international-dental-journal"
+  },
+  {
+    "titulo": "Journal of Clinical Periodontology",
+    "issn": [
+      "0303-6979",
+      "1600-051X"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/jcpe.70165"
+  },
+  {
+    "titulo": "International Journal of Dental Hygiene",
+    "issn": [
+      "1601-5029",
+      "1601-5037"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/idh.70057"
+  },
+  {
+    "titulo": "Journal of Information Systems and Technology Management",
+    "issn": [
+      "1807-1775"
+    ],
+    "indexacao": [
+      "Latindex",
+      "SciELO"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.4301/s1807-1775202118001"
+  },
+  {
+    "titulo": "Dentomaxillofacial Radiology",
+    "issn": [
+      "0250-832X",
+      "1476-542X"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1093/dmfr/twag041"
+  },
+  {
+    "titulo": "Acta Biomaterialia",
+    "issn": [
+      "1742-7061"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.actbio.2026.08.041"
+  },
+  {
+    "titulo": "Journal of Cranio-Maxillofacial Surgery",
+    "issn": [
+      "1010-5182"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.jcms.2026.109839"
+  },
+  {
+    "titulo": "Journal of Controlled Release",
+    "issn": [
+      "0168-3659"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.jconrel.2026.115221"
+  },
+  {
+    "titulo": "Archives of Oral Biology",
+    "issn": [
+      "0003-9969"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.archoralbio.2026.106698"
+  },
+  {
+    "titulo": "Colloids and Surfaces B: Biointerfaces",
+    "issn": [
+      "0927-7765"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.colsurfb.2026.115918"
+  },
+  {
+    "titulo": "Paidéia (Ribeirão Preto)",
+    "issn": [
+      "0103-863X"
+    ],
+    "indexacao": [
+      "SciELO"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1590/1982-4327e3606"
+  },
+  {
+    "titulo": "Journal of Affective Disorders",
+    "issn": [
+      "0165-0327"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.jad.2026.122308"
+  },
+  {
+    "titulo": "Psico-USF",
+    "issn": [
+      "2175-3563",
+      "1413-8271"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Open peer review",
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/pusf/"
+  },
+  {
+    "titulo": "Estudos de Psicologia (Campinas)",
+    "issn": [
+      "1982-0275",
+      "0103-166X"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "Latindex",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/estpsi/"
+  },
+  {
+    "titulo": "Psicologia: Ciência e Profissão",
+    "issn": [
+      "1982-3703",
+      "1414-9893"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/pcp/"
+  },
+  {
+    "titulo": "Revista Brasileira de Psicodrama",
+    "issn": [
+      "2318-0498",
+      "0104-5393"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "Latindex",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://revbraspsicodrama.org.br/rbp"
+  },
+  {
+    "titulo": "Psicologia: Teoria e Pesquisa",
+    "issn": [
+      "1806-3446",
+      "0102-3772"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Open peer review",
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/ptp/"
+  },
+  {
+    "titulo": "Paidéia (Ribeirão Preto)",
+    "issn": [
+      "1982-4327",
+      "0103-863X"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/paideia/"
+  },
+  {
+    "titulo": "Addictive Behaviors Reports",
+    "issn": [
+      "2352-8532"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology",
+      "Social pathology. Social and public welfare. Criminology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/addictive-behaviors-reports"
+  },
+  {
+    "titulo": "Computers in Human Behavior Reports",
+    "issn": [
+      "2451-9588"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science",
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/computers-in-human-behavior-reports"
+  },
+  {
+    "titulo": "European Neuropsychopharmacology",
+    "issn": [
+      "0924-977X"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.euroneuro.2026.112907"
+  },
+  {
+    "titulo": "Internet Interventions",
+    "issn": [
+      "2214-7829"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Information technology",
+      "Psychology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/internet-interventions"
+  },
+  {
+    "titulo": "Journal of Psychiatric Research",
+    "issn": [
+      "0022-3956"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.jpsychires.2026.08.024"
+  },
+  {
+    "titulo": "Journal of Psychosomatic Research",
+    "issn": [
+      "0022-3999"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.jpsychores.2026.112994"
+  },
+  {
+    "titulo": "Psychiatry Research",
+    "issn": [
+      "0165-1781"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.psychres.2026.117474"
+  },
+  {
+    "titulo": "Bioengineered",
+    "issn": [
+      "2165-5979",
+      "2165-5987"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1080/21655979.2026.2728885"
+  },
+  {
+    "titulo": "Plural",
+    "issn": [
+      "2965-1662"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://revistaplural.emnuvens.com.br/prp/index"
+  },
+  {
+    "titulo": "Psicologia em Estudo",
+    "issn": [
+      "1807-0329",
+      "1413-7372"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO",
+      "Scopus"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://periodicos.uem.br/ojs/index.php/PsicolEstud/"
+  },
+  {
+    "titulo": "Psicologia USP",
+    "issn": [
+      "1678-5177",
+      "0103-6564"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/pusp/"
+  },
+  {
+    "titulo": "Psicologia & Sociedade",
+    "issn": [
+      "1807-0310"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Psychology",
+      "Social sciences (General)"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/psoc/"
+  },
+  {
+    "titulo": "International Journal of Gynecology &amp; Obstetrics",
+    "issn": [
+      "0020-7292",
+      "1879-3479"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1002/ijgo.71327"
+  },
+  {
+    "titulo": "International Journal of Mental Health Nursing",
+    "issn": [
+      "1445-8330",
+      "1447-0349"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/inm.70349"
+  },
+  {
+    "titulo": "Psicologia Escolar e Educacional",
+    "issn": [
+      "2175-3539"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/pee/"
+  },
+  {
+    "titulo": "Fractal: Revista de Psicologia",
+    "issn": [
+      "1984-0292"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Open peer review",
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/fractal/"
+  },
+  {
+    "titulo": "Computers",
+    "issn": [
+      "2073-431X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.mdpi.com/journal/computers"
+  },
+  {
+    "titulo": "Journal of Universal Computer Science",
+    "issn": [
+      "0948-6968",
+      "0948-695X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://lib.jucs.org/"
+  },
+  {
+    "titulo": "Computing Open",
+    "issn": [
+      "2972-3701"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.worldscientific.com/Computing-Open"
+  },
+  {
+    "titulo": "Big Data Mining and Analytics",
+    "issn": [
+      "2096-0654",
+      "2097-406X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8254253"
+  },
+  {
+    "titulo": "Journal of Imaging",
+    "issn": [
+      "2313-433X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Photography",
+      "Computer applications to medicine. Medical informatics",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.mdpi.com/journal/jimaging"
+  },
+  {
+    "titulo": "Discover Artificial Intelligence",
+    "issn": [
+      "2731-0809"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computational linguistics. Natural language processing",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.springer.com/journal/44163"
+  },
+  {
+    "titulo": "Engineering Reports",
+    "issn": [
+      "2577-8196",
+      "2577-8196"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Engineering (General). Civil engineering (General)",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://onlinelibrary.wiley.com/journal/25778196"
+  },
+  {
+    "titulo": "Journal of Social Computing",
+    "issn": [
+      "2688-5255"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science",
+      "Social sciences (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8964404"
+  },
+  {
+    "titulo": "AI Open",
+    "issn": [
+      "2666-6510"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.keaipublishing.com/en/journals/ai-open/"
+  },
+  {
+    "titulo": "Human-Centric Intelligent Systems",
+    "issn": [
+      "2667-1336"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Information technology",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.springer.com/journal/44230"
+  },
+  {
+    "titulo": "Open Computer Science",
+    "issn": [
+      "2299-1093"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.degruyterbrill.com/journal/key/comp/html"
+  },
+  {
+    "titulo": "Annals of computer science and information systems",
+    "issn": [
+      "2300-5963"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Information technology",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://annals-csis.org/home"
+  },
+  {
+    "titulo": "Информатика и автоматизация",
+    "issn": [
+      "2713-3206",
+      "2713-3192"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://ia.spcras.ru/index.php/sp/index"
+  },
+  {
+    "titulo": "Iraqi Journal for Computer Science and Mathematics",
+    "issn": [
+      "2788-7421"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://ijcsm.researchcommons.org/"
+  },
+  {
+    "titulo": "Egyptian Informatics Journal",
+    "issn": [
+      "1110-8665"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/egyptian-informatics-journal"
+  },
+  {
+    "titulo": "Journal of Engineering Science (Chişinău)",
+    "issn": [
+      "2587-3474",
+      "2587-3482"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Engineering (General). Civil engineering (General)",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://jes.utm.md/"
+  },
+  {
+    "titulo": "CLEI Electronic Journal",
+    "issn": [
+      "0717-5000"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.clei.org/cleiej/"
+  },
+  {
+    "titulo": "Al-Rafidain Journal of Computer Sciences and Mathematics",
+    "issn": [
+      "2311-7990",
+      "1815-4816"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Mathematics",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://csmj.uomosul.edu.iq/"
+  },
+  {
+    "titulo": "Computation",
+    "issn": [
+      "2079-3197"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.mdpi.com/journal/computation"
+  },
+  {
+    "titulo": "Tsinghua Science and Technology",
+    "issn": [
+      "1007-0214"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciopen.com/journal/1007-0214"
+  }
+]

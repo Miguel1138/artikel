@@ -2,12 +2,22 @@
   {
     "titulo": "Psicologia Clínica",
     "issn": [
-      "0103-5665",
-      "1980-5438"
+      "1980-5438",
+      "0103-5665"
     ],
     "areas_wos": [
       "PSYCHOLOGY, CLINICAL"
-    ]
+    ],
+    "assuntos": [
+      "PSICOLOGIA ;",
+      "TRATAMENTO E PREVENÇÃO PSICOLÓGICA"
+    ],
+    "indexadores": [
+      "INDEX PSI Projeto SIRPEP",
+      "LILACS/BIREME",
+      "American Psychological Association - PsycINFO"
+    ],
+    "licenca": "cc-by-nc"
   },
   {
     "titulo": "Psychology & Neuroscience",
@@ -18,16 +28,48 @@
     "areas_wos": [
       "NEUROSCIENCES",
       "PSYCHOLOGY, BIOLOGICAL"
-    ]
+    ],
+    "assuntos": [
+      "PSICOBIOLOGIA"
+    ],
+    "indexadores": [
+      "SCOPUS",
+      "LILACS - Literatura Latino-Americana e do Caribe em Ciências da Saúde",
+      "RedALyC (Red de Revistas Científicas de América Latina y el Caribe, España y Portugal)",
+      "DOAJ (Directory of Open Access Journals)",
+      "Open J-Gate Index",
+      "PSICODOC",
+      "CLASE (Citas Latinoamericanas en Ciencias Sociales y Humanidades).",
+      "PEPSIC Periódicos Eletrônicos de Psicologia",
+      "LATINDEX - Index of Latin American journals in sciences and humanities",
+      "Electronic Journals Index",
+      "Index Copernicus Journals Master List",
+      "Electronic Journals Library"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Estudos de Psicologia (Natal)",
     "issn": [
+      "1413-294X",
       "1678-4669"
     ],
     "areas_wos": [
       "PSYCHOLOGY, MULTIDISCIPLINARY"
-    ]
+    ],
+    "assuntos": [
+      "PSICOLOGIA"
+    ],
+    "indexadores": [
+      "PsycINFO",
+      "LI",
+      "Sociological Abstracts",
+      "PSICODOC",
+      "CLASE",
+      "INDEXPSI",
+      "LILACS"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Revista do Departamento de Psicologia. UFF",
@@ -36,7 +78,14 @@
     ],
     "areas_wos": [
       "PSYCHOLOGY, MULTIDISCIPLINARY"
-    ]
+    ],
+    "assuntos": [
+      "PSICOLOGIA"
+    ],
+    "indexadores": [
+      "LILACS"
+    ],
+    "licenca": "cc-by-nc"
   },
   {
     "titulo": "Psicologia em Estudo",
@@ -46,16 +95,44 @@
     ],
     "areas_wos": [
       "PSYCHOLOGY, MULTIDISCIPLINARY"
-    ]
+    ],
+    "assuntos": [
+      "PSICOLOGIA",
+      "PSICOLOGIA DO DESENVOLVIMENTO HUMANO"
+    ],
+    "indexadores": [
+      "American Psychological Association (PsycINFO)",
+      "Universidad Nacional Autónoma de México (CLASE)",
+      "Conselho Federal de Psicologia - PUC-CAMPINAS (INDEX-PSI)",
+      "Centro Latino-Americano e do Caribe de Informação em Ciências da Saúde (LILACS)",
+      "- Sistema Regional de Información en Línea para Revistas Científicas de América Latina, el Caribe, España y Portugal (LATINDEX)",
+      "Colegio Oficial de Psicólogos de Madrid (PSICODOC)",
+      "Directory of Open Access Journals (DOAJ)",
+      "Red de Revistas Científicas de América Latina y el Caribe, España y Portugal (REDALYC)",
+      "EBSCO-FONTE ACADÊMICA; EBSCO-FUENTE ACADEMICA PREMIER",
+      "SOCIAL SERVICES ABSTRACTS; LINGUISTICS & LANGUAGE BEHAVIOR ABSTRACTS",
+      "GOOGLE ACADÊMICO;",
+      "SCOPUS",
+      "Cambridge Scientific Abstracts (SOCIOLOGICAL ABSTRACTS)"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Psicologia & Sociedade",
     "issn": [
+      "0102-7182",
       "1807-0310"
     ],
     "areas_wos": [
       "PSYCHOLOGY, SOCIAL"
-    ]
+    ],
+    "assuntos": [
+      "PSICOLOGIA SOCIAL"
+    ],
+    "indexadores": [
+      "LILACS"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Fractal: Revista de Psicologia",
@@ -64,17 +141,33 @@
     ],
     "areas_wos": [
       "PSYCHOLOGY, MULTIDISCIPLINARY"
-    ]
+    ],
+    "assuntos": [
+      "PSICOLOGIA"
+    ],
+    "indexadores": [
+      "LILACS"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Ágora: Estudos em Teoria Psicanalítica",
     "issn": [
-      "1516-1498",
-      "1809-4414"
+      "1809-4414",
+      "1516-1498"
     ],
     "areas_wos": [
       "PSYCHOLOGY, PSYCHOANALYSIS"
-    ]
+    ],
+    "assuntos": [
+      "PSICANÁLISE"
+    ],
+    "indexadores": [
+      "PsycINFO - American Psychological Association",
+      "LILACS/BIREME",
+      "Index Psi Revistas (C.F.P.)"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Psico-USF",
@@ -84,7 +177,21 @@
     ],
     "areas_wos": [
       "PSYCHOLOGY, MULTIDISCIPLINARY"
-    ]
+    ],
+    "assuntos": [
+      "PSICOLOGIA"
+    ],
+    "indexadores": [
+      "Sociological Abstracts",
+      "Linguistics and Language Behavior Abstracts",
+      "Social Planning/ Policy and Development Abstracts",
+      "Psicodoc",
+      "Clase",
+      "IndexPsi",
+      "LILACS - Centro Latino- americano e do Caribe de Informação em Ciências sa Saúde",
+      "Periódicos Eletrônicos de Psicologia- PEPsic"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Psicologia: Teoria e Pesquisa",
@@ -94,7 +201,19 @@
     ],
     "areas_wos": [
       "PSYCHOLOGY, MULTIDISCIPLINARY"
-    ]
+    ],
+    "assuntos": [
+      "PSICOLOGIA"
+    ],
+    "indexadores": [
+      "Ulrich's International Periodicals Directory",
+      "Psyc INFO",
+      "DARE - UNESCO",
+      "LILACS",
+      "LL",
+      "ISI"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Estudos de Psicologia (Campinas)",
@@ -104,7 +223,19 @@
     ],
     "areas_wos": [
       "PSYCHOLOGY, MULTIDISCIPLINARY"
-    ]
+    ],
+    "assuntos": [
+      "PSICOLOGIA",
+      "TRATAMENTO E PREVENÇÃO",
+      "PSICOLÓGICA"
+    ],
+    "indexadores": [
+      "LATINDEX",
+      "LILACS",
+      "PSYCINFO",
+      "CLASE- Citas Latinoamericanas em Ciências Sociales y Humanidades"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Psicologia USP",
@@ -114,7 +245,14 @@
     ],
     "areas_wos": [
       "PSYCHOLOGY, MULTIDISCIPLINARY"
-    ]
+    ],
+    "assuntos": [
+      "PSICOLOGIA"
+    ],
+    "indexadores": [
+      "LILACS"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Revista Latinoamericana de Psicopatologia Fundamental",
@@ -124,7 +262,19 @@
     ],
     "areas_wos": [
       "PSYCHOLOGY, MULTIDISCIPLINARY"
-    ]
+    ],
+    "assuntos": [
+      "PSICOLOGIA",
+      "PSICOPATOLOGIA"
+    ],
+    "indexadores": [
+      "LILACS",
+      "Clase. Hemeroteca Latinoamericana, Universidad Autónoma de México",
+      "Psicodoc Colégio Oficial de Psicólogos de Madrid",
+      "Periódicos CAPES",
+      "ISI"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Revista Estudos Feministas",
@@ -135,37 +285,88 @@
     "areas_wos": [
       "PSYCHOLOGY, MULTIDISCIPLINARY",
       "WOMEN'S STUDIES"
-    ]
+    ],
+    "assuntos": [
+      "MOVIMENTOS FEMINISTAS",
+      "ESTUDOS DA MULHER",
+      "SOCIOLOGIA",
+      "FEMINISMO"
+    ],
+    "indexadores": [
+      "Sociological Abstracts",
+      "Índice de Ciências Sociais",
+      "Hispanic American Periodicals Index (HAPI)",
+      "Citas Latinoamericanas em Ciências Sociales y Humanidades",
+      "International Political Science Abstracts",
+      "Revista Interamericana de Bibliografia",
+      "Public Affairs Information Service",
+      "International Bibliography of the Modern Language Association"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Psicologia: Ciência e Profissão",
     "issn": [
-      "1414-9893",
-      "1982-3703"
+      "1982-3703",
+      "1414-9893"
     ],
     "areas_wos": [
       "PSYCHOLOGY",
       "PSYCHOLOGY, MULTIDISCIPLINARY"
-    ]
+    ],
+    "assuntos": [
+      "PSICOLOGIA"
+    ],
+    "indexadores": [
+      "INDEX - Psi Periódicos (CFP)",
+      "LILACS",
+      "CLASE - Citas Latinoamericanas em Ciências Sociales y Humanidades",
+      "LATINDEX - Sistema Regional de Infórmacion em Línea para Revistas Científicas de América Latina, el Caribe, España y Portugal",
+      "PsycINFO - American Psychological Association"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Psicologia Escolar e Educacional",
     "issn": [
-      "2175-3539"
+      "2175-3539",
+      "1413-8557"
     ],
     "areas_wos": [
       "PSYCHOLOGY, EDUCATIONAL"
-    ]
+    ],
+    "assuntos": [
+      "EDUCAÇÃO",
+      "PSICOLOGIA EDUCACIONAL"
+    ],
+    "indexadores": [
+      "LILACS",
+      "ReBAP",
+      "CLASE"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Revista Brasileira de Psicodrama",
     "issn": [
-      "0104-5393",
-      "2318-0498"
+      "2318-0498",
+      "0104-5393"
     ],
     "areas_wos": [
       "PSYCHOLOGY"
-    ]
+    ],
+    "assuntos": [
+      "PSICOLOGIA"
+    ],
+    "indexadores": [
+      "BVS",
+      "DOAJ",
+      "LATINDEX",
+      "LILACS",
+      "PEPSIC",
+      "ROAD"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Dementia & Neuropsychologia",
@@ -180,18 +381,48 @@
       "NURSING",
       "PSYCHIATRY",
       "PSYCHOLOGY"
-    ]
+    ],
+    "assuntos": [
+      "EPIDEMIOLOGIA",
+      "ENFERMAGEM",
+      "PSIQUIATRIA",
+      "NEUROLOGIA",
+      "FISIOTERAPIA",
+      "TERAPIA OCUPACIONAL",
+      "PSICOLOGIA",
+      "GERIATRIA"
+    ],
+    "indexadores": [
+      "LATINDEX - Sistema Regional de Informacão em linha para Revistas Científicas de América Latina, Caribe, Espanha e Portugal",
+      "LILACS - Literatura em Ciências da Saúde na América Latina e do Caribe",
+      "PsycINFO - Associação Americana de Psicologia",
+      "SCOPUS"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Paidéia (Ribeirão Preto)",
     "issn": [
-      "0103-863X",
-      "1982-4327"
+      "1982-4327",
+      "0103-863X"
     ],
     "areas_wos": [
       "PSYCHOLOGY",
       "PSYCHOLOGY, EDUCATIONAL",
       "PSYCHOLOGY, MULTIDISCIPLINARY"
-    ]
+    ],
+    "assuntos": [
+      "PSICOLOGIA",
+      "PSICOLOGIA DO ENSINO E DA APRENDIZAGEM",
+      "PSICOLOGIA DO DESENVOLVIMENTO HUMANO"
+    ],
+    "indexadores": [
+      "PsycINFO - (AmericanPsychological Association)",
+      "LILACS - Literatura Latino-Americana e do Caribe em Ciências da Saúde",
+      "CLASE - Citas Latinoamericanas en Ciências Sociales y Humanidades (Universidad Nacional Autónoma de México)",
+      "PSICODOC (Colégio Oficial de Psicólogos de Madrid / Universidad Complutense de Madrid)",
+      "INDEXPSI - Periódicos (CFP/PUCCAMP)"
+    ],
+    "licenca": "cc-by"
   }
 ]

@@ -6,7 +6,22 @@
     ],
     "areas_wos": [
       "DENTISTRY, ORAL SURGERY & MEDICINE"
-    ]
+    ],
+    "assuntos": [
+      "ODONTOLOGIA",
+      "CLÍNICA ODONTOLÓGICA"
+    ],
+    "indexadores": [
+      "BBO",
+      "LILACS",
+      "LATINDEX",
+      "DOAJ",
+      "Open J-Gate",
+      "Index Copernicus",
+      "EBSCO host Dentistry & Oral Sciences Source",
+      "The Cochrane Collaboration Journals Master List"
+    ],
+    "licenca": "cc-by-nc"
   },
   {
     "titulo": "Pesquisa Odontológica Brasileira",
@@ -15,7 +30,24 @@
     ],
     "areas_wos": [
       "DENTISTRY, ORAL SURGERY & MEDICINE"
-    ]
+    ],
+    "assuntos": [
+      "ODONTOLOGIA"
+    ],
+    "indexadores": [
+      "LILACS",
+      "Bibliografia Brasileira de Odontologia (BBO)",
+      "Biological Abstract",
+      "PubMed",
+      "Index Medicus",
+      "Index to Dental Literature",
+      "MEDLARS",
+      "Medline",
+      "PubMed",
+      "The Serials Directory",
+      "Ulrich's"
+    ],
+    "licenca": "cc-by-nc"
   },
   {
     "titulo": "Revista de Odontologia da Universidade de São Paulo",
@@ -24,16 +56,38 @@
     ],
     "areas_wos": [
       "DENTISTRY, ORAL SURGERY & MEDICINE"
-    ]
+    ],
+    "assuntos": [
+      "ODONTOLOGIA"
+    ],
+    "indexadores": [
+      "Index to Dental Literature",
+      "LILACS",
+      "Base de Dados BBO",
+      "Ulrich's",
+      "Biological Abstracts",
+      "Medline"
+    ],
+    "licenca": "cc-by-nc"
   },
   {
     "titulo": "Revista Dental Press de Ortodontia e Ortopedia Facial",
     "issn": [
-      "1980-5500"
+      "1980-5500",
+      "1415-5419"
     ],
     "areas_wos": [
       "DENTISTRY, ORAL SURGERY & MEDICINE"
-    ]
+    ],
+    "assuntos": [
+      "ORTODONTIA, ODONTOLOGIA"
+    ],
+    "indexadores": [
+      "BBO",
+      "LILACS",
+      "NATIONAL LIBRARY OF MEDICINE"
+    ],
+    "licenca": "cc-by-nc"
   },
   {
     "titulo": "Pesquisa Brasileira em Odontopediatria e Clínica Integrada",
@@ -43,17 +97,36 @@
     ],
     "areas_wos": [
       "DENTISTRY, ORAL SURGERY & MEDICINE"
-    ]
+    ],
+    "assuntos": [
+      "ODONTOLOGIA"
+    ],
+    "indexadores": [
+      "Web of Science Emerging Sources Citation Index - ESCI",
+      "SCOPUS",
+      "DOAJ",
+      "LILACS",
+      "Bibliografia Brasileira de Odontologia - BBO"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Brazilian Oral Research",
     "issn": [
-      "1806-8324",
-      "1807-3107"
+      "1807-3107",
+      "1806-8324"
     ],
     "areas_wos": [
       "DENTISTRY, ORAL SURGERY & MEDICINE"
-    ]
+    ],
+    "assuntos": [
+      "ODONTOLOGIA"
+    ],
+    "indexadores": [
+      "PubMed",
+      "LILACS"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Dental Press Journal of Orthodontics",
@@ -63,17 +136,46 @@
     ],
     "areas_wos": [
       "DENTISTRY, ORAL SURGERY & MEDICINE"
-    ]
+    ],
+    "assuntos": [
+      "ORTODONTIA",
+      "MEDICINA DENTÁRIA",
+      "ODONTOLOGIA"
+    ],
+    "indexadores": [
+      "LILACS",
+      "BBO"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Brazilian Journal of Oral Sciences",
     "issn": [
-      "1677-3217",
-      "1677-3225"
+      "1677-3225",
+      "1677-3217"
     ],
     "areas_wos": [
       "DENTISTRY, ORAL SURGERY & MEDICINE"
-    ]
+    ],
+    "assuntos": [
+      "ODONTOLOGIA"
+    ],
+    "indexadores": [
+      "SCOPUS",
+      "DOAJ",
+      "LILACS",
+      "Free Medical Journals",
+      "Google Scholar",
+      "BBO",
+      "Dentistry & Oral Sciences Source",
+      "EZB",
+      "Free Medical Journal",
+      "Google Scholar",
+      "CAPES",
+      "PPEC",
+      "RevOdodonto"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Brazilian Dental Journal",
@@ -83,7 +185,17 @@
     ],
     "areas_wos": [
       "DENTISTRY, ORAL SURGERY & MEDICINE"
-    ]
+    ],
+    "assuntos": [
+      "MEDICINA DENTARIA -",
+      "MEDICINA DENTARIA",
+      "ODONTOLOGIA"
+    ],
+    "indexadores": [
+      "PubMed",
+      "LILACS"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Journal of Applied Oral Science",
@@ -93,7 +205,15 @@
     ],
     "areas_wos": [
       "DENTISTRY, ORAL SURGERY & MEDICINE"
-    ]
+    ],
+    "assuntos": [
+      "MEDICINA DENTARIA, ODONTOLOGIA"
+    ],
+    "indexadores": [
+      "LILACS, Bibliografia Brasileira de Odontologia (BBO): 1993 e Ulrich's",
+      "ISI"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "RGO - Revista Gaúcha de Odontologia",
@@ -103,7 +223,12 @@
     ],
     "areas_wos": [
       "DENTISTRY, ORAL SURGERY & MEDICINE"
-    ]
+    ],
+    "assuntos": [
+      "ODONTOLOGIA"
+    ],
+    "indexadores": [],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Brazilian Dental Science",
@@ -112,16 +237,33 @@
     ],
     "areas_wos": [
       "DENTISTRY, ORAL SURGERY & MEDICINE"
-    ]
+    ],
+    "assuntos": [
+      "ODONTOLOGIA"
+    ],
+    "indexadores": [],
+    "licenca": "cc-by"
   },
   {
     "titulo": "Revista de Odontologia da UNESP",
     "issn": [
-      "0101-1774",
-      "1807-2577"
+      "1807-2577",
+      "0101-1774"
     ],
     "areas_wos": [
       "DENTISTRY, ORAL SURGERY & MEDICINE"
-    ]
+    ],
+    "assuntos": [
+      "ODONTOLOGIA"
+    ],
+    "indexadores": [
+      "LILACS- Literatura Latino-Americana e do Caribe em Ciências da Saúde",
+      "BBO - Bibliografia Brasileira de Odontologia",
+      "LATINDEX - Sistema Regional de Informação em Linha para Revistas Científicas da América Latina, Caribe, Espanha e Portugal",
+      "Coordenação de Aperfeiçoamento de Pessoal de Nível Superior  - Portal de Periódicos da CAPES",
+      "Scirus for Scientific Information Only",
+      "Ulrich's Directory Periodicals"
+    ],
+    "licenca": "cc-by"
   }
 ]

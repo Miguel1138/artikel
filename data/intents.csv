@@ -1,0 +1,200 @@
+intencao,frase
+buscar_referencias, quero referências sobre aprendizado de máquina aplicado à saúde
+buscar_referencias, me indica referências sobre ansiedade em universitários
+buscar_referencias, quero fontes confiáveis sobre clareamento dental
+buscar_referencias, tem artigo bom sobre redes neurais aplicadas à medicina
+buscar_referencias, preciso de referências para falar de depressão no trabalho
+buscar_referencias, quais artigos eu cito sobre segurança da informação
+buscar_referencias, me manda três artigos sobre implantes dentários
+buscar_referencias, procuro literatura sobre desenvolvimento infantil
+buscar_referencias, quero artigos de acesso aberto sobre processamento de linguagem natural
+buscar_referencias, indica leituras sobre engenharia de software empírica
+buscar_referencias, preciso de base teórica sobre cárie infantil
+buscar_referencias, quais estudos existem sobre saúde mental no trabalho
+buscar_referencias, me sugere artigos sobre inteligência artificial na odontologia
+buscar_referencias, tem pesquisa recente sobre transtorno de ansiedade
+buscar_referencias, quero referências bibliográficas sobre periodontia
+buscar_referencias, me lista artigos sobre machine learning e diagnóstico
+buscar_referencias, preciso citar algo sobre aprendizagem de máquina
+buscar_referencias, busco artigos sobre psicologia organizacional
+buscar_referencias, quais são os principais artigos sobre cáries em crianças
+buscar_referencias, me passa referências sobre depressão em adolescentes
+buscar_referencias, indica artigos que falem de segurança de dados
+buscar_referencias, tem algum artigo confiável sobre clareamento caseiro
+buscar_referencias, preciso de fontes sobre violência urbana e saúde mental
+buscar_referencias, me indica estudos sobre uso de telas por crianças
+buscar_referencias, quero artigos que tratem de ética em inteligência artificial
+buscar_referencias, quais referências uso para falar de burnout
+buscar_referencias, me arranja artigos sobre mineração de dados educacionais
+buscar_referencias, tem artigo sobre saúde bucal de idosos
+buscar_referencias, procuro referências sobre terapia cognitivo comportamental
+buscar_referencias, indica artigos sobre testes automatizados de software
+buscar_referencias, quero três fontes acadêmicas sobre flúor
+buscar_referencias, preciso de artigos sobre aprendizagem profunda
+buscar_referencias, me sugere leituras sobre gestão de riscos em segurança
+buscar_referencias, tem estudo sobre teledontologia
+buscar_referencias, quais artigos citam a teoria da aprendizagem significativa
+buscar_referencias, preciso de fontes para o referencial sobre empatia
+buscar_referencias, onde acho artigos sobre periodontia
+buscar_referencias, acha uns artigos sobre implante para mim
+buscar_referencias, tem algum estudo sobre cárie em criança
+avaliar_fonte, a revista X é confiável
+avaliar_fonte, posso citar a Wikipédia no meu TCC
+avaliar_fonte, esse periódico é revisado por pares
+avaliar_fonte, como sei se uma revista é predatória
+avaliar_fonte, o site de onde tirei isso vale como fonte acadêmica
+avaliar_fonte, essa publicação tem indexação
+avaliar_fonte, a fonte que encontrei é confiável para o TCC
+avaliar_fonte, o artigo está no SciELO, isso basta
+avaliar_fonte, esse blog pode ser referência no meu trabalho
+avaliar_fonte, a revista está no DOAJ
+avaliar_fonte, essa editora é séria ou predatória
+avaliar_fonte, dá para confiar nesse journal
+avaliar_fonte, o material do site do governo serve como referência
+avaliar_fonte, esse periódico é qualificado pela CAPES
+avaliar_fonte, a revista tem revisão por pares
+avaliar_fonte, esse artigo é de fonte confiável
+avaliar_fonte, essa revista científica é boa
+avaliar_fonte, como avalio a credibilidade de um periódico
+avaliar_fonte, o repositório de onde tirei o texto é confiável
+avaliar_fonte, esse journal cobra taxa, isso o torna predatório
+avaliar_fonte, a fonte que usei tem ISSN
+avaliar_fonte, vale a pena citar um artigo sem DOI
+avaliar_fonte, essa revista é indexada no MEDLINE
+avaliar_fonte, posso usar um artigo de revista sem revisão
+avaliar_fonte, essa fonte é verificada
+avaliar_fonte, essa publicação é de acesso aberto mas duvidosa
+avaliar_fonte, essa revista consta no DOAJ
+avaliar_fonte, esse artigo é confiável para citar
+avaliar_fonte, como saber se a fonte é verificada
+avaliar_fonte, o que acha dessa revista de odontologia
+avaliar_fonte, esse journal é bom mesmo
+avaliar_fonte, essa revista entra na minha lista de referências
+avaliar_fonte, a base que usei é confiável
+avaliar_fonte, esse preprint pode ser citado
+avaliar_fonte, a fonte é indexada no SciELO
+avaliar_fonte, esse periódico é verificado
+avaliar_fonte, posso confiar nessa publicação
+avaliar_fonte, a indexação dessa revista é boa
+avaliar_fonte, esse artigo tem revisão por pares
+avaliar_fonte, essa revista é reconhecida na área
+formatar_referencia, me dá a referência ABNT do segundo artigo
+formatar_referencia, como referenciar esse artigo pela NBR 6023
+formatar_referencia, formata a referência do primeiro artigo
+formatar_referencia, preciso da citação ABNT desse periódico
+formatar_referencia, monte a referência do terceiro artigo
+formatar_referencia, qual a forma correta de citar esse artigo pela ABNT
+formatar_referencia, faz a referência bibliográfica do artigo dois
+formatar_referencia, me mostra a referência no padrão ABNT
+formatar_referencia, como fica a referência de artigo com vários autores
+formatar_referencia, quero a referência ABNT completa do artigo
+formatar_referencia, formata esse artigo em NBR 6023
+formatar_referencia, me dá a referência do último artigo que você mostrou
+formatar_referencia, como citar um artigo sem volume na ABNT
+formatar_referencia, gera a referência do quarto da lista
+formatar_referencia, qual a referência ABNT de um artigo com DOI
+formatar_referencia, monta a citação do artigo que falei antes
+formatar_referencia, preciso da referência formatada do segundo resultado
+formatar_referencia, transforma esses dados em referência ABNT
+formatar_referencia, me dá a referência do artigo sobre cárie
+formatar_referencia, como referenciar artigo de periódico pela ABNT
+formatar_referencia, formata a referência do artigo de 2023
+formatar_referencia, quero a referência do primeiro item da lista
+formatar_referencia, me passa a referência ABNT do artigo número três
+formatar_referencia, escreve a referência ABNT desse estudo
+formatar_referencia, monta a referência desse artigo em NBR 6023
+formatar_referencia, coloca esse artigo no padrão da ABNT
+formatar_referencia, gera a referência do artigo que você indicou
+formatar_referencia, preciso da referência do artigo com DOI
+formatar_referencia, como fica a referência desse artigo de periódico
+formatar_referencia, formata a citação do segundo artigo da lista
+formatar_referencia, faz a referência do artigo com quatro autores
+formatar_referencia, quero essa fonte formatada em ABNT
+formatar_referencia, monta a referência do artigo mais recente
+formatar_referencia, me dá a referência ABNT com volume e páginas
+formatar_referencia, formata a referência desses artigos
+formatar_referencia, escreve a referência do artigo da SciELO
+formatar_referencia, monta a citação em NBR 6023 do terceiro item
+formatar_referencia, gera a referência ABNT do estudo sobre ansiedade
+formatar_referencia, qual o formato ABNT de artigo eletrônico
+formatar_referencia, referencie esse artigo para mim
+orientar_busca, como procuro artigos no SciELO
+orientar_busca, que palavras-chave uso para achar artigos
+orientar_busca, como usar o Google Acadêmico direito
+orientar_busca, qual a melhor forma de buscar artigos científicos
+orientar_busca, me ajuda a montar a string de busca
+orientar_busca, como filtrar artigos por ano no SciELO
+orientar_busca, que operadores booleanos uso na busca
+orientar_busca, como encontrar artigos de acesso aberto
+orientar_busca, por onde começo a revisão de literatura
+orientar_busca, quais termos devo usar para achar estudos
+orientar_busca, como pesquisar no Portal de Periódicos da CAPES
+orientar_busca, dá dicas para achar artigos revisados por pares
+orientar_busca, como refinar minha busca no SciELO
+orientar_busca, como buscar por DOI de um artigo
+orientar_busca, me ensina a montar uma estratégia de busca
+orientar_busca, onde encontro artigos brasileiros
+orientar_busca, como usar aspas na busca acadêmica
+orientar_busca, qual base de dados devo usar
+orientar_busca, como limitar a busca a artigos recentes
+orientar_busca, me orienta na busca por referências
+orientar_busca, como achar artigos em português
+orientar_busca, quais filtros uso para achar revisão sistemática
+orientar_busca, como faz uma busca booleana
+orientar_busca, que descritores uso na busca
+orientar_busca, como pesquisar em base de dados acadêmica
+orientar_busca, quais palavras usar na busca
+orientar_busca, como usar os filtros de busca
+orientar_busca, me explica como pesquisar no PubMed
+orientar_busca, como achar artigos pelo título
+orientar_busca, qual a diferença entre buscar no SciELO e no Google Acadêmico
+orientar_busca, como usar operador de truncamento
+orientar_busca, quais termos em inglês devo usar na busca
+orientar_busca, como buscar artigos por autor
+orientar_busca, como montar os descritores em saúde
+orientar_busca, que estratégia uso para achar poucos resultados
+orientar_busca, como pesquisar sem ter acesso pago
+orientar_busca, pode me dar dicas de pesquisa acadêmica
+orientar_busca, como usar a busca avançada
+orientar_busca, onde pesquisar artigos de odontologia
+orientar_busca, como encontrar o texto completo de um artigo
+fora_de_escopo, redija a introdução do meu trabalho
+fora_de_escopo, dá uma olhada no meu texto e conserta
+fora_de_escopo, qual remédio tomar para ansiedade
+fora_de_escopo, reescreve esse parágrafo do meu TCC
+fora_de_escopo, me diz o que devo responder na banca
+fora_de_escopo, corrija a gramática do meu capítulo
+fora_de_escopo, faça um resumo do meu trabalho
+fora_de_escopo, me dá um diagnóstico sobre a dor do paciente
+fora_de_escopo, escreve a conclusão do meu TCC
+fora_de_escopo, qual tratamento indico para cárie
+fora_de_escopo, melhora a redação dessa seção
+fora_de_escopo, monte a apresentação da minha defesa
+fora_de_escopo, qual a dosagem do antidepressivo
+fora_de_escopo, parafraseia esse artigo inteiro
+fora_de_escopo, escreve o resumo do meu projeto
+fora_de_escopo, o que eu respondo se o professor perguntar isso
+fora_de_escopo, faça minha revisão bibliográfica completa
+fora_de_escopo, indica um profissional de psicologia para mim
+fora_de_escopo, escreve o referencial teórico por mim
+fora_de_escopo, qual a melhor técnica de clareamento para o paciente
+fora_de_escopo, traduza meu artigo inteiro
+fora_de_escopo, crie a metodologia do meu estudo
+fora_de_escopo, escreve um texto criativo sobre ciência
+fora_de_escopo, resuma esse PDF para mim
+fora_de_escopo, escreve os objetivos do meu trabalho
+fora_de_escopo, faça as considerações finais do meu TCC
+fora_de_escopo, quantos comprimidos de ibuprofeno posso tomar
+fora_de_escopo, escreve um artigo científico para mim
+fora_de_escopo, faça o fichamento de todos os textos
+fora_de_escopo, me ajude a montar o slide da defesa
+fora_de_escopo, escreva a justificativa do meu projeto
+fora_de_escopo, corrija minha metodologia
+fora_de_escopo, me diz se ansiedade tem cura
+fora_de_escopo, crie o cronograma do meu trabalho
+fora_de_escopo, escreve o capítulo de resultados
+fora_de_escopo, qual o melhor clareamento para o meu caso
+fora_de_escopo, redija o texto do meu resumo
+fora_de_escopo, faça a revisão do meu relatório
+fora_de_escopo, me ajude a fazer a prova
+fora_de_escopo, escreve um poema sobre pesquisa

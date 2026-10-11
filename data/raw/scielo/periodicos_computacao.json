@@ -7,7 +7,13 @@
     ],
     "areas_wos": [
       "COMPUTER SCIENCE, INFORMATION SYSTEMS"
-    ]
+    ],
+    "assuntos": [
+      "CIENCIA DA COMPUTACAO",
+      "ENGENHARIA DE PRODUCAO"
+    ],
+    "indexadores": [],
+    "licenca": "cc-by-nc"
   },
   {
     "titulo": "TEMA (São Carlos)",
@@ -18,7 +24,19 @@
     "areas_wos": [
       "COMPUTER SCIENCE, INTERDISCIPLINARY APPLICATIONS",
       "MATHEMATICS, APPLIED"
-    ]
+    ],
+    "assuntos": [
+      "MATEMÁTICA",
+      "PROBABILIDADE E ESTATÍSTICA",
+      "CIÊNCIA DA COMPUTAÇÃO",
+      "ENGENHARIA"
+    ],
+    "indexadores": [
+      "MAS - Mathematical Reviews - MathSciNet",
+      "Zentralblatt MATH - ZBMATH Online Database",
+      "DOAJ  - Directory of Open Access Journal"
+    ],
+    "licenca": "cc-by"
   },
   {
     "titulo": "JISTEM - Journal of Information Systems and Technology Management",
@@ -27,6 +45,23 @@
     ],
     "areas_wos": [
       "COMPUTER SCIENCE, INFORMATION SYSTEMS"
-    ]
+    ],
+    "assuntos": [
+      "ADMINISTRAÇÃO",
+      "SISTEMAS DE INFORMAÇÃO"
+    ],
+    "indexadores": [
+      "Latindex",
+      "Ulrich's Periodical Directory CSA",
+      "DOAJ Directory of Open Access Journals",
+      "Dianet",
+      "Gale Infotrac",
+      "PROQUEST",
+      "Portal de periódicos da CAPES",
+      "USP Dedalus",
+      "CPHIS",
+      "Ebsco"
+    ],
+    "licenca": "cc-by"
   }
 ]

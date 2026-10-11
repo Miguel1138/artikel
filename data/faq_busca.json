@@ -1,0 +1,224 @@
+{
+  "versao": "1.0",
+  "atualizado_em": "2026-10-11",
+  "fonte": "roteiro interno da equipe (Marco 1) e manuais públicos das bases",
+  "escopo": "Orientações curtas de busca. Não substitui a biblioteca nem o orientador.",
+  "entradas": [
+    {
+      "id": "faq_scielo",
+      "titulo": "Como procuro artigos no SciELO",
+      "perguntas": [
+        "como procuro artigos no scielo",
+        "como pesquisar no scielo",
+        "como buscar no scielo",
+        "onde acho artigos brasileiros"
+      ],
+      "areas": ["todas"],
+      "tags": ["scielo", "busca", "acesso aberto"],
+      "resposta": "Abra search.scielo.org e escreva os termos em português, porque a base é majoritariamente em pt/en. Use o filtro de ano para o seu recorte (o Artikel usa 2020–2026) e marque 'artigos revisados por pares'. O SciELO é de acesso aberto: o PDF completo é liberado, o que ajuda a conferir se a referência serve antes de citar.",
+      "passos": [
+        "Digite 2 ou 3 termos centrais, sem frases longas.",
+        "Filtre por ano e por coleção Brasil.",
+        "Confira o DOI de cada resultado antes de citar."
+      ]
+    },
+    {
+      "id": "faq_google_academico",
+      "titulo": "Como usar o Google Acadêmico",
+      "perguntas": [
+        "como usar o google academico direito",
+        "como pesquisar no google academico",
+        "google scholar como usar",
+        "dicas para buscar no google academico"
+      ],
+      "areas": ["todas"],
+      "tags": ["google academico", "busca"],
+      "resposta": "O Google Acadêmico é bom para descobrir, ruim para citar: ele mistura artigo revisado, tese, slide e preprint. Use-o para achar o título exato e depois vá ao DOI. Nunca cite o resultado do Acadêmico sem abrir a página do artigo no periódico.",
+      "passos": [
+        "Busque o título exato entre aspas.",
+        "Clique no título para chegar à página do periódico.",
+        "Registre o DOI e confirme a indexação antes de citar."
+      ]
+    },
+    {
+      "id": "faq_palavras_chave",
+      "titulo": "Como escolher palavras-chave",
+      "perguntas": [
+        "que palavras chave uso",
+        "quais descritores uso",
+        "como escolher palavras chave",
+        "que termos devo usar na busca"
+      ],
+      "areas": ["computacao", "odontologia", "psicologia"],
+      "tags": ["palavras-chave", "descritores", "busca"],
+      "resposta": "Comece com 2 ou 3 conceitos, não com a frase inteira do seu problema. Para cada conceito liste sinônimos em português e inglês e junte-os com OR; junte os conceitos com AND. Em saúde, confira os descritores DeCS/MeSH, que são os termos que os indexadores usam.",
+      "passos": [
+        "Separe a pergunta em 2 ou 3 conceitos.",
+        "Para cada conceito, liste sinônimos (pt e en).",
+        "Monte a busca como (A OR A') AND (B OR B')."
+      ]
+    },
+    {
+      "id": "faq_booleanos",
+      "titulo": "Operadores booleanos e filtros",
+      "perguntas": [
+        "que operadores booleanos uso",
+        "como usar aspas na busca academica",
+        "como montar a string de busca",
+        "como usar and e or na busca"
+      ],
+      "areas": ["todas"],
+      "tags": ["booleanos", "string de busca"],
+      "resposta": "AND exige os dois termos, OR aceita qualquer um e as aspas prendem a expressão exata (\"aprendizado de máquina\"). O asterisco corta o final da palavra (criança* acha criança e crianças). Parênteses organizam a ordem: (ansiedade OR depressão) AND universitários.",
+      "passos": [
+        "Use AND entre conceitos diferentes.",
+        "Use OR entre sinônimos do mesmo conceito.",
+        "Use aspas para termos compostos."
+      ]
+    },
+    {
+      "id": "faq_acesso_aberto",
+      "titulo": "Como encontrar artigos de acesso aberto",
+      "perguntas": [
+        "como encontrar artigos de acesso aberto",
+        "onde acho artigos gratuitos",
+        "como achar artigo de acesso livre",
+        "onde encontro artigos sem pagar"
+      ],
+      "areas": ["todas"],
+      "tags": ["acesso aberto", "doaj", "licenca"],
+      "resposta": "Procure no DOAJ (diretório de periódicos de acesso aberto) e no SciELO. Verifique a licença na página do artigo: CC-BY e CC0 permitem reuso com atribuição; NC, ND e SA restringem. O Artikel só recomenda artigos com licença registrada como CC-BY ou CC0.",
+      "passos": [
+        "Consulte o DOAJ pelo ISSN do periódico.",
+        "Abra a página do artigo e localize a licença.",
+        "Prefira CC-BY ou CC0 para poder citar e reusar."
+      ]
+    },
+    {
+      "id": "faq_revisao_literatura",
+      "titulo": "Por onde começar a revisão de literatura",
+      "perguntas": [
+        "por onde comeco a revisao de literatura",
+        "como comecar a revisao bibliografica",
+        "como fazer a revisao de literatura",
+        "por onde comeco a pesquisa"
+      ],
+      "areas": ["todas"],
+      "tags": ["revisao", "metodo"],
+      "resposta": "Comece pelo artigo mais recente e mais citado do seu tema, leia o resumo e a conclusão, e depois siga as referências dele para trás. Anote cada artigo com ano, periódico, DOI e o motivo de ele servir. Reserva de 10 a 15 referências bem escolhidas vale mais que 40 soltas.",
+      "passos": [
+        "Ache 3 artigos recentes sobre o tema.",
+        "Anote ano, periódico, DOI e o motivo da escolha.",
+        "Siga as referências dos artigos para ampliar a lista."
+      ]
+    },
+    {
+      "id": "faq_periodicos",
+      "titulo": "Como saber se o periódico é revisado por pares",
+      "perguntas": [
+        "como saber se o periodico e revisado por pares",
+        "onde vejo a revisao por pares",
+        "como conferir se a revista tem revisao por pares",
+        "como identificar revista revisada por pares"
+      ],
+      "areas": ["todas"],
+      "tags": ["revisao por pares", "periodico", "indexacao"],
+      "resposta": "Procure a seção 'Sobre' ou 'Diretrizes para autores' do periódico: ela descreve o processo de avaliação. Depois confirme a indexação no DOAJ, no SciELO, no MEDLINE ou na Scopus. Se nenhuma dessas bases listar o periódico, trate-o como não verificado.",
+      "passos": [
+        "Leia a política de avaliação no site do periódico.",
+        "Confirme indexação no DOAJ ou SciELO.",
+        "Sem indexação, não use como referência principal."
+      ]
+    },
+    {
+      "id": "faq_doi",
+      "titulo": "Como buscar pelo DOI",
+      "perguntas": [
+        "como buscar por doi de um artigo",
+        "para que serve o doi",
+        "como achar o doi do artigo",
+        "o que faco com o doi"
+      ],
+      "areas": ["todas"],
+      "tags": ["doi", "verificacao"],
+      "resposta": "O DOI é o endereço permanente do artigo. Cole o DOI em doi.org: se abrir a página do periódico com o mesmo título, a referência existe. Se não abrir nada, a citação provavelmente foi inventada — foi exatamente esse o risco que o Artikel existe para evitar.",
+      "passos": [
+        "Copie o DOI exatamente como aparece.",
+        "Cole em https://doi.org/ e confira o título.",
+        "Guarde o DOI junto da referência."
+      ]
+    },
+    {
+      "id": "faq_areas",
+      "titulo": "Qual base usar por área",
+      "perguntas": [
+        "qual base de dados devo usar",
+        "onde encontro artigos de odontologia",
+        "onde encontro artigos de psicologia",
+        "onde encontro artigos de computacao"
+      ],
+      "areas": ["computacao", "odontologia", "psicologia"],
+      "tags": ["base de dados", "area"],
+      "resposta": "SciELO e Crossref atendem as três áreas. Odontologia e Psicologia têm cobertura extra no Europe PMC e no MEDLINE (PubMed). Em Computação, use também a ACM Digital Library e o arXiv para pré-prints — mas pré-print não passou por revisão por pares, então não serve como referência principal.",
+      "passos": [
+        "Comece pelo SciELO para texto em português.",
+        "Use Europe PMC ou PubMed em saúde.",
+        "Em Computação, use ACM e arXiv com cautela."
+      ]
+    },
+    {
+      "id": "faq_filtros_ano",
+      "titulo": "Como limitar a busca por ano",
+      "perguntas": [
+        "como filtrar artigos por ano",
+        "como limitar a busca a artigos recentes",
+        "como buscar so artigos de 2020 para ca",
+        "como usar o filtro de data"
+      ],
+      "areas": ["todas"],
+      "tags": ["filtro", "ano", "recorte"],
+      "resposta": "SciELO, PubMed e Europe PMC têm filtro de ano na própria interface. Vale fixar um recorte e declará-lo no trabalho — o Artikel usa 2020 a 2026. Se o tema tiver pouca produção, amplie para 2015 e explique o motivo no texto.",
+      "passos": [
+        "Defina o recorte antes de buscar.",
+        "Aplique o filtro de ano na base.",
+        "Registre o recorte no método do trabalho."
+      ]
+    },
+    {
+      "id": "faq_revisao_sistematica",
+      "titulo": "Filtros para achar revisão sistemática",
+      "perguntas": [
+        "quais filtros uso para achar revisao sistematica",
+        "como achar revisao sistematica",
+        "como buscar meta analise",
+        "como encontrar revisao de literatura"
+      ],
+      "areas": ["todas"],
+      "tags": ["revisao sistematica", "tipo de estudo"],
+      "resposta": "Procure 'systematic review' ou 'revisão sistemática' no título e use o filtro de tipo de estudo (PubMed e Europe PMC têm 'Publication Type'). Revisão sistemática boa declara a string de busca e os critérios de inclusão: se não declarar, desconfie.",
+      "passos": [
+        "Busque o termo no título, não no texto.",
+        "Aplique o filtro de tipo de publicação.",
+        "Confira se a string de busca está declarada."
+      ]
+    },
+    {
+      "id": "faq_capes",
+      "titulo": "Portal de Periódicos da CAPES",
+      "perguntas": [
+        "como pesquisar no portal de periodicos da capes",
+        "como usar o portal da capes",
+        "o que e o portal da capes",
+        "como acessar a capes pela faculdade"
+      ],
+      "areas": ["todas"],
+      "tags": ["capes", "biblioteca"],
+      "resposta": "O Portal de Periódicos da CAPES dá acesso a bases pagas pelo login da instituição. Comece pelo acesso remoto com o login da faculdade; se o artigo não abrir, o link fica salvo para você pedir pelo COMUT ou pela biblioteca.",
+      "passos": [
+        "Entre pelo acesso remoto da instituição.",
+        "Busque o DOI ou o título exato.",
+        "Sem acesso, peça à biblioteca pelo COMUT."
+      ]
+    }
+  ]
+}
