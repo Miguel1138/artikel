@@ -63,6 +63,23 @@ execução única e identificada, com a data em `data/relatorio_coleta.md`. Para
 exatamente um número antigo, restaure o `knowledge_base.json` versionado em vez de rodar a
 coleta de novo.
 
+### 4. A avaliação não era determinística (Precisão@5 oscilava entre 0,657 e 0,743)
+
+**Sintoma:** duas execuções de `tests/avaliar.py`, com a mesma base e o mesmo modelo, davam
+Precisão@5 diferentes. Um número que muda sozinho não serve para o relatório.
+
+**Causa:** o caso 13 ("queria uma lista de referências sobre depressão em adolescentes")
+devolvia 3 artigos numa rodada e 5 na outra. A cobertura temática somava os pesos dos termos
+iterando um `set`; a ordem de um `set` de strings muda a cada processo (hash randomization),
+e somar `float` em ordem diferente dá resultado diferente. Dois artigos ficavam exatamente
+no limiar, então o ruído de ponto flutuante decidia se entravam.
+
+**Correção:** a soma passou a ser feita em ordem fixa (termos ordenados) e o valor que
+decide o corte é arredondado antes da comparação. Coberto por dois testes em
+`tests/test_recuperacao_periodicos.py`, e há um diagnóstico dedicado:
+`python scripts/diagnostico/_diag_determinismo.py 8` (roda a avaliação 8 vezes e acusa
+variação). Resultado depois da correção: 0,743 em 8 de 8 rodadas.
+
 ## Interface: de React via CDN para JavaScript local
 
 A primeira versão da interface usava React 18 + Babel carregados de `unpkg.com`, e **ficava

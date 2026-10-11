@@ -97,6 +97,11 @@ ALIASES = {
 
 _MARCA_PALAVRA = re.compile(r"[^a-z0-9\s]")
 
+# Casas decimais da cobertura temática. O valor é o que decide se o artigo passa do
+# limiar, então ele é arredondado antes da comparação: sem isso, ruído de ponto
+# flutuante na soma muda a decisão entre duas execuções iguais.
+_PRECISAO_COBERTURA = 9
+
 # Conceitos que só valem juntos. Cada tupla é um conceito; se todos os termos dela
 # aparecem na pergunta, ela deixa de ser avaliada termo a termo e passa a exigir que o
 # artigo tenha o conceito inteiro. Sem isso, um artigo sobre "processos de aprendizagem"
@@ -257,20 +262,24 @@ class Motor:
             return any(self._contem(alvo, v) for v in ({termo} | ALIASES.get(termo, set())))
 
         conceitos, soltos = self._conceitos(termos)
-        peso_conceito = [sum(self._peso_normalizado(t) for t in c) for c in conceitos]
-        peso_solto = [self._peso_normalizado(t) for t in soltos]
-        total = sum(peso_conceito) + sum(peso_solto)
+
+        # Ordem fixa na soma: os termos vêm de um `set`, e somar float em ordem diferente
+        # dá resultado diferente (a ordem do set muda a cada processo, por hash
+        # randomization). Sem isso, um artigo no limite do limiar entra numa rodada e fica
+        # de fora na outra — a Precisão@5 do relatório variava entre 0,657 e 0,743.
+        itens = [(conceito, sum(self._peso_normalizado(t) for t in sorted(conceito)))
+                 for conceito in sorted(conceitos)]
+        for termo in sorted(soltos):
+            itens.append(((termo,), self._peso_normalizado(termo)))
+
+        total = sum(peso for _, peso in itens)
         if not total:
             return 1.0
+        coberto = sum(peso for conceito, peso in itens if all(presente(t) for t in conceito))
 
-        coberto = sum(
-            peso for conceito, peso in zip(conceitos, peso_conceito)
-            if all(presente(t) for t in conceito)
-        )
-        coberto += sum(
-            peso for termo, peso in zip(sorted(soltos), peso_solto) if presente(termo)
-        )
-        return coberto / total
+        # Arredonda o valor que decide o corte, para que ruído de ponto flutuante não
+        # troque a decisão de incluir ou não o artigo.
+        return round(coberto / total, _PRECISAO_COBERTURA)
 
     def _peso_normalizado(self, termo: str) -> float:
         """Idf do termo reescalado para 0–1 dentro do vocabulário da base."""

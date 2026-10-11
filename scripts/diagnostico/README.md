@@ -13,6 +13,7 @@ algo parece errado.
 | `_diag_recuperacao.py` | ranqueamento e recall por pergunta, com a cobertura de cada artigo | `python scripts/diagnostico/_diag_recuperacao.py` |
 | `_diag_match.py` | mostra por que **um** artigo casou com uma pergunta (qual termo, em que texto) | `python scripts/diagnostico/_diag_match.py "clareamento dental" YouTube` |
 | `_diag_cache.py` | forma e tamanho dos arquivos de `data/raw`, por fonte | `python scripts/diagnostico/_diag_cache.py doaj` |
+| `_diag_determinismo.py` | roda a avaliação N vezes e acusa número que muda sozinho | `python scripts/diagnostico/_diag_determinismo.py 8` |
 
 Os dois primeiros exigem a base curada (`data/knowledge_base.json`) e, no caso do
 `_verificar_api.py`, a API no ar:

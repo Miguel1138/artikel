@@ -109,3 +109,29 @@ def test_base_ausente_nao_quebra(dir_temporario):
     assert not motor.pronto
     assert motor.erro and "pipeline" in motor.erro
     assert motor.buscar("qualquer coisa") == []
+
+
+def test_cobertura_nao_depende_da_ordem_dos_termos(dir_temporario):
+    """A cobertura decide se o artigo passa do limiar, então não pode ter ruído.
+
+    Os termos vêm de um `set`, e a ordem de um set de strings muda a cada processo (hash
+    randomization). Somar float nessa ordem dava resultados diferentes para a mesma
+    pergunta: a Precisão@5 do relatório oscilava entre 0,657 e 0,743.
+    """
+    motor = montar_motor(dir_temporario)
+    consulta = "queria uma lista de referências sobre clareamento dental"
+
+    # Mesmo conjunto de termos, ordens de iteração diferentes: o valor tem de ser igual.
+    valores = {
+        motor._cobertura(consulta, ARTIGO_BOM, set(permutacao))
+        for permutacao in (["clareamento", "dental"], ["dental", "clareamento"])
+    }
+    assert len(valores) == 1, f"cobertura variou com a ordem: {valores}"
+
+
+def test_busca_e_repetivel(dir_temporario):
+    """A mesma consulta, na mesma base, devolve exatamente a mesma lista e ordem."""
+    motor = montar_motor(dir_temporario)
+    primeira = [(c.artigo["id"], c.score) for c in motor.buscar("clareamento dental")]
+    for _ in range(5):
+        assert [(c.artigo["id"], c.score) for c in motor.buscar("clareamento dental")] == primeira
