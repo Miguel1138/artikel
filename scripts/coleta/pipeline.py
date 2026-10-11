@@ -13,39 +13,94 @@ import medline
 import scielo
 from comum import CAMPOS, VAZIO, hoje, salvar_raw, sem_acento
 from config_coleta import (ACEITAR_MEDLINE, ANO_FIM, ANO_INICIO, AREA_LCC, ARQ_BASE,
-                           ARQ_PERIODICOS, ARQ_RELATORIO, ARTIGOS_POR_SEMENTE,
+                           ARQ_PERIODICOS, ARQ_RELATORIO, ARTIGOS_POR_SEMENTE, DOAJ_ARTIGOS,
                            FONTES_POR_AREA, IDIOMAS, LICENCAS_ACEITAS, SEMENTES)
 
 STOP = {"de", "da", "do", "das", "dos", "em", "no", "na", "e", "a", "o",
         "the", "of", "in", "and", "for", "on"}
 
+# Bases declaradas pelo cadastro SciELO (`v450`) que contam como indexação válida.
+BASE_INDEXADORA = {
+    "doaj": "DOAJ",
+    "scielo": "SciELO",
+    "pubmed": "MEDLINE",
+    "medline": "MEDLINE",
+    "lilacs": "LILACS",
+    "scopus": "Scopus",
+    "web of science": "WoS",
+    "latindex": "Latindex",
+}
+
 
 # ======================= Extract =======================================
 _cache_scielo = {}
+_cache_doaj = {}
 
 
 def _scielo_area(area):
     """Todos os artigos SciELO da área no período (filtro temático vem depois)."""
     if area not in _cache_scielo:
-        _cache_scielo[area] = [scielo.normalizar(b)
-                               for p in scielo.periodicos(area) if p["issn"]
-                               for b in scielo.artigos(p["issn"][0])]
+        registros = []
+        for p in scielo.periodicos(area):
+            if not p["issn"]:
+                continue
+            for b in scielo.artigos(p["issn"][0]):
+                reg = scielo.normalizar(b, licenca_periodico=p.get("licenca"))
+                if reg:
+                    registros.append(reg)
+        _cache_scielo[area] = registros
     return _cache_scielo[area]
+
+
+def _doaj_artigos(area):
+    """Artigos do DOAJ para a área (só Computação; ver `config_coleta.DOAJ_ARTIGOS`).
+
+    A licença vem do cadastro do periódico (`doaj.periodicos_computacao_cc`): o Article
+    Search não a devolve, e sem ela o filtro do recorte descartaria todos os artigos.
+    """
+    consultas = DOAJ_ARTIGOS.get(area)
+    if not consultas:
+        return []
+    if area not in _cache_doaj:
+        periodicos_cc = doaj.periodicos_computacao_cc()
+        registros = []
+        for item in consultas:
+            consulta = ('bibjson.title:"{termo}" AND bibjson.subject.term:"{assunto}" '
+                        "AND bibjson.year:[{ini} TO {fim}]").format(
+                termo=item["termo"], assunto=item["assunto"],
+                ini=ANO_INICIO, fim=ANO_FIM)
+            bruto = doaj.buscar_artigos(consulta)
+            salvar_raw("doaj", f"artigos_{area}_{item['termo']}", bruto)
+            for b in bruto:
+                reg = doaj.normalizar_artigo(b)
+                if not reg:
+                    continue
+                # licença e revisão vêm do cadastro do periódico
+                meta = next((periodicos_cc[i] for i in reg["issn"] if i in periodicos_cc), None)
+                if not meta:
+                    continue
+                reg["licenca"] = meta["licenca"]
+                reg["_revisao"] = meta.get("revisao")
+                registros.append(reg)
+        _cache_doaj[area] = registros
+    return _cache_doaj[area]
 
 
 def extrair(area, semente):
     fontes, regs = FONTES_POR_AREA[area], []
     if "crossref" in fontes:
         for lingua in ("en", "pt"):
-            itens = crossref.buscar(semente[lingua])
+            itens = crossref.buscar(semente[lingua], idioma=lingua)
             salvar_raw("crossref", f"{area}_{semente['en']}_{lingua}", itens)
-            regs += [crossref.normalizar(i) for i in itens]
+            regs += [crossref.normalizar(i, idioma_consulta=lingua) for i in itens]
     if "europepmc" in fontes:
         itens = europepmc.buscar(semente["en"])
         salvar_raw("europepmc", f"{area}_{semente['en']}", itens)
         regs += [europepmc.normalizar(i) for i in itens]
     if "scielo" in fontes:
         regs += [dict(r) for r in _scielo_area(area)]
+    if "doaj" in fontes:
+        regs += [dict(r) for r in _doaj_artigos(area)]
     return regs
 
 
@@ -105,6 +160,12 @@ def indexacao(reg, scielo_por_issn):
         ind.append("SciELO")
     if ACEITAR_MEDLINE and any(map(medline.indexado, reg["issn"])):
         ind.append("MEDLINE")
+    # O cadastro SciELO declara as bases em que o periódico está indexado (`v450`).
+    scielo_meta = next((scielo_por_issn[i] for i in reg["issn"] if i in scielo_por_issn), None)
+    for base in (scielo_meta or {}).get("indexadores", []):
+        normalizada = BASE_INDEXADORA.get(base.strip().lower())
+        if normalizada and normalizada not in ind:
+            ind.append(normalizada)
     return ind, dados_doaj
 
 
@@ -116,22 +177,47 @@ def area_confere(area, reg, dados_doaj, scielo_por_issn):
     return sc["area"] == area if sc else None
 
 
+def recuperar_interno(reg):
+    """Devolve o campo interno `_data` de um registro que veio do JSON já gravado.
+
+    O Load descarta os campos internos de propósito, mas `ordenar` e a mescla precisam
+    deles. Sem isso, um registro reaproveitado da base perde a posição na ordenação por
+    data e vai para o fim da lista.
+    """
+    reg = dict(reg)
+    if not reg.get("_data"):
+        ano = reg.get("ano")
+        reg["_data"] = f"{ano}-01-01" if ano else None
+    return reg
+
+
 def ordenar(regs):
-    """Mais recente primeiro; desempate por DOI."""
-    return sorted(sorted(regs, key=lambda r: r["doi"]),
-                  key=lambda r: r["_data"] or "", reverse=True)
+    """Mais recente primeiro; desempate por DOI.
+
+    Usa `.get('_data')` porque registros vindos do JSON já gravado não têm os campos
+    internos (ele é descartado no Load).
+    """
+    return sorted(sorted(regs, key=lambda r: r.get("doi") or ""),
+                  key=lambda r: r.get("_data") or "", reverse=True)
 
 
 def registrar_periodico(periodicos, reg, ind, dados_doaj):
+    """Registra/atualiza o periódico na lista curada.
+
+    Guarda `indexacao`, `revisao` e `licenca` porque são exatamente os três critérios que a
+    intenção `avaliar_fonte` usa para dar o parecer (seção 4 do documento).
+    """
     chave = reg["issn"][0] if reg["issn"] else reg["periodico"]
     p = periodicos.setdefault(chave, {
         "titulo": (dados_doaj or {}).get("titulo") or reg["periodico"],
         "issn": reg["issn"], "indexacao": [],
         "assuntos": (dados_doaj or {}).get("assuntos", []),
         "revisao": (dados_doaj or {}).get("revisao", []),
-        "url": (dados_doaj or {}).get("url"),
+        "licenca": reg.get("licenca"),
+        "url": (dados_doaj or {}).get("url") or reg.get("url"),
     })
     p["indexacao"] = sorted(set(p["indexacao"]) | set(ind))
+    p["licenca"] = p.get("licenca") or reg.get("licenca")
 
 
 def selecionar_area(area, vistos, funil, scielo_por_issn, periodicos):
@@ -190,39 +276,136 @@ def selecionar_area(area, vistos, funil, scielo_por_issn, periodicos):
 
 # ======================= Load ==========================================
 def relatorio(base, funil):
+    """Relatório de coleta (Marco 2): volume, recorte, licenças e o funil de descartes.
+
+    As pendências 2 e 3 do documento unificado pedem que a licença de cada fonte fique
+    registrada; por isso o relatório traz a licença por fonte e por área.
+    """
     linhas = [f"# Relatório de coleta — {hoje()}", "",
               f"Período {ANO_INICIO}–{ANO_FIM} · idiomas {sorted(IDIOMAS)} · "
               f"licenças {sorted(LICENCAS_ACEITAS)} · MEDLINE aceito: {ACEITAR_MEDLINE}", "",
               f"Total: {len(base)} artigos", ""]
-    for rotulo, campo in (("Área", "area"), ("Idioma", "idioma"), ("Fonte", "fonte")):
-        linhas.append(f"**{rotulo}:** " + ", ".join(f"{k} {v}" for k, v in Counter(a[campo] for a in base).items()))
-    linhas += ["", "## Funil por semente", ""]
+    for rotulo, campo in (("Área", "area"), ("Idioma", "idioma"), ("Fonte", "fonte"),
+                          ("Licença", "licenca")):
+        contagem = Counter(a.get(campo) for a in base)
+        linhas.append(f"**{rotulo}:** " + ", ".join(f"{k} {v}" for k, v in contagem.items()))
+
+    linhas += ["", "## Licença por fonte", "",
+               "Cada fonte de metadados só entra com licença registrada como CC-BY ou CC0 "
+               "(risco 'licença de resumos impede redistribuição').", ""]
+    for fonte in sorted({a.get("fonte") for a in base}):
+        contagem = Counter(a.get("licenca") for a in base if a.get("fonte") == fonte)
+        linhas.append(f"- **{fonte}**: " + ", ".join(f"{k} {v}" for k, v in contagem.items()))
+
+    sem_resumo = sum(1 for a in base if not a.get("resumo"))
+    sem_doi = sum(1 for a in base if not a.get("doi"))
+    linhas += ["", "## Qualidade dos registros", "",
+               f"- Artigos sem resumo (ficam só com título e palavras-chave): {sem_resumo}",
+               f"- Artigos sem DOI (não deveriam existir; a validação exige DOI): {sem_doi}",
+               f"- Periódicos distintos: {len({i for a in base for i in (a.get('issn') or [])})}", ""]
+
+    linhas += ["## Funil por semente", ""]
     for chave, contagem in funil.items():
         linhas.append(f"- **{chave}**: " + ", ".join(f"{k} {v}" for k, v in contagem.items()))
-    return "\n".join(linhas) + "\n"
+
+    linhas += ["", "## Observações de curadoria", "",
+               "- O filtro de período usa a **data de publicação** do artigo (`v65` no "
+               "ArticleMeta), não a data de processamento.",
+               "- A licença do artigo do SciELO costuma existir só no cadastro do "
+               "periódico; nesse caso a licença do periódico é registrada e conferida no DOAJ.",
+               "- A conferência de área usa a LCC do DOAJ e, quando falta, a área WoS do "
+               "cadastro SciELO; artigos sem nenhuma das duas são aceitos e contados como "
+               "`area_nao_conferida` no funil.",
+               ""]
+    return "\n".join(linhas)
 
 
-def carregar(artigos, periodicos, funil):
+def carregar(artigos, periodicos, funil, arquivos=None):
+    """Grava as três saídas do Load. `arquivos` permite redirecionar para teste."""
+    arq_base, arq_periodicos, arq_relatorio = arquivos or (ARQ_BASE, ARQ_PERIODICOS, ARQ_RELATORIO)
     data, base = hoje(), []
     for n, reg in enumerate(artigos, 1):
         reg.update(id=f"art_{n:03d}", data_coleta=data)
         base.append({c: reg.get(c) for c in CAMPOS})   # descarta campos internos (_data)
-    ARQ_BASE.write_text(json.dumps(base, ensure_ascii=False, indent=2), encoding="utf-8")
-    ARQ_PERIODICOS.write_text(json.dumps(list(periodicos.values()), ensure_ascii=False, indent=2),
+    arq_base.write_text(json.dumps(base, ensure_ascii=False, indent=2), encoding="utf-8")
+    arq_periodicos.write_text(json.dumps(list(periodicos.values()), ensure_ascii=False, indent=2),
                               encoding="utf-8")
-    ARQ_RELATORIO.write_text(relatorio(base, funil), encoding="utf-8")
+    arq_relatorio.write_text(relatorio(base, funil), encoding="utf-8")
     print(f"{len(base)} artigos e {len(periodicos)} periódicos gravados.")
 
 
-def main():
+def base_da_area(regs, areas):
+    """Separa a base gravada em (registros de outras áreas, registros por área alvo).
+
+    A área que vai rodar sai do merge e é recolhida do zero — se ficasse em `vistos`, os
+    próprios DOIs dela bloqueariam a recoleta.
+    """
+    outras = [r for r in regs if r.get("area") not in areas]
+    anteriores = {area: [r for r in regs if r.get("area") == area] for area in areas}
+    return outras, anteriores
+
+
+def main(areas=None, arquivos=None, coletar=None):
+    """Roda o ETL. Sem `areas`, faz as três do recorte.
+
+    `python scripts/coleta/pipeline.py --area odontologia` roda uma área por vez; as
+    saídas das áreas já rodadas são preservadas (merge por DOI), porque a coleta completa
+    pode levar bastante tempo e não deve ser perdida no meio.
+
+    Re-rodar uma área **recoleta** essa área e substitui o que estava na base. Se a
+    recoleta não trouxer nada, a versão anterior é mantida: sem essa guarda, uma rodada
+    que falha (API fora do ar, filtro mudado) apaga a área silenciosamente.
+
+    `arquivos` e `coletar` existem para o teste do merge
+    (`tests/test_pipeline_coleta.py`) rodar sem rede e sem tocar em `data/`.
+    """
+    areas = areas or list(SEMENTES)
+    desconhecidas = [a for a in areas if a not in SEMENTES]
+    if desconhecidas:
+        raise SystemExit(f"área desconhecida: {', '.join(desconhecidas)}. "
+                         f"Use: {', '.join(SEMENTES)}")
+
+    arq_base, arq_periodicos, arq_relatorio = arquivos or (ARQ_BASE, ARQ_PERIODICOS, ARQ_RELATORIO)
+    coletar = coletar or (lambda area, vistos, funil, scielo_por_issn, periodicos:
+                          selecionar_area(area, vistos, funil, scielo_por_issn, periodicos))
+
+    # `scielo.periodicos` faz rede; quem injeta uma coleta falsa (`coletar`) não precisa
+    # dessa lista, e pulá-la deixa o teste do merge sem tocar a internet.
     scielo_por_issn = {i: {**p, "area": area}
-                       for area in SEMENTES for p in scielo.periodicos(area) for i in p["issn"]}
+                       for area in areas for p in scielo.periodicos(area) for i in p["issn"]} \
+        if coletar is None else {}
     vistos, periodicos, funil = set(), {}, defaultdict(Counter)
-    artigos = []
-    for area in SEMENTES:
-        artigos += selecionar_area(area, vistos, funil, scielo_por_issn, periodicos)
-    carregar(artigos, periodicos, funil)
+
+    # Estado inicial: o que já está gravado entra no merge; a área que vai rodar sai e é
+    # recolhida do zero.
+    artigos: list[dict] = []
+    anteriores: dict[str, list[dict]] = {}
+    if arq_base.exists():
+        base = json.loads(arq_base.read_text(encoding="utf-8"))
+        artigos, anteriores = base_da_area(base, areas)
+        vistos = {a["doi"] for a in artigos if a.get("doi")}
+    if arq_periodicos.exists():
+        for p in json.loads(arq_periodicos.read_text(encoding="utf-8")):
+            chave = (p.get("issn") or [p.get("titulo")])[0]
+            periodicos[chave] = p
+
+    for area in areas:
+        novos = coletar(area, vistos, funil, scielo_por_issn, periodicos)
+        antigos = anteriores.get(area) or []
+        if not novos and antigos:
+            print(f"AVISO: a recoleta de {area} não trouxe nenhum artigo; "
+                  f"mantendo os {len(antigos)} artigos que já estavam na base.")
+            # devolve os DOIs dos antigos, senão a mescla de outra área os veria como vistos
+            vistos -= {a["doi"] for a in antigos if a.get("doi")}
+            novos = [recuperar_interno(a) for a in antigos]
+        artigos += novos
+    carregar(ordenar(artigos), periodicos, funil, (arq_base, arq_periodicos, arq_relatorio))
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+
+    ap = argparse.ArgumentParser(description="Coleta do Artikel (Marco 2)")
+    ap.add_argument("--area", action="append", choices=list(SEMENTES),
+                    help="roda só esta área (pode repetir); padrão: todas")
+    main(ap.parse_args().area)
