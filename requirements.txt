@@ -1,16 +1,23 @@
-# Coleta (scripts/coleta)
-requests>=2.31
+# Dependências do Artikel
+# Instalar com:  pip install -r requirements.txt
 
-# IA: classificador e recuperação
+# --- Coleta (scripts/coleta) -------------------------------------------
+requests>=2.31
+# xylose lê o ArticleMeta do SciELO. O cliente `scielo.py` NÃO depende dele (lê o JSON
+# bruto); fica na lista porque é a biblioteca oficial da coleção e é usada em conferência
+# manual dos campos contra a coleção do Insomnia.
+xylose>=1.6
+
+# --- IA: classificador e recuperação -----------------------------------
 scikit-learn>=1.4
 joblib>=1.3
 numpy>=1.26
-rank-bm25>=0.2.2      # só se optarem por BM25 em vez de TF-IDF
+rank-bm25>=0.2.2      # alternativa ao TF-IDF na recuperação (ver README)
 
-# API
+# --- API ---------------------------------------------------------------
 fastapi>=0.110
 uvicorn>=0.29
 
-# Testes e avaliação
+# --- Testes e avaliação ------------------------------------------------
 pytest>=8.0
-pandas>=2.2           # para ler casos_teste.csv e calcular métricas
+pandas>=2.2           # leitura de casos_teste.csv e cálculo das métricas
