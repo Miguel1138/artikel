@@ -57,6 +57,7 @@ def saude() -> Saude:
         limiar_score=LIMIAR_SCORE,
         recorte_anos=[ANO_INICIO, ANO_FIM],
         areas=stats["areas"],
+        avisos=intencoes.obter().avisos,
     )
 
 

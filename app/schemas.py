@@ -124,3 +124,4 @@ class Saude(BaseModel):
     limiar_score: float
     recorte_anos: list[int]
     areas: list[str]
+    avisos: list[str] = Field(default_factory=list)
