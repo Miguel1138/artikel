@@ -21,6 +21,7 @@ algo parece errado.
 | `_diag_trecho.py` | procura o trecho exato de um termo, para achar falso positivo | `python scripts/diagnostico/_diag_trecho.py quantica` |
 | `_diag_retornos.py` | varre variações de uma pergunta e acusa retorno fora do tema | `python scripts/diagnostico/_diag_retornos.py` |
 | `_diag_limiar_cobertura.py` | compara limiares de cobertura em perguntas de dentro e de fora do escopo | `python scripts/diagnostico/_diag_limiar_cobertura.py` |
+| `_diag_vetorizador.py` | compara TF-IDF, Bag of Words (contagem e binário), n-gramas e tratamento de stopwords no classificador de intenções | `python scripts/diagnostico/_diag_vetorizador.py` |
 
 Os dois primeiros exigem a base curada (`data/knowledge_base.json`) e, no caso do
 `_verificar_api.py`, a API no ar:
