@@ -13,6 +13,8 @@ scikit-learn>=1.4
 joblib>=1.3
 numpy>=1.26
 rank-bm25>=0.2.2      # alternativa ao TF-IDF na recuperação (ver README)
+onnxruntime>=1.20     # encoder de sentenças LOCAL do classificador de intenções (app/encoder.py)
+tokenizers>=0.20      #   modelo baixado por: python scripts/baixar_encoder.py (~128 MB, fora do git)
 
 # --- API ---------------------------------------------------------------
 fastapi>=0.110
@@ -21,3 +23,7 @@ uvicorn>=0.29
 # --- Testes e avaliação ------------------------------------------------
 pytest>=8.0
 pandas>=2.2           # leitura de casos_teste.csv e cálculo das métricas
+
+# --- Opcional: regenerar data/glossario_pt_en.json (scripts/gerar_glossario.py) ---------
+# A API NÃO precisa de NLTK: ela só lê o JSON já gerado e versionado.
+# nltk>=3.9           # + nltk.download('omw-2.0') e nltk.download('wordnet')
