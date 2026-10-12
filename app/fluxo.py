@@ -27,6 +27,14 @@ from contexto import sessoes
 from schemas import Resposta, RespostaArtigo, Traco
 
 
+def _resposta(traco: Traco, intencao: str, tipo: str, texto: str, sugestoes: list[str],
+              artigos: list[RespostaArtigo] | None = None, fontes: list[str] | None = None) -> Resposta:
+    return Resposta(
+        resposta=texto, intencao=intencao, tipo=tipo, artigos=artigos or [],
+        fontes=fontes or [], sugestoes=sugestoes, traco=traco,
+    )  # type: ignore[arg-type]
+
+
 def _motivo_texto(candidato: recuperacao.Candidato) -> str:
     partes = []
     if candidato.similaridade >= 0.35:
@@ -77,15 +85,7 @@ def _texto_busca(resposta_artigos: list[RespostaArtigo], termos_area: str | None
 
 
 def _abster(mensagem: str, traco: Traco, tipo: str = "abstencao") -> Resposta:
-    return Resposta(
-        resposta=mensagem,
-        intencao=traco.intencao_prevista,  # type: ignore[arg-type]
-        tipo=tipo,  # type: ignore[arg-type]
-        artigos=[],
-        fontes=[],
-        sugestoes=abstencao.SUGESTOES,
-        traco=traco,
-    )
+    return _resposta(traco, traco.intencao_prevista, tipo, mensagem, abstencao.SUGESTOES)
 
 
 # ------------------------------------------------------------------ ações
@@ -115,18 +115,14 @@ def _acao_buscar(pergunta: str, ctx, traco: Traco) -> Resposta:
     # guarda os artigos crus para resolver "o segundo artigo" depois
     ctx.guardar_artigos([c.artigo for c in acima], pergunta)
     traco.acao = "recomendar"
-    return Resposta(
-        resposta=_texto_busca(artigos, area),
-        intencao="buscar_referencias",
-        tipo="recomendacao",
-        artigos=artigos,
-        fontes=sorted({a.area for a in artigos if a.area}),
-        sugestoes=[
+    return _resposta(
+        traco, "buscar_referencias", "recomendacao", _texto_busca(artigos, area),
+        [
             "Me dá a referência ABNT do primeiro artigo",
             "Tem algo mais recente sobre esse tema?",
             "Como procuro mais artigos no SciELO?",
         ],
-        traco=traco,
+        artigos=artigos, fontes=sorted({a.area for a in artigos if a.area}),
     )
 
 
@@ -139,24 +135,20 @@ def _acao_avaliar(pergunta: str, traco: Traco) -> Resposta:
     elif parecer["tipo"] == "generica":
         fontes = [f"Fonte avaliada: {parecer['titulo']}"]
     else:
-        fontes = [f"{parecer['titulo']}"]
+        fontes = [parecer["titulo"]]
         if parecer["indexacao"]:
             fontes.append("Indexação: " + ", ".join(parecer["indexacao"]))
         if parecer["issns"]:
             fontes.append("ISSN: " + ", ".join(parecer["issns"]))
 
-    return Resposta(
-        resposta=parecer["explicacao"],
-        intencao="avaliar_fonte",
-        tipo="parecer_fonte",
-        artigos=[],
-        fontes=fontes,
-        sugestoes=[
+    return _resposta(
+        traco, "avaliar_fonte", "parecer_fonte", parecer["explicacao"],
+        [
             "Preciso de artigos sobre esse tema",
             "Como procuro artigos no SciELO?",
             "A revista é indexada no DOAJ?",
         ],
-        traco=traco,
+        fontes=fontes,
     )
 
 
@@ -170,7 +162,7 @@ def _acao_formatar(pergunta: str, ctx, traco: Traco) -> Resposta:
             # citou posição fora do intervalo (ex.: "o nono artigo")
             mensagem = (
                 f"A última lista tem {len(ctx.artigos)} artigos. "
-                "Peça de 1 a " + str(len(ctx.artigos)) + " ou faça uma nova busca."
+                f"Peça de 1 a {len(ctx.artigos)} ou faça uma nova busca."
             )
             traco.acao = "abstencao"
             traco.regra = "posição fora da lista"
@@ -190,18 +182,15 @@ def _acao_formatar(pergunta: str, ctx, traco: Traco) -> Resposta:
         "o trabalho; a referência foi montada só com os campos registrados na base."
     )
     ctx.abstencao_aos_seguidos = 0
-    return Resposta(
-        resposta=texto,
-        intencao="formatar_referencia",
-        tipo="referencia_abnt",
-        artigos=[_resposta_artigo(recuperacao.Candidato(artigo, 1.0, 1.0), posicao, data_acesso)],
-        fontes=["Base curada do Artikel"],
-        sugestoes=[
+    return _resposta(
+        traco, "formatar_referencia", "referencia_abnt", texto,
+        [
             "Formata o primeiro artigo também",
             "Como fica a referência de artigo com vários autores?",
             "Preciso de mais artigos sobre esse tema",
         ],
-        traco=traco,
+        artigos=[_resposta_artigo(recuperacao.Candidato(artigo, 1.0, 1.0), posicao, data_acesso)],
+        fontes=["Base curada do Artikel"],
     )
 
 
@@ -219,29 +208,18 @@ def _acao_orientar(pergunta: str, traco: Traco) -> Resposta:
     if entrada is None or score < 0.08:
         traco.acao = "abstencao"
         traco.regra = "FAQ sem entrada próxima"
-        resposta = Resposta(
-            resposta=abstencao.SEM_FAQ,
-            intencao="orientar_busca",
-            tipo="abstencao",
-            sugestoes=base.titulos()[:3],
-            traco=traco,
-        )
-        return resposta
+        return _resposta(traco, "orientar_busca", "abstencao", abstencao.SEM_FAQ, base.titulos()[:3])
 
     passos = "\n".join(f"{i}. {p}" for i, p in enumerate(entrada.get("passos", []), 1))
     texto = entrada["resposta"] + (f"\n\nEm três passos:\n{passos}" if passos else "")
-    return Resposta(
-        resposta=texto,
-        intencao="orientar_busca",
-        tipo="orientacao_busca",
-        artigos=[],
-        fontes=[f"FAQ de busca: {entrada['titulo']}"],
-        sugestoes=[
+    return _resposta(
+        traco, "orientar_busca", "orientacao_busca", texto,
+        [
             "Preciso de artigos sobre esse tema",
             "A revista X é confiável?",
             "Que palavras-chave uso para achar artigos?",
         ],
-        traco=traco,
+        fontes=[f"FAQ de busca: {entrada['titulo']}"],
     )
 
 
