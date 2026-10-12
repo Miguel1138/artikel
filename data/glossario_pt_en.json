@@ -1,0 +1,449 @@
+{
+ "adolescencia": [
+  "adolescence"
+ ],
+ "adolescente": [
+  "adolescent",
+  "adolescents"
+ ],
+ "adulto": [
+  "adult",
+  "adults"
+ ],
+ "adultos": [
+  "adult",
+  "adults"
+ ],
+ "agil": [
+  "agile"
+ ],
+ "alcool": [
+  "alcohol"
+ ],
+ "algoritmo": [
+  "algorithm"
+ ],
+ "algoritmos": [
+  "algorithms"
+ ],
+ "analise": [
+  "analysis"
+ ],
+ "aplicativo": [
+  "application"
+ ],
+ "aplicativos": [
+  "applications"
+ ],
+ "autismo": [
+  "autism"
+ ],
+ "bebe": [
+  "infant",
+  "infants"
+ ],
+ "branqueamento": [
+  "whitening",
+  "bleaching"
+ ],
+ "bucal": [
+  "oral"
+ ],
+ "carbamida": [
+  "carbamide"
+ ],
+ "carie": [
+  "caries"
+ ],
+ "ciberseguranca": [
+  "cybersecurity",
+  "cyber",
+  "security"
+ ],
+ "cirurgia": [
+  "surgery"
+ ],
+ "clareamento": [
+  "whitening",
+  "bleaching"
+ ],
+ "classificacao": [
+  "classification"
+ ],
+ "codigo": [
+  "code"
+ ],
+ "cognitivo": [
+  "cognitive"
+ ],
+ "comportamental": [
+  "behavioral"
+ ],
+ "comportamento": [
+  "behavior",
+  "behaviour"
+ ],
+ "crianca": [
+  "child",
+  "children"
+ ],
+ "criancas": [
+  "child",
+  "children"
+ ],
+ "cuidado": [
+  "care"
+ ],
+ "dados": [
+  "data"
+ ],
+ "dentario": [
+  "dental"
+ ],
+ "dente": [
+  "tooth",
+  "teeth"
+ ],
+ "dentes": [
+  "tooth",
+  "teeth"
+ ],
+ "dentifricio": [
+  "dentifrices",
+  "toothpaste",
+  "toothpastes"
+ ],
+ "dentifrico": [
+  "dentifrices",
+  "toothpaste",
+  "toothpastes"
+ ],
+ "dentina": [
+  "dentin"
+ ],
+ "dependencia": [
+  "addiction"
+ ],
+ "depressao": [
+  "depression"
+ ],
+ "depressivo": [
+  "depressive",
+  "depression"
+ ],
+ "deteccao": [
+  "detection"
+ ],
+ "diagnostico": [
+  "diagnosis"
+ ],
+ "doenca": [
+  "disease",
+  "diseases"
+ ],
+ "doencas": [
+  "disease",
+  "diseases"
+ ],
+ "emocional": [
+  "emotional"
+ ],
+ "envelhecimento": [
+  "aging"
+ ],
+ "escola": [
+  "school"
+ ],
+ "esgotamento": [
+  "burnout"
+ ],
+ "esmalte": [
+  "enamel"
+ ],
+ "estresse": [
+  "stress"
+ ],
+ "estudante": [
+  "students"
+ ],
+ "familia": [
+  "family"
+ ],
+ "familiar": [
+  "family"
+ ],
+ "filho": [
+  "child",
+  "children"
+ ],
+ "filhos": [
+  "child",
+  "children"
+ ],
+ "fluoreto": [
+  "fluoride"
+ ],
+ "gengival": [
+  "gingival"
+ ],
+ "gengivite": [
+  "gingivitis"
+ ],
+ "hidrogenio": [
+  "hydrogen"
+ ],
+ "implante": [
+  "implant"
+ ],
+ "implantes": [
+  "implants"
+ ],
+ "infancia": [
+  "childhood",
+  "early childhood"
+ ],
+ "inteligencia": [
+  "intelligence"
+ ],
+ "jovem": [
+  "young",
+  "youth"
+ ],
+ "jovens": [
+  "young",
+  "youth"
+ ],
+ "mae": [
+  "parent",
+  "mother"
+ ],
+ "medico": [
+  "medical"
+ ],
+ "midia": [
+  "media"
+ ],
+ "mineracao": [
+  "mining"
+ ],
+ "modelo": [
+  "model",
+  "models"
+ ],
+ "modelos": [
+  "model",
+  "models"
+ ],
+ "ortodontia": [
+  "orthodontic",
+  "orthodontics"
+ ],
+ "ossea": [
+  "bone"
+ ],
+ "osseo": [
+  "bone"
+ ],
+ "osseointegracao": [
+  "osseointegration"
+ ],
+ "osseointegrado": [
+  "osseointegration"
+ ],
+ "osso": [
+  "bone"
+ ],
+ "pai": [
+  "parent",
+  "father"
+ ],
+ "pais": [
+  "parents",
+  "parent"
+ ],
+ "pandemia": [
+  "pandemic",
+  "covid"
+ ],
+ "perda": [
+  "loss"
+ ],
+ "periodontite": [
+  "periodontitis",
+  "periodontal"
+ ],
+ "peroxido": [
+  "peroxide"
+ ],
+ "polpa": [
+  "pulp"
+ ],
+ "prevalencia": [
+  "prevalence"
+ ],
+ "prevencao": [
+  "prevention"
+ ],
+ "previsao": [
+  "prediction"
+ ],
+ "processamento": [
+  "processing"
+ ],
+ "profissionais": [
+  "professionals",
+  "workers"
+ ],
+ "profissional": [
+  "professionals",
+  "workers"
+ ],
+ "profundo": [
+  "deep"
+ ],
+ "protecao": [
+  "protection"
+ ],
+ "protese": [
+  "prosthesis"
+ ],
+ "psicologia": [
+  "psychology"
+ ],
+ "psicologico": [
+  "psychological"
+ ],
+ "qualidade": [
+  "quality"
+ ],
+ "rede": [
+  "network",
+  "networks"
+ ],
+ "redes": [
+  "network",
+  "networks"
+ ],
+ "relacao": [
+  "relationship"
+ ],
+ "relacionamento": [
+  "relationship"
+ ],
+ "requisito": [
+  "requirements"
+ ],
+ "requisitos": [
+  "requirements"
+ ],
+ "resina": [
+  "resin"
+ ],
+ "restauracao": [
+  "restoration",
+  "restorations"
+ ],
+ "risco": [
+  "risk"
+ ],
+ "sangramento": [
+  "bleeding"
+ ],
+ "sentimento": [
+  "sentiment"
+ ],
+ "sentimentos": [
+  "sentiment"
+ ],
+ "sintoma": [
+  "symptoms"
+ ],
+ "sintomas": [
+  "symptoms"
+ ],
+ "sofrimento": [
+  "distress"
+ ],
+ "suicida": [
+  "suicidal"
+ ],
+ "suicidio": [
+  "suicide",
+  "suicidal"
+ ],
+ "tabagismo": [
+  "smoking",
+  "tobacco"
+ ],
+ "tecnologia": [
+  "technology",
+  "technologies"
+ ],
+ "tensao": [
+  "stress"
+ ],
+ "terapia": [
+  "therapy"
+ ],
+ "teste": [
+  "testing",
+  "test",
+  "tests"
+ ],
+ "testes": [
+  "testing",
+  "test",
+  "tests"
+ ],
+ "texto": [
+  "text"
+ ],
+ "textos": [
+  "text"
+ ],
+ "titanio": [
+  "titanium"
+ ],
+ "trabalhador": [
+  "workers",
+  "employees"
+ ],
+ "trabalhadores": [
+  "workers",
+  "employees"
+ ],
+ "transformador": [
+  "transformer"
+ ],
+ "transformadores": [
+  "transformer",
+  "transformers"
+ ],
+ "transtorno": [
+  "disorder",
+  "disorders"
+ ],
+ "transtornos": [
+  "disorder",
+  "disorders"
+ ],
+ "tratamento": [
+  "treatment"
+ ],
+ "universidade": [
+  "university"
+ ],
+ "universitario": [
+  "university",
+  "college",
+  "undergraduate"
+ ],
+ "universitarios": [
+  "university",
+  "college",
+  "undergraduate"
+ ],
+ "vicio": [
+  "addiction"
+ ]
+}

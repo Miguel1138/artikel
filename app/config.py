@@ -16,6 +16,7 @@ DIR_WEB = RAIZ / "web"
 ARQ_BASE = DIR_DATA / "knowledge_base.json"
 ARQ_PERIODICOS = DIR_DATA / "periodicos.json"
 ARQ_FAQ = DIR_DATA / "faq_busca.json"
+ARQ_GLOSSARIO = DIR_DATA / "glossario_pt_en.json"   # gerado por scripts/gerar_glossario.py
 ARQ_INTENTS = DIR_DATA / "intents.csv"
 ARQ_MODELO = DIR_MODELS / "intencoes.joblib"
 ARQ_CASOS = RAIZ / "tests" / "casos_teste.csv"
@@ -51,6 +52,9 @@ LIMIAR_SCORE = 0.10
 # penal" com "penal" noutro). Em 0,6 nenhuma passa e nenhuma pergunta legítima fica sem
 # resposta.
 COBERTURA_MINIMA = 0.60
+# Com pelo menos este número de artigos que cobrem TODOS os termos da pergunta, os de
+# cobertura parcial (>= COBERTURA_MINIMA) ficam de fora; sem isso eles só preenchem a lista.
+MIN_COBERTURA_COMPLETA = 3
 # Quantos artigos a resposta de busca devolve (documento: top 3–5).
 TOP_K = 5
 # Artigos usados para calcular a Precisão@5 na avaliação.
@@ -71,6 +75,11 @@ BONUS_MESMA_AREA = 0.02           # quando a pergunta cita uma das três áreas
 # --- Modelo ------------------------------------------------------------
 # TF-IDF + Regressão Logística é o padrão do documento; Naive Bayes é a alternativa.
 CLASSIFICADOR = "logistica"        # "logistica" | "bayes"
+# Representação do texto das intenções (ver `preprocessador_generico.criar_vetorizador`).
+# Bag of Words não é melhor que TF-IDF aqui: a comparação está em
+# `scripts/diagnostico/_diag_vetorizador.py`. Mudou? Rode `treinar_classificador.py` de novo.
+VETORIZADOR = "tfidf"              # "tfidf" | "bow" | "bow_binario"
+NGRAMAS = (1, 2)                   # (1, 2) conta também pares de palavras vizinhas
 SEED = 42
 TESTE_FRACAO = 0.25                # holdout interno do treino (o teste real é casos_teste.csv)
 

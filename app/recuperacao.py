@@ -10,13 +10,15 @@ from __future__ import annotations
 import json
 import math
 import re
-import unicodedata
+from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
+import glossario
+from preprocessamento import STOPWORDS as STOPWORDS_PP, sem_acento as sem_acento_pp
 from config import (
     ARQ_BASE,
     ARQ_PERIODICOS,
@@ -26,6 +28,7 @@ from config import (
     BONUS_MESMA_AREA,
     BONUS_REVISAO,
     COBERTURA_MINIMA,
+    MIN_COBERTURA_COMPLETA,
     TOP_K,
 )
 
@@ -36,6 +39,7 @@ class Candidato:
     score: float
     similaridade: float
     motivos: list[str] = field(default_factory=list)
+    cobertura: float = 1.0
 
 
 # Palavras que aparecem em quase toda pergunta e não distinguem tema. Entram na
@@ -60,7 +64,25 @@ GENERICAS = {
     "indica", "indicar", "sugere", "sugerir", "da", "dar", "ver", "quais", "qual",
     "onde", "como", "tem", "existe", "existem", "ha", "find", "show", "list", "give",
     "suggest", "looking", "search",
+    # Moldes de pedido que o dicionário acima ainda não cobria: sem eles viravam termo
+    # temático sem equivalente na base e derrubavam a cobertura de um artigo certo
+    # ("quais pesquisas tratam de gengivite" exigia "tratam").
+    "bibliografia", "bibliografias", "literatura", "algo", "alguma", "algum", "alguns",
+    "algumas", "tratam", "trata", "tratar", "dizem", "fala", "falam", "ler", "leitura",
+    "leituras", "literature", "bibliography", "something", "anything",
+    "primeira", "primeiras", "primeiro", "primeiros",
+    # Adjetivos de tamanho/ligação e conectivos que não dizem o tema ("crianças pequenas",
+    # "IA aplicada à saúde", "durante a pandemia"): sem correspondência, pesavam como o termo
+    # mais raro da pergunta e derrubavam a cobertura.
+    "pequena", "pequenas", "pequeno", "pequenos", "grande", "grandes",
+    "aplicada", "aplicadas", "aplicado", "aplicados", "aplicacao", "aplicacoes",
+    "durante", "quando", "atraves", "acerca", "relacionado", "relacionada",
+    "relacionados", "relacionadas", "referente", "referentes",
 }
+
+# Palavras funcionais (o mesmo conjunto que o pré-processamento usa para as intenções):
+# "relação ENTRE pais e filhos" não pode exigir a palavra "entre" no artigo.
+_FUNCIONAIS = {sem_acento_pp(p) for p in STOPWORDS_PP}
 
 # Equivalências pt <-> en usadas na conferência de cobertura. São **sinônimos**, não
 # termos "relacionados": colocar "dental" como equivalente de "clareamento" fazia qualquer
@@ -103,6 +125,11 @@ ALIASES = {
     "privacidade": {"privacy"}, "privacy": {"privacidade"},
 }
 
+def equivalentes(termo: str) -> set[str]:
+    """Equivalentes pt/en do termo: o `ALIASES` à mão mais o glossário do OMW (ver glossario.py)."""
+    return set(ALIASES.get(termo, ())) | set(glossario.equivalentes(termo))
+
+
 _MARCA_PALAVRA = re.compile(r"[^a-z0-9\s]")
 
 # Casas decimais da cobertura temática. O valor é o que decide se o artigo passa do
@@ -128,6 +155,10 @@ CONCEITOS: tuple[tuple[str, ...], ...] = (
     ("artificial", "intelligence"),
     ("saude", "mental"),
     ("mental", "health"),
+    ("transtorno", "ansiedade"),
+    ("transtornos", "ansiedade"),
+    ("anxiety", "disorder"),
+    ("anxiety", "disorders"),
     ("clareamento", "dental"),
     ("doenca", "periodontal"),
     ("periodontal", "disease"),
@@ -140,10 +171,21 @@ CONCEITOS: tuple[tuple[str, ...], ...] = (
 )
 
 
+# Palavras que revelam a área da pergunta (sem acento, minúsculas).
+PISTAS_AREA = {
+    "computacao": ("computacao", "software", "algoritmo", "machine learning",
+                   "aprendizado de maquina", "inteligencia artificial", "dados",
+                   "programacao", "rede neural", "seguranca da informacao"),
+    "odontologia": ("odontologia", "dental", "dente", "carie", "periodontal",
+                    "clareamento", "implante", "bucal", "flúor", "fluor"),
+    "psicologia": ("psicologia", "ansiedade", "depressao", "mental", "burnout",
+                   "universitarios", "terapia", "comportamento"),
+}
+
+
 def sem_acento(texto: str) -> str:
-    return "".join(
-        c for c in unicodedata.normalize("NFKD", texto or "") if not unicodedata.combining(c)
-    ).lower()
+    """Minúsculas e sem diacríticos (o `sem_acento` do pré-processamento, que não baixa a caixa)."""
+    return sem_acento_pp(texto or "").lower()
 
 
 class Motor:
@@ -156,6 +198,10 @@ class Motor:
         self._vetorizador: TfidfVectorizer | None = None
         self._matriz = None
         self._idf: dict[str, float] = {}
+        self._faixa_idf: tuple[float, float] = (0.0, 0.0)
+        self._textos_norm: list[str] = []
+        self._palavras_doc: list[set[str]] = []
+        self._cache_peso: dict[str, float] = {}
         self._carregar(arq_base, arq_periodicos)
 
     # ------------------------------------------------------------ carga
@@ -183,6 +229,11 @@ class Motor:
         )
         self._matriz = self._vetorizador.fit_transform(documentos)
         self._idf = self._calcular_idf(documentos)
+        self._faixa_idf = (min(self._idf.values(), default=0.0), max(self._idf.values(), default=0.0))
+        # Texto normalizado de cada artigo, para contar em quantos aparece um conceito (_peso).
+        self._textos_norm = [_MARCA_PALAVRA.sub(" ", sem_acento(d)) for d in documentos]
+        self._palavras_doc = [set(t.split()) for t in self._textos_norm]
+        self._cache_peso = {}
 
     @staticmethod
     def _documento(artigo: dict) -> str:
@@ -196,7 +247,8 @@ class Motor:
     def _termos_consulta(consulta: str) -> set[str]:
         """Termos que identificam o tema da pergunta (sem genéricos, sem acento)."""
         limpo = _MARCA_PALAVRA.sub(" ", sem_acento(consulta))
-        return {t for t in limpo.split() if len(t) >= 4 and t not in GENERICAS}
+        return {t for t in limpo.split()
+                if len(t) >= 4 and t not in GENERICAS and t not in _FUNCIONAIS}
 
     @staticmethod
     def _calcular_idf(documentos: list[str]) -> dict[str, float]:
@@ -206,23 +258,35 @@ class Motor:
         vale muito mais que casar uma palavra comum ("dental", "informação").
         """
         n = len(documentos) or 1
-        with_doc: dict[str, int] = {}
-        for doc in documentos:
-            for palavra in set(_MARCA_PALAVRA.sub(" ", sem_acento(doc)).split()):
-                with_doc[palavra] = with_doc.get(palavra, 0) + 1
-        return {p: math.log((1 + n) / (1 + c)) + 1 for p, c in with_doc.items()}
+        contagem = Counter(
+            palavra for doc in documentos
+            for palavra in set(_MARCA_PALAVRA.sub(" ", sem_acento(doc)).split())
+        )
+        return {p: math.log((1 + n) / (1 + c)) + 1 for p, c in contagem.items()}
 
     def _peso(self, termo: str) -> float:
-        """Maior idf entre as variantes pt/en do termo.
+        """Raridade do conceito: idf calculado sobre os artigos que têm QUALQUER variante pt/en.
+
+        Antes era o maior idf entre as variantes, e a forma em português (que só existe nos
+        40 artigos em pt) inflava o peso de conceitos comuns: "crianças" pesava como se fosse
+        raro e um artigo com "crianças" + "transtornos", sem "ansiedade", passava da
+        cobertura mínima. Para termo sem equivalente o valor é o mesmo de antes.
 
         Termo que não existe no vocabulário recebe o idf máximo: é o mais discriminante
         possível, e a similaridade (que devolve 0) é quem vai barrar.
         """
-        variantes = {termo} | ALIASES.get(termo, set())
-        pesos = [self._idf.get(v, 0.0) for v in variantes]
-        if not any(pesos):
-            return max(self._idf.values(), default=1.0)
-        return max(pesos)
+        if termo not in self._cache_peso:
+            variantes = {termo} | equivalentes(termo)
+            df = sum(
+                1 for palavras, texto in zip(self._palavras_doc, self._textos_norm)
+                if any((v in palavras) if " " not in v else (v in texto) for v in variantes)
+            )
+            n = len(self.artigos) or 1
+            self._cache_peso[termo] = (
+                math.log((1 + n) / (1 + df)) + 1 if df
+                else self._faixa_idf[1] or 1.0
+            )
+        return self._cache_peso[termo]
 
     @staticmethod
     def _contem(alvo: str, palavra: str) -> bool:
@@ -234,15 +298,14 @@ class Motor:
         de computação quântica. Antes eu cortava a palavra; agora o casamento é: termo
         inteiro, termo + flexão, ou um equivalente pt/en declarado em ALIASES.
         """
-        if re.search(rf"(?<![0-9a-z]){re.escape(palavra)}(?:s|es)?(?![0-9a-z])", alvo):
-            return True
-        # "universitarios" cobre "universitario"; "carie" cobre "caries".
-        if re.search(rf"(?<![0-9a-z]){re.escape(palavra)}(?:a|o|as|os)(?![0-9a-z])", alvo):
-            return True
-        if palavra.endswith(("a", "o")) and \
-                re.search(rf"(?<![0-9a-z]){re.escape(palavra[:-1])}(?![0-9a-z])", alvo):
-            return True
-        return False
+        def palavra_inteira(raiz: str, sufixos: str = "") -> bool:
+            return bool(re.search(rf"(?<![0-9a-z]){re.escape(raiz)}{sufixos}(?![0-9a-z])", alvo))
+
+        # Flexão de número/gênero: "universitarios" cobre "universitario"; "carie" cobre "caries".
+        return (
+            palavra_inteira(palavra, "(?:s|es|a|o|as|os)?")
+            or (palavra.endswith(("a", "o")) and palavra_inteira(palavra[:-1]))
+        )
 
     def _conceitos(self, termos: set[str]) -> tuple[list[tuple[str, ...]], set[str]]:
         """Separa os termos da pergunta em conceitos compostos e termos soltos.
@@ -276,7 +339,7 @@ class Motor:
         ]))
 
         def presente(termo: str) -> bool:
-            return any(self._contem(alvo, v) for v in ({termo} | ALIASES.get(termo, set())))
+            return any(self._contem(alvo, v) for v in ({termo} | equivalentes(termo)))
 
         conceitos, soltos = self._conceitos(termos)
 
@@ -300,36 +363,31 @@ class Motor:
 
     def _peso_normalizado(self, termo: str) -> float:
         """Idf do termo reescalado para 0–1 dentro do vocabulário da base."""
-        peso = self._peso(termo)
-        if not self._idf:
-            return 1.0
-        maximo = max(self._idf.values()) or 1.0
-        minimo = min(self._idf.values())
+        minimo, maximo = self._faixa_idf
         if maximo <= minimo:
             return 1.0
-        return (peso - minimo) / (maximo - minimo)
+        return (self._peso(termo) - minimo) / (maximo - minimo)
 
     @property
     def pronto(self) -> bool:
         return self._vetorizador is not None and bool(self.artigos)
 
     # -------------------------------------------------------- indexação
-    def indexacao(self, artigo: dict) -> list[str]:
+    def _campo_do_periodico(self, artigo: dict, campo: str) -> list[str]:
+        """Valor de `campo` no primeiro periódico curado do artigo (por ISSN) que o tenha."""
         for issn in artigo.get("issn") or []:
-            p = self.periodicos_por_issn.get(issn)
-            if p and p.get("indexacao"):
-                return list(p["indexacao"])
+            valor = (self.periodicos_por_issn.get(issn) or {}).get(campo)
+            if valor:
+                return list(valor)
         return []
 
+    def indexacao(self, artigo: dict) -> list[str]:
+        return self._campo_do_periodico(artigo, "indexacao")
+
     def revisao(self, artigo: dict) -> str | None:
-        for issn in artigo.get("issn") or []:
-            p = self.periodicos_por_issn.get(issn)
-            if p and p.get("revisao"):
-                # revisao é uma lista de rótulos do DOAJ; o mais forte vem primeiro
-                for rotulo in ("dupla_cega", "pares", "editorial"):
-                    if rotulo in p["revisao"]:
-                        return rotulo
-        return None
+        # `revisao` é uma lista de rótulos do DOAJ; o mais forte vem primeiro
+        rotulos = self._campo_do_periodico(artigo, "revisao")
+        return next((r for r in ("dupla_cega", "pares", "editorial") if r in rotulos), None)
 
     # -------------------------------------------------------- busca
     def _consulta_expandida(self, consulta: str, termos: set[str]) -> str:
@@ -341,8 +399,34 @@ class Motor:
         """
         acrescimos = []
         for termo in sorted(termos):
-            acrescimos += sorted(ALIASES.get(termo, set()))
+            acrescimos += sorted(equivalentes(termo))
         return " ".join([consulta, *acrescimos])
+
+    def _bonus(self, artigo: dict, area: str | None, ano_limite: int) -> tuple[float, list[str]]:
+        """Bônus de curadoria (revisão, indexação, ano, área) e os motivos que o justificam."""
+        bonus, motivos = 0.0, []
+
+        revisao = self.revisao(artigo)
+        if BONUS_REVISAO.get(revisao):
+            bonus += BONUS_REVISAO[revisao]
+            motivos.append(
+                "revisão por pares em dupla cega" if revisao == "dupla_cega" else "revisado por pares"
+            )
+
+        indexadores = self.indexacao(artigo)
+        soma_ind = min(sum(BONUS_INDEXACAO.get(x, 0) for x in indexadores), BONUS_INDEXACAO_MAX)
+        if soma_ind:
+            bonus += soma_ind
+            motivos.append("indexado em " + ", ".join(sorted(set(indexadores))))
+
+        if artigo.get("ano") and artigo["ano"] >= ano_limite:
+            bonus += BONUS_ANO_RECENTE
+            motivos.append(f"publicado em {artigo['ano']}")
+
+        if area and artigo.get("area") == area:
+            bonus += BONUS_MESMA_AREA
+            motivos.append(f"da área de {area}")
+        return bonus, motivos
 
     def buscar(self, consulta: str, k: int = TOP_K, area: str | None = None,
                cobertura_minima: float = COBERTURA_MINIMA) -> list[Candidato]:
@@ -369,34 +453,16 @@ class Motor:
             # passava do limiar de score.
             if cobertura <= 0:
                 continue
-            bonus, motivos = 0.0, []
-
-            revisao = self.revisao(artigo)
-            if revisao and revisao in BONUS_REVISAO:
-                bonus += BONUS_REVISAO[revisao]
-                if BONUS_REVISAO[revisao]:
-                    motivos.append(
-                        "revisão por pares em dupla cega" if revisao == "dupla_cega"
-                        else "revisado por pares"
-                    )
-
-            indexadores = self.indexacao(artigo)
-            soma_ind = min(sum(BONUS_INDEXACAO.get(x, 0) for x in indexadores), BONUS_INDEXACAO_MAX)
-            if soma_ind:
-                bonus += soma_ind
-                motivos.append("indexado em " + ", ".join(sorted(set(indexadores))))
-
-            if artigo.get("ano") and artigo["ano"] >= ano_limite:
-                bonus += BONUS_ANO_RECENTE
-                motivos.append(f"publicado em {artigo['ano']}")
-
-            if area and artigo.get("area") == area:
-                bonus += BONUS_MESMA_AREA
-                motivos.append(f"da área de {area}")
-
+            bonus, motivos = self._bonus(artigo, area, ano_limite)
             score = min(sim + bonus, 1.0)
-            candidatos.append(Candidato(artigo, score, sim, motivos))
+            candidatos.append(Candidato(artigo, score, sim, motivos, cobertura))
 
+        # Cobertura parcial só preenche a lista quando faltam artigos completos: "depressão em
+        # adolescentes" não deve devolver artigo que só fala de adolescentes se já há ao
+        # menos MIN_COBERTURA_COMPLETA artigos que tratam dos dois termos.
+        completos = [c for c in candidatos if c.cobertura >= 1.0]
+        if len(completos) >= MIN_COBERTURA_COMPLETA:
+            candidatos = completos
         candidatos.sort(key=lambda c: (-c.score, -(c.artigo.get("ano") or 0), c.artigo.get("doi") or ""))
         return candidatos[:k]
 
@@ -423,17 +489,8 @@ class Motor:
 
     def detetar_area(self, texto: str) -> str | None:
         alvo = sem_acento(texto)
-        pistas = {
-            "computacao": ("computacao", "software", "algoritmo", "machine learning",
-                           "aprendizado de maquina", "inteligencia artificial", "dados",
-                           "programacao", "rede neural", "seguranca da informacao"),
-            "odontologia": ("odontologia", "dental", "dente", "carie", "periodontal",
-                            "clareamento", "implante", "bucal", "flúor", "fluor"),
-            "psicologia": ("psicologia", "ansiedade", "depressao", "mental", "burnout",
-                           "universitarios", "terapia", "comportamento"),
-        }
         pontuacao = {
-            área: sum(1 for pista in lista if pista in alvo) for área, lista in pistas.items()
+            área: sum(1 for pista in lista if pista in alvo) for área, lista in PISTAS_AREA.items()
         }
         melhor = max(pontuacao, key=lambda a: pontuacao[a])
         return melhor if pontuacao[melhor] else None
