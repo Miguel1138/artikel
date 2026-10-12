@@ -19,6 +19,7 @@ ARQ_FAQ = DIR_DATA / "faq_busca.json"
 ARQ_GLOSSARIO = DIR_DATA / "glossario_pt_en.json"   # gerado por scripts/gerar_glossario.py
 ARQ_INTENTS = DIR_DATA / "intents.csv"
 ARQ_MODELO = DIR_MODELS / "intencoes.joblib"
+ARQ_ENCODER = DIR_MODELS / "encoder"            # ONNX baixado por scripts/baixar_encoder.py
 ARQ_CASOS = RAIZ / "tests" / "casos_teste.csv"
 
 # Recorte da base curada, espelhado de `scripts/coleta/config_coleta.py`. Fica duplicado de
@@ -37,8 +38,11 @@ INTENCOES = [
 ]
 FORA_DE_ESCOPO = "fora_de_escopo"
 
-# [Marco 3] probabilidade mínima do classificador para aceitar a intenção prevista.
-LIMIAR_CONFIANCA = 0.35
+# Probabilidade mínima do classificador para aceitar a intenção prevista (>=: abaixo disso
+# o bot se abstém). Medido FORA da amostra com o modelo de votação (n-gramas + encoder), 0,60
+# aceita ~88% das perguntas com ~98% de precisão. 0,80 aceitava 72% e, em perguntas de tema
+# novo, abstinha de quase toda busca legítima (curva em docs/pendencias.md).
+LIMIAR_CONFIANCA = 0.60
 # [Marco 3] similaridade de cosseno mínima para recomendar um artigo.
 LIMIAR_SCORE = 0.10
 # Fração mínima dos termos de conteúdo da pergunta que precisam aparecer no artigo.
@@ -79,7 +83,16 @@ CLASSIFICADOR = "logistica"        # "logistica" | "bayes"
 # Bag of Words não é melhor que TF-IDF aqui: a comparação está em
 # `scripts/diagnostico/_diag_vetorizador.py`. Mudou? Rode `treinar_classificador.py` de novo.
 VETORIZADOR = "tfidf"              # "tfidf" | "bow" | "bow_binario"
-NGRAMAS = (1, 2)                   # (1, 2) conta também pares de palavras vizinhas
+NGRAMAS = (1, 3)                   # (1, 3) conta também pares e trios de palavras vizinhas
+NGRAMAS_CARACTERES = (2, 5)        # letras dentro da palavra: robusto a flexão e digitação; None desliga
+REMOVER_STOPWORDS_INTENCAO = False # "como", "que", "para" carregam a intenção (ver normalizar_intencao)
+C_LOGISTICA = 50.0                 # regularização fraca: probabilidades mais nítidas
+# Ramo semântico (encoder de sentenças local, ver app/encoder.py). A decisão final é a média
+# ponderada dos dois ramos: PESO_NGRAMAS para o lexical e o resto para o semântico.
+# 0,7/0,3 foi o ponto em que o teste oficial não piora e as paráfrases novas melhoram.
+USAR_ENCODER = True
+PESO_NGRAMAS = 0.7
+C_ENCODER = 100.0
 SEED = 42
 TESTE_FRACAO = 0.25                # holdout interno do treino (o teste real é casos_teste.csv)
 

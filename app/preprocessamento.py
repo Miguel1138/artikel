@@ -78,6 +78,17 @@ def normalizar(texto: str, remover_stopwords: bool = True, usar_radical: bool = 
     return " ".join(tokens)
 
 
+def normalizar_intencao(texto: str) -> str:
+    """Normalização do classificador de intenções: mantém as palavras funcionais.
+
+    "como", "que", "onde", "para" e "não" são justamente o que separa "como busco um
+    artigo?" (orientar) de "busco um artigo" (buscar). Remover stopwords tirava esse sinal:
+    a validação cruzada foi de 0,849 para 0,891 só por mantê-las. Função de módulo (e não
+    lambda) para o joblib conseguir gravá-la junto com o vetorizador.
+    """
+    return normalizar(texto, remover_stopwords=False)
+
+
 def termos_relevantes(texto: str) -> list[str]:
     """Termos usados para medir sobreposição entre a pergunta e a base.
 

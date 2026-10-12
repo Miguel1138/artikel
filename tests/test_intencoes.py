@@ -70,19 +70,56 @@ def test_modelo_gravado_carrega_e_responde():
     assert 0.0 <= confianca <= 1.0
 
 
+def _pipeline_de_treino():
+    """O mesmo classificador do treino real (votação n-gramas + encoder), texto bruto na entrada."""
+    from treinar_classificador import construir_classificador
+
+    return construir_classificador()
+
+
 def test_acuracia_minima_de_validacao_cruzada():
     """Piso de 85% do documento, medido em 4 partições sobre o dataset de treino."""
-    from sklearn.feature_extraction.text import TfidfVectorizer
-    from sklearn.linear_model import LogisticRegression
     from sklearn.model_selection import cross_val_score
-
-    from preprocessamento import normalizar
 
     linhas = ler_intents()
     frases = [l["frase"] for l in linhas]
     rotulos = [l["intencao"] for l in linhas]
-    vetor = TfidfVectorizer(preprocessor=normalizar, ngram_range=(1, 2), sublinear_tf=True)
-    X = vetor.fit_transform(frases)
-    modelo = LogisticRegression(max_iter=2000, C=8.0, class_weight="balanced", random_state=42)
-    notas = cross_val_score(modelo, X, rotulos, cv=4)
+    notas = cross_val_score(_pipeline_de_treino(), frases, rotulos, cv=4)
     assert notas.mean() >= 0.85, f"acurácia de validação cruzada: {notas.mean():.3f}"
+
+
+def test_limiar_de_confianca_e_viavel_e_confiavel():
+    """O limiar só faz sentido se o modelo chegar a ele com frequência E acertar quando chega.
+
+    Medido FORA da amostra (previsão de cada partição pelo modelo que não a viu): o treino
+    infla a confiança. Com limiar alto e modelo pouco confiante, o bot se absteria de
+    quase tudo; com modelo confiante demais, aceitaria erro.
+    """
+    import numpy as np
+    from sklearn.model_selection import StratifiedKFold, cross_val_predict
+
+    from config import LIMIAR_CONFIANCA
+
+    linhas = ler_intents()
+    frases = [l["frase"] for l in linhas]
+    rotulos = np.array([l["intencao"] for l in linhas])
+    prob = cross_val_predict(_pipeline_de_treino(), frases, rotulos,
+                             cv=StratifiedKFold(4, shuffle=True, random_state=42), method="predict_proba")
+    previsto = np.unique(rotulos)[prob.argmax(1)]
+    aceitas = prob.max(1) >= LIMIAR_CONFIANCA
+    cobertura = aceitas.mean()
+    precisao = (previsto[aceitas] == rotulos[aceitas]).mean()
+    assert cobertura >= 0.5, f"só {cobertura:.0%} das perguntas passam de {LIMIAR_CONFIANCA}"
+    assert precisao >= 0.95, f"precisão das aceitas: {precisao:.1%}"
+
+
+def test_inferencia_recebe_texto_bruto_e_usa_o_preprocessamento_gravado():
+    """O pré-processamento vai dentro do modelo: caixa e espaços não mudam a decisão."""
+    if not ARQ_MODELO.exists():
+        pytest.skip("modelo ausente; rode python scripts/treinar_classificador.py")
+    from intencoes import Classificador
+
+    clf = Classificador()
+    a = clf.probabilidades("Como PROCURO artigos no SciELO")
+    b = clf.probabilidades("como procuro   artigos no scielo")
+    assert all(abs(a[c] - b[c]) < 1e-3 for c in a)

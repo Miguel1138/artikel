@@ -20,3 +20,6 @@ data/raw/
 
 # Saídas locais de avaliação
 *.log
+
+# Encoder de sentenças (ONNX, ~120 MB): baixado por scripts/baixar_encoder.py, não versionado.
+models/encoder/
