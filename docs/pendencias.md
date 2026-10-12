@@ -194,3 +194,77 @@ apaga no fim de cada teste. **Não troque por `tmp_path`**: os testes passam a f
 ```bash
 python -m pytest -q      # 83 testes
 ```
+
+## Busca por paráfrase e roteamento de intenção — estado em 12/10/2026
+
+A base é 84% inglês (206 de 246 artigos) e as perguntas são em português. A busca era lexical
+com um `ALIASES` escrito à mão; paráfrase fora dele ("gengivite", "doença", "cibersegurança")
+resultava em abstenção, de forma segura mas errada.
+
+**O que foi feito:** `data/glossario_pt_en.json` (131 termos, gerado por
+`scripts/gerar_glossario.py` a partir do Open Multilingual WordNet do NLTK, com aprovação
+manual — o WordNet sozinho traduz "pais" por *country*); peso da cobertura pela união das
+variantes pt/en; cobertura parcial só preenche quando há menos de 3 artigos completos;
+palavras de enchimento ("bibliografia", "pequenas", "aplicada") fora dos termos temáticos.
+`tests/test_integracao_api.py` mede com 24 perguntas fora do treino: **8/24 → 18/24**, 0 de 14
+temas ausentes vazaram, e as métricas oficiais ficaram iguais (Precisão@5 0,743; abstenção
+1,000). Ressalva: as 12 perguntas de `BUSCAS_VALIDACAO` foram escritas antes do léxico, mas as
+falhas delas orientaram o que entrou nele (ex.: carbamida, suicídio, sentimento) e a lista de
+palavras de enchimento. Não são mais um conjunto limpo; para medir generalização, escreva
+perguntas novas.
+
+**Segue aberto** (marcado `xfail` nos testes, com o motivo):
+
+1. **Intenção sem verbo de pedido.** "Relação entre pais e filhos", "análise de sentimentos em
+   textos" e "o que a literatura diz sobre…" caem em `fora_de_escopo`: `data/intents.csv` não
+   tem frases só com o tema. Precisa de exemplos novos no dataset (não reutilizar as frases
+   do teste).
+2. **"Referência" puxa para `formatar_referencia`.** "Dá pra confiar na Frontiers in Psychology
+   como referência?" é um parecer de fonte. O classificador decide pela palavra, não pelo
+   contexto; Bag of Words não resolve (medido em `scripts/diagnostico/_diag_vetorizador.py`).
+3. **Cobertura parcial fraca** quando poucos artigos cobrem todos os termos ("suicídio entre
+   jovens universitários" traz 1 artigo certo e 3 que só falam de universitários).
+4. **Stopwords com acento nunca casam** em `app/preprocessamento.py` ("não", "você", "também",
+   "até"): o token já saiu sem acento. Corrigir é inócuo (CV 0,849 → 0,848), mas muda o modelo.
+
+## Classificador de intenções com encoder local e limiar 0,60 — estado em 12/10/2026
+
+**O que é:** votação entre dois ramos treinados pela equipe sobre `data/intents.csv`:
+(1) TF-IDF de palavras 1–3 e caracteres 2–5, sem remover stopwords + regressão logística (peso 0,7);
+(2) vetores de um **encoder de sentenças local** (`paraphrase-multilingual-MiniLM-L12-v2`, Apache-2.0,
+ONNX quantizado, ~118 MB em `models/encoder/`, CPU, sem rede em tempo de uso) + regressão logística
+(peso 0,3). O encoder só produz vetores; a decisão é da regressão da equipe, sem LLM nem API
+(R3). `LIMIAR_CONFIANCA = 0,60`. Sem o encoder o bot cai no ramo de n-gramas e avisa em `/saude`.
+
+| Medida | só TF-IDF antigo | n-gramas + contexto | votação (atual) |
+|---|---|---|---|
+| Validação cruzada (treino) | 0,889 | 0,955 | 0,960 |
+| Teste oficial (30 casos), acurácia | 1,000 | 0,967 | 0,933 |
+| 40 paráfrases novas, intenção correta | — | 36 | 37 |
+| ...corretas e aceitas no limiar 0,60 | — | 31 | 34 |
+| 24 buscas de tema novo, corretas de ponta a ponta (0,60) | 17 | 17 | 18 |
+
+**Ressalvas honestas:**
+* O ganho do encoder é **modesto**: +1 a +4 casos conforme o conjunto. O encoder sozinho não
+  vence o n-grama neste dataset (199 frases, vocabulário de domínio: "formata", "abnt", "busca");
+  ele ganha em paráfrase e tema novo. Por isso a votação, e não a troca.
+* O teste oficial **piorou** de 0,967 para 0,933 (ainda acima da meta 0,85): comandos curtos que
+  dependem de vocabulário do domínio ("Que palavras-chave uso para achar artigos…").
+* Limiar: a confiança é maior para frases parecidas com o treino e menor para tema novo.
+  Curva de ponta a ponta nas 24 buscas (limiar 0,35/0,50/0,60/0,70/0,80): 20/19/18/16/14 corretas.
+  O 0,80 abstinha de busca legítima; o 0,60 perde 2 em relação ao 0,35 e corta mais erro.
+* O conjunto `tests/parafrases_intencao.csv` (40 frases) foi escrito antes de comparar os modelos,
+  mas a escolha do peso 0,7 foi feita olhando-o: já não é um conjunto limpo para esse parâmetro.
+
+**Segue aberto** (marcado `xfail` em `tests/test_integracao_api.py`, com o motivo):
+
+1. Frases só com o tema ("relação entre pais e filhos") e comandos como "onde posso baixar o texto
+   completo de graça?" chegam a 0,42–0,57, logo abaixo do limiar.
+2. "Referência" em pedido de parecer ("confiar na Frontiers… como referência") vai para
+   `formatar_referencia`: o ramo semântico ainda não separa isso com 40 exemplos por classe.
+3. Cobertura parcial fraca na recuperação quando poucos artigos cobrem todos os termos.
+4. Stopwords com acento nunca casam em `app/preprocessamento.py` ("não", "você", "também", "até");
+   hoje só afeta a recuperação, pois as intenções agora mantêm as stopwords.
+
+O que mais ajudaria agora é **mais dados rotulados** com variação de vocabulário (principalmente
+`orientar_busca` x `buscar_referencias` e `avaliar_fonte`): o encoder reduz essa necessidade, não a elimina.

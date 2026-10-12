@@ -326,7 +326,7 @@ O que o documento já tinha decidido está implementado e medido:
 | Item | Situação |
 |---|---|
 | Base curada (Marco 2) | 246 artigos, 107 periódicos, 100% CC-BY, nas três áreas |
-| Classificador (R3, objetivo 2) | TF-IDF + Regressão Logística, 199 frases, acurácia 1,000 |
+| Classificador (R3, objetivo 2) | Votação: n-gramas + encoder de sentenças local, ambos com Regressão Logística treinada pela equipe; 199 frases, acurácia 0,933 no teste oficial, limiar 0,60 (ver `docs/pendencias.md`) |
 | Recuperação (objetivo 3) | TF-IDF/cosseno + cobertura temática ponderada + reordenação por curadoria, Precisão@5 0,743 |
 | Regras ABNT (objetivo 4) | NBR 6023 por regras, 11 testes cobrindo os casos da norma |
 | Fluxo e traço da decisão (R4) | `app/fluxo.py`, com intenção, confiança, ação e regra em toda resposta |

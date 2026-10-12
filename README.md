@@ -28,8 +28,12 @@ pip install -r requirements.txt
 # 1) base curada (Marco 2) — a coleta demora; o resultado fica versionado em data/
 python scripts/coleta/pipeline.py
 
-# 2) classificador de intenções (Marco 4)
+# 2) classificador de intenções (Marco 4): baixa o encoder local uma vez (~128 MB) e treina
+python scripts/baixar_encoder.py
 python scripts/treinar_classificador.py
+
+# (opcional) regenerar a ponte pt->en da busca; só se a base mudar. Exige nltk e o omw-2.0
+python scripts/gerar_glossario.py
 
 # 3) API + interface (a própria API serve o web/)
 uvicorn main:app --app-dir app --port 8000
@@ -41,7 +45,8 @@ Abra **<http://127.0.0.1:8000/>** — é o chat. A API também responde em `/sau
 Testes e avaliação:
 
 ```bash
-python -m pytest -q                # regras ABNT, contexto, recuperação, fluxo, coleta, dataset
+python -m pytest -q                # regras ABNT, contexto, recuperação, glossário, fluxo, coleta, dataset
+python -m pytest tests/test_integracao_api.py -v   # perguntas novas contra a API no ar (pula se estiver fora)
 python tests/avaliar.py            # métricas do Marco 5 sobre tests/casos_teste.csv
 python tests/avaliar.py --md docs/avaliacao.md
 node web/_verificar_interface.js                       # a interface desenha o chat
@@ -88,8 +93,8 @@ Contrato completo da interface: [`web/README.md`](web/README.md).
 |---|---|
 | Base curada | 246 artigos · 107 periódicos · 100% CC-BY · 3 áreas |
 | Dataset de intenções | 199 frases · 5 intenções (39–40 por intenção) |
-| Testes automatizados | 83 passando (`python -m pytest -q`) |
-| Acurácia de intenções | 1,000 (meta ≥ 0,85) |
+| Testes automatizados | 120 passando offline (`python -m pytest -q`) + integração contra a API no ar |
+| Acurácia de intenções | 0,933 (meta ≥ 0,85) · limiar de confiança 0,60 |
 | Precisão@5 da recuperação | 0,743 (meta ≥ 0,60) |
 | Abstenção correta fora de escopo | 1,000 (meta ≥ 0,90) |
 | Citações inventadas | 0 (meta = 0) |
@@ -109,7 +114,7 @@ por recuperação ou por regras, e o bot nunca gera texto livre com referências
 pergunta
    │
    ├─ preprocessamento.py      minúsculas, acentos, stopwords (igual no treino e na inferência)
-   ├─ intencoes.py             TF-IDF + Regressão Logística -> intenção + confiança
+   ├─ intencoes.py             votação: n-gramas (palavras+caracteres) + encoder local -> intenção + confiança
    │
    ├─ confiança < limiar ──────► abstencao.py
    │
@@ -127,7 +132,7 @@ confiança, ação, regra, score). Os limiares ficam todos em `app/config.py`.
 
 | Pasta | Conteúdo |
 |---|---|
-| `app/` | API e mecanismo de IA: `main.py`, `config.py`, `schemas.py`, `fluxo.py`, `preprocessamento.py`, `intencoes.py`, `recuperacao.py`, `abnt.py`, `periodicos.py`, `faq.py`, `contexto.py`, `abstencao.py` |
+| `app/` | API e mecanismo de IA: `main.py`, `config.py`, `schemas.py`, `fluxo.py`, `preprocessamento.py`, `encoder.py`, `votacao.py`, `preprocessador_generico.py` (arquivo único reutilizável: limpeza + Bag of Words), `intencoes.py`, `recuperacao.py`, `glossario.py` (ponte pt↔en), `abnt.py`, `periodicos.py`, `faq.py`, `contexto.py`, `abstencao.py` |
 | `scripts/coleta/` | clientes e pipeline ETL: `config_coleta.py`, `comum.py`, `crossref.py`, `scielo.py`, `europepmc.py`, `doaj.py`, `medline.py`, `pipeline.py`, `_diag_cache.py` |
 | `scripts/` | `treinar_classificador.py` |
 | `scripts/diagnostico/` | scripts de apoio, não importados pelo sistema (`_verificar_api.py`, `_diag_recuperacao.py`, `_diag_match.py`, `_diag_cache.py`) |
