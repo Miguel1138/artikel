@@ -54,8 +54,13 @@ def test_todo_lado_ingles_existe_na_base():
 
 
 def test_tema_que_a_base_nao_tem_fica_fora_do_glossario():
-    """'obesidade' sumiria da lista e faria 'obesidade infantil' casar com artigos de criança."""
-    assert glossario.equivalentes("obesidade") == frozenset()
+    """Par aprovado cujo lado inglês não está na base é descartado pelo gerador.
+
+    O exemplo era 'obesidade', que saiu da lista quando Medicina entrou na base (21/10/2026).
+    'aplicativo -> app' continua aprovado, mas "app" não aparece como palavra na base.
+    """
+    assert "app" not in glossario.equivalentes("aplicativo")
+    assert glossario.equivalentes("obesidade") == frozenset({"obesity"})
 
 
 # --- recuperação com uma base mínima, sem depender da base real -----------------------

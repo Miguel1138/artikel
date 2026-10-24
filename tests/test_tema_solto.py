@@ -38,6 +38,13 @@ def test_palavra_do_sistema_nao_vira_busca(palavra):
     assert not buscar(palavra).artigos
 
 
+@pytest.mark.parametrize("pedido", ["e a do terceiro", "e a do segundo", "e a do quarto", "e a do último"])
+def test_ordinal_de_artigo_indicado_nao_vira_busca(pedido):
+    """Regressão: com 2895 artigos, 'terceiro' aparece em vários resumos e virava tema solto."""
+    assert not recuperacao.obter().so_tema(pedido)
+    assert "tema solto" not in buscar(pedido).traco.regra
+
+
 @pytest.mark.parametrize("pedido", [
     "faz minha introdução sobre cárie",
     "escreve sobre depressão",
@@ -56,10 +63,13 @@ def test_assunto_fora_da_base_nao_busca(assunto):
 
 
 def test_mencao_unica_nao_e_tema():
-    """'psicólogo' e 'música' aparecem em um só artigo (incidental): não viram busca."""
+    """'psicólogo' e 'religião' aparecem em um só artigo (incidental): não viram busca.
+
+    'música' era o exemplo até a base crescer para 5 áreas; hoje está em mais de um artigo.
+    """
     motor = recuperacao.obter()
     assert not motor.so_tema("psicólogo")
-    assert not motor.so_tema("música")
+    assert not motor.so_tema("religião")
     assert motor.so_tema("depressão")
 
 

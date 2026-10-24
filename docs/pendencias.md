@@ -143,10 +143,12 @@ node web/_verificar_contrato.js http://127.0.0.1:8000  # API real contra o que o
 | 4 | Confirmar o DOAJ Article Search como fonte complementar de Computação e registrar a decisão | `docs/especificacao.md`, seção 7 | 3 |
 | 5 | Revisar os limiares de confiança e de score com a distribuição real de scores | `app/config.py` | 3 |
 | 6 | Desenhar o `docs/fluxograma.png` a partir de `docs/fluxograma.md` (Mermaid) | `docs/` | 3 |
-| 7 | Levar Computação de 46 para perto de 100 artigos (ampliar sementes ou fontes) | `scripts/coleta/config_coleta.py` | 2–3 |
-| 8 | Ampliar a amostra julgada da Precisão@5 (hoje 7 dos 30 casos) com dois juízes | `tests/casos_teste.csv` | 5–6 |
+| 7 | Computação foi de 46 para 495 artigos (cota de 600, 23/10/2026); fechar a diferença exige outra fonte de artigos da área | `scripts/coleta/config_coleta.py` | 2–3 |
+| 8 | Ampliar a amostra julgada da Precisão@5 (hoje 14 dos 42 casos) com dois juízes | `tests/casos_teste.csv` | 5–6 |
 | 9 | Escrever o relatório de 6+ páginas e o roteiro da demonstração de 8 minutos | `docs/` | 6 |
 | 10 | Preencher a declaração de uso de IA generativa | `docs/contribuicoes.md` | 6 |
+| 11 | O funil de `data/relatorio_coleta.md` mostra só as áreas da última execução (a coleta de 23/10 rodou uma área por vez e o funil ficou só com Psicologia); rodar a coleta inteira de uma vez ou acumular o funil entre execuções | `scripts/coleta/pipeline.py` | 2–3 |
+| 12 | "ensino de matemática no ensino médio" devolve artigos que cobrem "ensino" e "médio" sem "matemática": a cobertura conta a expressão como duas palavras | `app/recuperacao.py` | 4–5 |
 
 ## De infraestrutura — do ambiente, não do código
 

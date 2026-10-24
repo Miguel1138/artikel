@@ -1,14 +1,14 @@
 <!-- GERADO POR tests/avaliar.py --md: nao editar dentro dos marcadores -->
 # Avaliação — Artikel
 
-Casos em `tests/casos_teste.csv`: **30** (marco 5 do cronograma).
+Casos em `tests/casos_teste.csv`: **42** (marco 5 do cronograma).
 
 ## Métricas
 
 | Métrica | Resultado | Meta | Situação |
 |---|---|---|---|
-| Acurácia de intenções | 1.000 | 0.85 | OK |
-| Precisão@5 da recuperação | 0.743 | 0.60 | OK |
+| Acurácia de intenções | 0.952 | 0.85 | OK |
+| Precisão@5 da recuperação | 0.886 | 0.60 | OK |
 | Abstenção correta fora de escopo | 1.000 | 0.90 | OK |
 | Citações inventadas | 0 | 0 | OK |
 
@@ -16,15 +16,18 @@ Casos em `tests/casos_teste.csv`: **30** (marco 5 do cronograma).
 
 | esperado \ previsto | buscar_referencias | avaliar_fonte | formatar_referencia | orientar_busca | fora_de_escopo |
 |---|---|---|---|---|---|
-| buscar_referencias | 7 | 0 | 0 | 0 | 1 |
-| avaliar_fonte | 0 | 6 | 0 | 0 | 0 |
+| buscar_referencias | 14 | 0 | 0 | 0 | 1 |
+| avaliar_fonte | 0 | 7 | 0 | 0 | 0 |
 | formatar_referencia | 0 | 0 | 5 | 0 | 0 |
-| orientar_busca | 0 | 0 | 0 | 5 | 0 |
-| fora_de_escopo | 0 | 0 | 0 | 0 | 6 |
+| orientar_busca | 2 | 0 | 0 | 5 | 0 |
+| fora_de_escopo | 0 | 0 | 0 | 0 | 8 |
 
 ## Casos que não passaram
 
-Nenhum.
+| id | pergunta | esperado | previsto | confiança | resposta |
+|---|---|---|---|---|---|
+| 9 | Que palavras-chave uso para achar artigos sobre cárie infantil? | orientar_busca | buscar_referencias | 0.55 | esclarecimento |
+| 20 | como faço para achar artigo sobre implante | orientar_busca | buscar_referencias | 0.63 | recomendacao |
 
 <!-- FIM DO TRECHO GERADO -->
 
@@ -34,8 +37,9 @@ Nenhum.
 
 ## Análise de 3 falhas e melhorias (exigência do Marco 5)
 
-A rodada atual passou em todos os 30 casos, então as falhas analisadas são as que
-apareceram no caminho — encontradas rodando `tests/avaliar.py` e os diagnósticos de
+A rodada que motivou esta seção passou em todos os 30 casos originais (os casos 31–42, de
+Medicina e Biologia, entraram em 23/10/2026; os erros atuais estão na tabela gerada acima),
+então as falhas analisadas são as que apareceram no caminho — encontradas rodando `tests/avaliar.py` e os diagnósticos de
 `scripts/diagnostico/`, todas corrigidas e fixadas por teste automatizado. Ficam registradas
 porque o Marco 5 pede análise de erros, e porque são as que voltam se alguém mexer no
 pré-processamento ou na recuperação.

@@ -20,7 +20,11 @@ def _params(extra):
 
 
 def buscar(consulta, limite=CANDIDATOS_POR_CONSULTA, idioma=None):
-    """Itens brutos mais recentes que casam com a consulta, filtrados por período e licença.
+    """Itens brutos mais relevantes para a consulta, filtrados por período e licença.
+
+    Ordem por relevância, não por data: com a janela de 10 anos, os N mais recentes caem
+    todos nos últimos meses e o resto do período nunca chega ao pipeline (que intercala os
+    anos na validação, ver `pipeline.intercalar_anos`).
 
     `idioma` é o idioma usado na consulta (pt ou en): o Crossref não devolve `language` em
     /works, então a consulta em português é a evidência mais confiável do idioma.
@@ -29,7 +33,6 @@ def buscar(consulta, limite=CANDIDATOS_POR_CONSULTA, idioma=None):
         "query.bibliographic": consulta,
         "filter": (f"from-pub-date:{ANO_INICIO}-01-01,until-pub-date:{ANO_FIM}-12-31,"
                    "type:journal-article,has-license:true"),
-        "sort": "published", "order": "desc",
         "rows": limite, "select": SELECT,
     }))
     return dados["message"]["items"] if dados else []

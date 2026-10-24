@@ -25,7 +25,7 @@ ARQ_CASOS = RAIZ / "tests" / "casos_teste.csv"
 # Recorte da base curada, espelhado de `scripts/coleta/config_coleta.py`. Fica duplicado de
 # propósito: a API não importa nada dos scripts de coleta (coleta isolada de app/, seção 8
 # do documento). Se o recorte mudar, mude nos dois lugares.
-ANO_INICIO, ANO_FIM = 2020, 2026
+ANO_INICIO, ANO_FIM = 2016, 2026   # 10 anos contados de 21/10/2026
 
 # --- Intenções ---------------------------------------------------------
 # A ordem define a legenda da matriz de confusão.
@@ -85,6 +85,10 @@ TERMOS_DO_SISTEMA = frozenset({
     "indexacao", "predatoria", "predatorio", "impacto",
     "introducao", "conclusao", "metodologia", "capitulo", "redacao", "paragrafo", "resumo",
     "apresentacao", "slides", "cronograma", "fichamento", "tradução", "traducao",
+    # Ordinais apontam para um artigo já indicado ("e a do terceiro"): são de formatar
+    # referência. Com a base de 2895 artigos eles passaram a aparecer em vários resumos.
+    "segundo", "segunda", "terceiro", "terceira", "quarto", "quarta", "quinto", "quinta",
+    "ultimo", "ultima", "penultimo", "penultima", "anterior",
 })
 # Quantos artigos a resposta de busca devolve (documento: top 3–5).
 TOP_K = 5
@@ -101,7 +105,11 @@ BONUS_REVISAO = {"dupla_cega": 0.06, "pares": 0.04, "editorial": 0.0, None: 0.0}
 BONUS_INDEXACAO = {"DOAJ": 0.03, "SciELO": 0.03, "MEDLINE": 0.02}
 BONUS_INDEXACAO_MAX = 0.05
 BONUS_ANO_RECENTE = 0.03          # artigos dos últimos 2 anos do recorte
-BONUS_MESMA_AREA = 0.02           # quando a pergunta cita uma das três áreas
+# Quando a pergunta indica uma das cinco áreas. Era 0,02 com três áreas; com Medicina e
+# Biologia os temas passaram a ter artigo relevante em área vizinha (saúde mental em periódico
+# médico, câncer de mama em Biologia) e 0,02 não desempatava. 0,04 é o menor valor que põe a
+# área certa em primeiro nas perguntas do teste de integração, sem mudar a Precisão@5.
+BONUS_MESMA_AREA = 0.04
 
 # --- Modelo ------------------------------------------------------------
 # TF-IDF + Regressão Logística é o padrão do documento; Naive Bayes é a alternativa.

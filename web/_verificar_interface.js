@@ -104,7 +104,7 @@ function montarAmbiente(respostas) {
 const SAUDE = {
   status: 'ok', artigos_na_base: 246, periodicos_na_base: 107, entradas_faq: 12,
   modelo_carregado: true, limiar_confianca: 0.35, limiar_score: 0.1,
-  recorte_anos: [2020, 2026], areas: ['computacao', 'odontologia', 'psicologia'],
+  recorte_anos: [2016, 2026], areas: ['biologia', 'computacao', 'medicina', 'odontologia', 'psicologia'],
 };
 
 const CHAT = {

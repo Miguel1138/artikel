@@ -120,13 +120,33 @@ BUSCAS_VALIDACAO = [
      ["artificial intelligence", "health", "saude"]),
 ]
 
-# Temas que NÃO existem na base (só computação, odontologia e psicologia): deve abster-se.
+# Medicina e Biologia entraram no escopo em 21/10/2026. Hipertensão, obesidade, câncer de
+# mama e biologia marinha eram, até então, perguntas de abstenção (BUSCAS_FORA_DA_BASE).
+BUSCAS_NOVAS_AREAS = [
+    ("preciso de artigos sobre hipertensão arterial e tratamento", "medicina",
+     ["hypertens", "hipertens", "blood pressure"]),
+    ("quero estudos sobre obesidade infantil e alimentação", "medicina",
+     ["obes"]),
+    ("pesquisas sobre câncer de mama e quimioterapia", "medicina",
+     ["breast", "mama"]),
+    ("o que se publicou sobre a dengue no Brasil?", "medicina",
+     ["dengue"]),
+    ("literatura sobre biologia marinha e recifes de corais", "biologia",
+     ["marine", "marinh", "reef", "coral"]),
+    ("tem estudos sobre perda de biodiversidade?", "biologia",
+     ["biodivers"]),
+    ("bactérias resistentes a antibióticos", "biologia",
+     ["antimicrobial", "antibiotic", "resistan"]),
+    ("me indica pesquisas sobre microbiota intestinal", "biologia",
+     ["microbiota", "microbiome", "gut"]),
+]
+
+# Temas que NÃO existem na base (só computação, odontologia, psicologia, medicina e
+# biologia): deve abster-se.
 BUSCAS_FORA_DA_BASE = [
-    # "saúde" e "infantil" são palavras que a base usa muito: o risco é o léxico fazê-las casar.
-    "preciso de artigos sobre hipertensão arterial e tratamento",
-    "quero estudos sobre obesidade infantil e alimentação",
     "pesquisas sobre energia solar fotovoltaica",
-    "literatura sobre biologia marinha e recifes de corais",
+    "quero estudos sobre engenharia civil e concreto armado",
+    "artigos sobre turismo e hotelaria",
     "artigos sobre história do império romano",
     "estudos sobre finanças pessoais e investimentos",
     "preciso de artigos sobre geologia de petróleo",
@@ -136,29 +156,41 @@ BUSCAS_FORA_DA_BASE = [
     "bibliografia sobre arquitetura barroca",
     "pesquisas sobre agricultura de precisão e soja",
     "literatura sobre ensino de matemática no ensino médio",
-    "pesquisas sobre câncer de mama e quimioterapia",
 ]
 
 
+_BASE_POR_ID: dict[str, dict] | None = None
+
+
 def _texto_do_artigo(a: dict) -> str:
-    return sem_acento(f"{a['titulo']} {a.get('resumo') or ''}").lower()
+    """Título, resumo inteiro e palavras-chave do artigo, lidos da base pelo `id`.
+
+    A API devolve o resumo cortado em 400 caracteres e sem palavras-chave. Com a base de 2895
+    artigos isso dava falso "fora do tema": um editorial sem resumo que só diz "early
+    childhood caries" nas palavras-chave contava como artigo errado para a busca de cárie.
+    """
+    global _BASE_POR_ID
+    if _BASE_POR_ID is None:
+        arq = RAIZ / "data" / "knowledge_base.json"
+        _BASE_POR_ID = ({r["id"]: r for r in json.loads(arq.read_text(encoding="utf-8"))}
+                        if arq.exists() else {})
+    r = _BASE_POR_ID.get(a.get("id"), a)
+    return sem_acento(f"{r.get('titulo') or ''} {r.get('resumo') or ''} "
+                      f"{' '.join(r.get('palavras_chave') or [])}").lower()
 
 
 # Limites conhecidos (xfail não estrito: viram XPASS se alguém corrigir). Nenhum deles devolve
 # tema ERRADO de outra área sem aviso; são abstenção por intenção ou lista com artigo fraco.
-_INTENCAO = "classificador: pergunta só com o tema fica abaixo do limiar de confiança (ver docs/pendencias.md)"
+# Saíram daqui com a base de 2895 artigos (23/10/2026), por passarem a ter artigos suficientes:
+# "análise de sentimentos em textos", gengivite e doença periodontal, testes de software e
+# suicídio entre universitários.
 _LIMIAR = "classificador: intenção correta, mas a confiança fica logo abaixo do limiar"
-_PARCIAL = "cobertura parcial: poucos artigos cobrem todos os termos e o resto da lista é fraco"
 LACUNAS = {
-    "análise de sentimentos em textos": _INTENCAO,
     "onde posso baixar o texto completo de graça?": _LIMIAR,
-    "quais pesquisas recentes tratam de gengivite e doença periodontal?": _PARCIAL,
-    "pesquisas sobre testes de software e qualidade de código": _PARCIAL,
-    "suicídio entre jovens universitários": _PARCIAL,
     "dá pra confiar na Frontiers in Psychology como referência?":
         "classificador: 'referência' puxa para formatar_referencia (palavra em vez de contexto)",
     "literatura sobre ensino de matemática no ensino médio":
-        "caso limítrofe: o artigo devolvido trata de rendimento escolar e matemática no fundamental",
+        "'ensino' + 'médio' passam da cobertura sem 'matemática' (expressão contada como duas palavras)",
 }
 
 
@@ -168,7 +200,7 @@ def _com_lacunas(casos):
             for c in casos]
 
 
-@pytest.mark.parametrize("pergunta,area,termos", _com_lacunas(BUSCAS_NA_BASE + BUSCAS_VALIDACAO))
+@pytest.mark.parametrize("pergunta,area,termos", _com_lacunas(BUSCAS_NA_BASE + BUSCAS_VALIDACAO + BUSCAS_NOVAS_AREAS))
 def test_busca_traz_o_tema_certo(pergunta, area, termos, sessao):
     r = conversar(pergunta, sessao)
     assert r["intencao"] == "buscar_referencias", f"intenção: {r['intencao']} ({r['traco']['confianca']:.2f})"
@@ -244,7 +276,7 @@ def test_perguntas_do_teste_sao_novas():
                             (RAIZ / "tests" / "casos_teste.csv", "pergunta")):
         with caminho.open(encoding="utf-8", newline="") as fh:
             usadas |= {(l.get(coluna) or "").strip().lower() for l in csv.DictReader(fh)}
-    novas = ([b[0] for b in BUSCAS_NA_BASE + BUSCAS_VALIDACAO] + BUSCAS_FORA_DA_BASE
+    novas = ([b[0] for b in BUSCAS_NA_BASE + BUSCAS_VALIDACAO + BUSCAS_NOVAS_AREAS] + BUSCAS_FORA_DA_BASE
              + [o[0] for o in OUTRAS_INTENCOES])
     repetidas = [p for p in novas if p.strip().lower() in usadas]
     assert not repetidas, f"perguntas já usadas no treino/teste: {repetidas}"

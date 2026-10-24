@@ -22,7 +22,7 @@ Estudantes de graduação perdem tempo e nota por usar referências frágeis no 
 reduz esse risco limitando as recomendações a uma base verificada e se abstendo quando não
 houver registro confiável.
 
-Público: estudantes de Ciência da Computação, Odontologia e Psicologia em fase de projeto
+Público: estudantes de Ciência da Computação, Odontologia, Psicologia, Medicina e Biologia em fase de projeto
 ou escrita do TCC (perfis fictícios nos testes). Cinco dores mapeadas:
 
 | # | Dor | Intenção que responde |
@@ -49,8 +49,8 @@ curada e se abstenha quando não houver referência confiável.
 
 ## 4. Escopo
 
-**Dentro:** base de 150 a 300 artigos de acesso aberto em Computação, Odontologia e
-Psicologia; cinco intenções; metadados (título, autores, ano, periódico, DOI, resumo,
+**Dentro:** base de até ~3000 artigos de acesso aberto (600 por área) em Ciência da
+Computação, Odontologia, Psicologia, Medicina e Biologia; cinco intenções; metadados (título, autores, ano, periódico, DOI, resumo,
 palavras-chave, licença); contexto mínimo ("o segundo artigo"); interface React consumindo
 a API.
 
@@ -77,7 +77,7 @@ adequação ao tema.
 | R2 — Domínio | 5 intenções; base de artigos, lista de periódicos e FAQ curadas | `data/` |
 | R3 — IA implementada | Classificador treinado pela equipe + recuperação TF-IDF/BM25 com reordenação por curadoria | `app/intencoes.py`, `app/recuperacao.py` |
 | R4 — Fluxo completo | Entrada → normalização → intenção → busca/regra → resposta ou abstenção, com traço da decisão | `app/fluxo.py` |
-| R5 — Validação | 30 casos (meta acima dos 20): esperadas, reformulações, ambíguas, fora de escopo | `tests/casos_teste.csv` |
+| R5 — Validação | 42 casos (meta acima dos 20): esperadas, reformulações, ambíguas, fora de escopo | `tests/casos_teste.csv` |
 | R6 — Métricas | Acurácia e matriz de confusão; Precisão@5; taxa de abstenção correta | `tests/avaliar.py` |
 | R7 — Autoria | README, base versionada sem chave de API, scripts de coleta e testes, registro de contribuições | `README.md`, `docs/contribuicoes.md` |
 
@@ -120,11 +120,19 @@ consultada em fontes externas durante a conversa; nenhuma fonte exige chave de A
 
 | Fonte | Papel | Áreas | Script |
 |---|---|---|---|
-| Crossref | Principal: busca, validação de DOI e enriquecimento; prevalece em conflitos | As três | `crossref.py` |
-| SciELO (ArticleMeta) | Artigos brasileiros de periódicos revisados por pares | As três | `scielo.py` |
-| Europe PMC | Complemento | Odontologia, Psicologia | `europepmc.py` |
-| DOAJ | Indexação e assunto LCC do periódico; base de `avaliar_fonte`. **Também busca de artigos em Computação** | As três (artigos: Computação) | `doaj.py` |
-| NLM Catalog (MEDLINE) | Indexação adicional aceita (`ACEITAR_MEDLINE = True`) | As três | `medline.py` |
+| Crossref | Principal: busca, validação de DOI e enriquecimento; prevalece em conflitos | As cinco | `crossref.py` |
+| SciELO (ArticleMeta) | Artigos brasileiros de periódicos revisados por pares | As cinco | `scielo.py` |
+| Europe PMC | Complemento | Odontologia, Psicologia, Medicina, Biologia | `europepmc.py` |
+| DOAJ | Indexação e assunto LCC do periódico; base de `avaliar_fonte`. **Também busca de artigos em Computação** | As cinco (artigos: Computação) | `doaj.py` |
+| NLM Catalog (MEDLINE) | Indexação adicional aceita (`ACEITAR_MEDLINE = True`) | As cinco | `medline.py` |
+
+> **Mudança de escopo (21/10/2026):** a base de 246 artigos em 3 áreas e 2020–2026 dava
+> underfitting na recuperação (temas próximos sem artigo, poucas alternativas por tema). O
+> escopo passou a 5 áreas (entraram Medicina e Biologia), o recorte a 10 anos contados de
+> 21/10/2026 (2016–2026) e a cota a 600 artigos por área (8 sementes × 75), meta de ~3000.
+> Para a janela de 10 anos valer de fato, Crossref e Europe PMC deixaram de ordenar por data
+> (os N mais recentes caíam todos no último ano): o Crossref ordena por relevância, a Europe
+> PMC é consultada ano a ano, e a validação de cada semente intercala os anos.
 
 > **Desvio registrado [novo]:** o Crossref não sustenta a área de Computação no recorte
 > temático — a busca devolve resultados de áreas vizinhas (educação, engenharia) que não
@@ -139,19 +147,21 @@ e OpenAlex (exige chave desde 13/02/2026; snapshot de ~750 GB desproporcional).
 
 **Pipeline ETL**
 
-1. **Extract:** por área e semente, consulta Crossref (pt e en), Europe PMC e todos os
+1. **Extract:** por área e semente, consulta Crossref (pt e en, por relevância), Europe PMC (uma consulta por ano) e todos os
    artigos SciELO dos periódicos da área; brutos em cache em `data/raw/`.
 2. **Transform:** filtro básico (DOI, período, idioma, licença) → filtro temático pela
    semente (radical de 5 caracteres) → dedup por DOI com mescla → validação e enriquecimento
    no Crossref → refiltro → exige indexação DOAJ, SciELO ou MEDLINE → conferência de área
-   (LCC ou área WoS).
+   (LCC ou área WoS). A ordem de validação intercala os anos do recorte.
 3. **Load:** grava `knowledge_base.json`, `periodicos.json` e `relatorio_coleta.md` com o
    funil de descartes por semente.
 
-**Recorte:** 2020–2026; idiomas pt, en; licenças CC-BY e CC0 (SA/NC/ND fora); cota 4
-sementes × 25 = 100 artigos por área; 100 candidatos por consulta; máx. 300 artigos por
-periódico SciELO; LCC Computação QA75, QA76, R858 · Odontologia RK · Psicologia BF; áreas
-WoS COMPUTER SCIENCE · DENTISTRY · PSYCHOLOGY.
+**Recorte:** 2016–2026 (10 anos contados de 21/10/2026); idiomas pt, en; licenças CC-BY e
+CC0 (SA/NC/ND fora); cota 8 sementes × 75 = 600 artigos por área; 500 candidatos por
+consulta; máx. 300 artigos por periódico SciELO; LCC Computação QA75, QA76, R858 ·
+Odontologia RK · Psicologia BF · Medicina R (menos RK e R858) · Biologia QH, QK, QL, QM, QP,
+QR; áreas WoS COMPUTER SCIENCE · DENTISTRY · PSYCHOLOGY · especialidades médicas (menos
+DENTISTRY) · BIOLOGY, ECOLOGY, GENETICS e afins (lista em `config_coleta.AREA_WOS`).
 
 **Esquema da base:** `id, doi, titulo, autores, ano, periodico, issn, volume, numero,
 paginas, resumo, palavras_chave, idioma, licenca, area, fonte, url, data_coleta`.
@@ -162,9 +172,11 @@ warehouse).
 
 | Área | Sementes |
 |---|---|
-| Computação | aprendizado de máquina saúde*, processamento de linguagem natural, segurança da informação, engenharia de software |
-| Odontologia | clareamento dental*, cárie infantil*, doença periodontal, implantes dentários |
-| Psicologia | ansiedade universitários*, depressão, saúde mental trabalho, desenvolvimento infantil |
+| Computação | aprendizado de máquina saúde*, processamento de linguagem natural, segurança da informação, engenharia de software, inteligência artificial, visão computacional, internet das coisas, mineração de dados |
+| Odontologia | clareamento dental*, cárie infantil*, doença periodontal, implantes dentários, ortodontia, endodontia, câncer bucal, saúde bucal |
+| Psicologia | ansiedade universitários*, depressão, saúde mental trabalho, desenvolvimento infantil, autismo, terapia cognitivo-comportamental, trauma psicológico, violência doméstica |
+| Medicina | hipertensão arterial, diabetes mellitus, câncer de mama, covid-19, doenças cardiovasculares, obesidade, tuberculose, dengue |
+| Biologia | biodiversidade, ecologia, genética de populações, microbiota, resistência antimicrobiana, ecossistemas marinhos, evolução, plantas medicinais |
 
 **Estado da coleta:** o documento registrava, em cache, **3 periódicos SciELO de
 Computação, 13 de Odontologia e 19 de Psicologia**, e já apontava que Computação tem poucos
@@ -193,8 +205,11 @@ coleção SciELO, usada em conferência manual — o cliente do projeto não dep
 
 ## 9. Avaliação
 
-30 casos de teste: as 11 perguntas simuladas entram como "esperadas" e 19 derivadas delas
-cobrem reformulações, ambíguas e fora de escopo. Frases de teste nunca entram no treino.
+42 casos de teste: as 11 perguntas simuladas entram como "esperadas" e 19 derivadas delas
+cobrem reformulações, ambíguas e fora de escopo; os casos 31–42 (6 de Medicina e 6 de
+Biologia) entraram com a ampliação do escopo em 23/10/2026. Frases de teste nunca entram no
+treino. Nos casos novos o `tema_esperado` traz a grafia pt e en quando elas diferem
+("hipertensao hypertension"): a relevância casa por radical e a base é 88% em inglês.
 
 **Perguntas simuladas (Marco 1)** — com a área e a dor de origem, e onde cada uma vive no
 repositório:
@@ -249,7 +264,7 @@ precisam estar prontos antes do código final.
 |---|---|
 | Levantamento e base | Script de coleta, curadoria, lista de periódicos, FAQ e licenças |
 | Implementação e integração | Classificador, recuperação, regras ABNT e fluxo |
-| Dados e testes | Dataset de intenções, 30 casos, métricas e análise de erros |
+| Dados e testes | Dataset de intenções, 42 casos, métricas e análise de erros |
 | Interface, documentação e validação | Interface, README, relatório e roteiro da demonstração |
 
 **Partes interessadas:** o professor aprova e avalia; estudantes de TCC são o público;
@@ -330,7 +345,7 @@ O que o documento já tinha decidido está implementado e medido:
 | Recuperação (objetivo 3) | TF-IDF/cosseno + cobertura temática ponderada + reordenação por curadoria, Precisão@5 0,743 |
 | Regras ABNT (objetivo 4) | NBR 6023 por regras, 11 testes cobrindo os casos da norma |
 | Fluxo e traço da decisão (R4) | `app/fluxo.py`, com intenção, confiança, ação e regra em toda resposta |
-| Avaliação (objetivo 5) | 30 casos, 4 métricas na meta, análise das 3 falhas do caminho |
+| Avaliação (objetivo 5) | 42 casos, 4 métricas na meta, análise das 3 falhas do caminho |
 | Interface (R1) | `web/` consumindo a API, com painel do traço da decisão |
 
 Pendências abertas e o registro do problema de permissões do ambiente estão em

@@ -48,7 +48,7 @@ class Candidato:
 # Palavras que aparecem em quase toda pergunta e não distinguem tema. Entram na
 # similaridade, mas são ignoradas na hora de medir cobertura temática.
 # "saude", "clinica" e afins entram porque no projeto elas qualificam o contexto (saúde é
-# área de aplicação em Computação, Odontologia e Psicologia), não o tema buscado: sem isso,
+# área de aplicação em todas as cinco áreas da base), não o tema buscado: sem isso,
 # "aprendizado de máquina na saúde" exigiria a palavra "saúde" em todo artigo de Computação.
 GENERICAS = {
     "artigo", "artigos", "estudo", "estudos", "pesquisa", "pesquisas", "preciso",
@@ -74,6 +74,9 @@ GENERICAS = {
     "algumas", "tratam", "trata", "tratar", "dizem", "fala", "falam", "ler", "leitura",
     "leituras", "literature", "bibliography", "something", "anything",
     "primeira", "primeiras", "primeiro", "primeiros",
+    # "o que se publicou sobre dengue": o verbo não é tema e, sem equivalente, pesava o máximo.
+    "publicou", "publicaram", "publicado", "publicados", "publicada", "publicadas",
+    "publicacao", "publicacoes",
     # Adjetivos de tamanho/ligação e conectivos que não dizem o tema ("crianças pequenas",
     # "IA aplicada à saúde", "durante a pandemia"): sem correspondência, pesavam como o termo
     # mais raro da pergunta e derrubavam a cobertura.
@@ -126,6 +129,20 @@ ALIASES = {
     "workplace": {"trabalho"},
     "desenvolvimento": {"development"}, "development": {"desenvolvimento"},
     "privacidade": {"privacy"}, "privacy": {"privacidade"},
+    "medicina": {"medicine"}, "medicine": {"medicina"},
+    "hipertensao": {"hypertension"}, "hypertension": {"hipertensao"},
+    "cancer": {"cancer", "tumor", "neoplasm"},
+    "mama": {"breast"}, "breast": {"mama"},
+    "obesidade": {"obesity"}, "obesity": {"obesidade"},
+    "tuberculose": {"tuberculosis"}, "tuberculosis": {"tuberculose"},
+    "biologia": {"biology"}, "biology": {"biologia"},
+    "biodiversidade": {"biodiversity"}, "biodiversity": {"biodiversidade"},
+    "ecologia": {"ecology"}, "ecology": {"ecologia"},
+    "evolucao": {"evolution"}, "evolution": {"evolucao"},
+    "genetica": {"genetics", "genetic"}, "genetics": {"genetica"},
+    "marinho": {"marine"}, "marinhos": {"marine"}, "marinha": {"marine"}, "marine": {"marinho"},
+    "plantas": {"plants"}, "plants": {"plantas"},
+    "medicinais": {"medicinal"}, "medicinal": {"medicinais"},
 }
 
 def equivalentes(termo: str) -> set[str]:
@@ -171,6 +188,26 @@ CONCEITOS: tuple[tuple[str, ...], ...] = (
     ("dental", "implant"),
     ("desenvolvimento", "infantil"),
     ("child", "development"),
+    ("visao", "computacional"),
+    ("computer", "vision"),
+    ("internet", "coisas"),
+    ("internet", "things"),
+    ("mineracao", "dados"),
+    ("data", "mining"),
+    ("cancer", "mama"),
+    ("breast", "cancer"),
+    ("cancer", "bucal"),
+    ("oral", "cancer"),
+    ("diabetes", "mellitus"),
+    ("hipertensao", "arterial"),
+    ("doencas", "cardiovasculares"),
+    ("cardiovascular", "disease"),
+    ("resistencia", "antimicrobiana"),
+    ("antimicrobial", "resistance"),
+    ("plantas", "medicinais"),
+    ("medicinal", "plants"),
+    ("genetica", "populacoes"),
+    ("population", "genetics"),
 )
 
 
@@ -182,7 +219,15 @@ PISTAS_AREA = {
     "odontologia": ("odontologia", "dental", "dente", "carie", "periodontal",
                     "clareamento", "implante", "bucal", "flúor", "fluor"),
     "psicologia": ("psicologia", "ansiedade", "depressao", "mental", "burnout",
-                   "universitarios", "terapia", "comportamento"),
+                   "universitarios", "terapia", "comportamento", "autismo", "trauma"),
+    # Sem "doenca" e sem "cancer" soltos: "doença periodontal" e "câncer bucal" são de
+    # Odontologia, e empate fica com a área que vem antes neste dicionário.
+    "medicina": ("medicina", "medico", "hipertensao", "diabetes", "cancer de mama",
+                 "covid", "cardiovascular", "obesidade", "tuberculose", "dengue",
+                 "epidemiologia", "cardiologia", "oncologia"),
+    "biologia": ("biologia", "biodiversidade", "ecologia", "especies", "genetica",
+                 "evolucao", "microbiota", "bacteria", "marinho", "marinha",
+                 "plantas", "fauna", "flora", "antimicrobiana"),
 }
 
 
@@ -516,9 +561,12 @@ class Motor:
         return achados
 
     def detetar_area(self, texto: str) -> str | None:
+        # A pista casa no INÍCIO de uma palavra: como substring, "terapia" (Psicologia)
+        # casava dentro de "quimioterapia" e "câncer de mama e quimioterapia" ia para Psicologia.
         alvo = sem_acento(texto)
         pontuacao = {
-            área: sum(1 for pista in lista if pista in alvo) for área, lista in PISTAS_AREA.items()
+            área: sum(1 for pista in lista if re.search(rf"(?<![0-9a-z]){re.escape(pista)}", alvo))
+            for área, lista in PISTAS_AREA.items()
         }
         melhor = max(pontuacao, key=lambda a: pontuacao[a])
         return melhor if pontuacao[melhor] else None
