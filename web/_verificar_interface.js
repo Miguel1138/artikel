@@ -224,7 +224,38 @@ async function main() {
   conferir('abstenção aparece na tela', abstencoes.raiz.textContent.includes('Ainda não tenho um registro'));
   conferir('abstenção não vira recomendação', !abstencoes.raiz.textContent.includes('Recomendação da base curada'));
 
-  // 6) API fora do ar: precisa avisar, não ficar em branco
+  // 6) Esclarecimento: as opções viram botões que mandam o próprio rótulo como mensagem
+  const esclarecimento = montarAmbiente({
+    '/saude': SAUDE,
+    '/chat': { ...CHAT, tipo: 'esclarecimento', artigos: [], fontes: [],
+               resposta: 'Só para confirmar: você quer que eu procure artigos sobre "cárie"?',
+               sugestoes: ['Procurar artigos sobre isso', 'Não, é outra coisa'],
+               traco: { ...CHAT.traco, acao: 'esclarecimento', confianca_abaixo_do_limiar: true,
+                        regra: 'confiança 0.45 entre 0.35 e 0.6: pergunta antes de agir' } },
+  });
+  await vm.runInContext(codigo, vm.createContext(esclarecimento.sandbox), { filename: 'app.js' });
+  await new Promise((r) => setTimeout(r, 30));
+  const campoEsc = esclarecimento.raiz.procurar((n) => n.tagName === 'INPUT')[0];
+  campoEsc.value = 'cárie';
+  esclarecimento.raiz.procurar((n) => n.tagName === 'FORM')[0].disparar('submit');
+  await new Promise((r) => setTimeout(r, 40));
+  const texto = esclarecimento.raiz.textContent;
+  conferir('esclarecimento tem etiqueta própria', texto.includes('Pergunta de esclarecimento'));
+  conferir('esclarecimento explica o traço', texto.includes('pergunta antes de agir'));
+  const opcao = esclarecimento.raiz.procurar((n) => n.tagName === 'BUTTON' && n.textContent === 'Procurar artigos sobre isso')[0];
+  conferir('esclarecimento mostra as opções como botões', Boolean(opcao));
+  if (opcao) {
+    opcao.disparar('click');
+    await new Promise((r) => setTimeout(r, 40));
+    const enviados = esclarecimento.chamadas.filter((c) => c.url.endsWith('/chat'))
+      .map((c) => JSON.parse(c.opcoes.body).mensagem);
+    conferir('botão envia o rótulo da opção', enviados[enviados.length - 1] === 'Procurar artigos sobre isso');
+    // O mock devolve o mesmo esclarecimento de novo: só o último turno pode ter botões ativos.
+    const botoes = esclarecimento.raiz.procurar((n) => n.tagName === 'BUTTON' && n.textContent === 'Procurar artigos sobre isso');
+    conferir('opções antigas somem depois da resposta', botoes.length === 1);
+  }
+
+  // 7) API fora do ar: precisa avisar, não ficar em branco
   const semApi = montarAmbiente({});
   semApi.sandbox.fetch = async () => { throw new Error('conexão recusada'); };
   await vm.runInContext(codigo, vm.createContext(semApi.sandbox), { filename: 'app.js' });

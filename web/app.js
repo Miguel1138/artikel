@@ -26,6 +26,7 @@ const ROTULO_TIPO = {
   referencia_abnt: 'Referência NBR 6023',
   orientacao_busca: 'Orientação de busca',
   abstencao: 'Abstenção',
+  esclarecimento: 'Pergunta de esclarecimento',
 };
 
 const estado = {
@@ -158,7 +159,9 @@ function painelTraco(traco) {
     ['contexto usado', traco.contexto_usado ? 'sim' : 'não'],
   ];
   if (traco.confianca_abaixo_do_limiar) {
-    linhas.push(['observação', 'confiança abaixo do limiar: resposta abstida']);
+    linhas.push(['observação', traco.acao === 'esclarecimento'
+      ? 'confiança abaixo do limiar: pergunta antes de agir'
+      : 'confiança abaixo do limiar: resposta abstida']);
   }
   const tabela = el('table', {}, linhas.map(([rotulo, valor]) => el('tr', {}, [
     el('td', { texto: rotulo }),
@@ -172,12 +175,21 @@ function painelTraco(traco) {
   return detalhes;
 }
 
-function turno(t) {
+function turno(t, ultimo) {
+  // As opções do esclarecimento só valem para a mensagem seguinte: botões apenas no último turno.
+  const opcoes = t.tipo === 'esclarecimento' && ultimo && (t.sugestoes || []).length
+    ? el('div', { classe: 'sugestoes' }, t.sugestoes.map((opcao) => el('button', {
+        texto: opcao,
+        disabled: estado.ocupado ? 'disabled' : null,
+        onclick: () => enviar(opcao),
+      })))
+    : null;
   const corpo = el('div', { classe: 'corpo' }, [
     el('span', { classe: 'etiqueta-intencao', texto: ROTULO_TIPO[t.tipo] || t.tipo }),
     t.tipo === 'abstencao'
       ? el('div', { classe: 'abstencao', texto: t.resposta })
       : el('div', { classe: 'texto-resposta', texto: t.resposta }),
+    opcoes,
     ...(t.artigos || []).map(cartaoArtigo),
     (t.fontes && t.fontes.length)
       ? el('div', { classe: 'motivo', texto: 'Fontes citadas: ' + t.fontes.join(' · ') })
@@ -241,7 +253,7 @@ function desenhar() {
           }))),
         ])
       : null,
-    ...estado.turnos.map(turno),
+    ...estado.turnos.map((t, i) => turno(t, i === estado.turnos.length - 1)),
     estado.ocupado ? el('p', { classe: 'carregando', texto: 'consultando a base curada…' }) : null,
     el('div', { id: 'fim' }),
   ]);

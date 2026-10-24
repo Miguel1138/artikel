@@ -43,6 +43,16 @@ FORA_DE_ESCOPO = "fora_de_escopo"
 # aceita ~88% das perguntas com ~98% de precisão. 0,80 aceitava 72% e, em perguntas de tema
 # novo, abstinha de quase toda busca legítima (curva em docs/pendencias.md).
 LIMIAR_CONFIANCA = 0.60
+# Faixa de esclarecimento: entre este valor e LIMIAR_CONFIANCA o bot não se abstém de cara,
+# pergunta "você quer X?" e só age depois do "sim". Abaixo dele, abstenção como antes.
+# 0,35 cobre as perguntas legítimas que ficavam em 0,38–0,57 (tema novo, "e a do terceiro").
+LIMIAR_ESCLARECIMENTO = 0.35
+# Uma segunda intenção entra como alternativa na pergunta se tiver pelo menos esta probabilidade
+# ("palavras-chave para achar artigos": buscar 0,55 / orientar 0,43 -> pergunta qual dos dois).
+MIN_SEGUNDA_OPCAO = 0.25
+# Fora de escopo previsto nunca vira pergunta, mesmo com uma ação logo atrás: "escreve sobre
+# depressão" sai 0,51 fora de escopo contra 0,48 busca, e oferecer busca ali enfraquece a
+# abstenção de pedidos de escrita (tests/test_esclarecimento.py).
 # [Marco 3] similaridade de cosseno mínima para recomendar um artigo.
 LIMIAR_SCORE = 0.10
 # Fração mínima dos termos de conteúdo da pergunta que precisam aparecer no artigo.

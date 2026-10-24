@@ -10,8 +10,13 @@ gerado a partir dele para o relatório.
 flowchart TD
     A[Pergunta do usuário] --> B[preprocessamento.py<br/>minúsculas, acentos, stopwords]
     B --> C[intencoes.py<br/>TF-IDF + Regressão Logística]
+    A -.-> X{contexto.py: há pergunta de<br/>esclarecimento pendente e a<br/>mensagem é sim/não/opção?}
+    X -- sim --> E2[executa a ação escolhida<br/>sobre a pergunta original] --> E
+    X -- não, recusou --> Z1
     C --> D{confiança ≥ LIMIAR_CONFIANCA?}
-    D -- não --> Z1[abstencao.py<br/>pede para reformular]
+    D -- não --> D2{confiança ≥ LIMIAR_ESCLARECIMENTO<br/>e não é fora_de_escopo?}
+    D2 -- sim --> Y[pergunta de esclarecimento<br/>"você quer X?" com 1 ou 2 opções]
+    D2 -- não --> Z1[abstencao.py<br/>pede para reformular]
     D -- sim --> E{qual intenção?}
 
     E -- buscar_referencias --> F[recuperacao.py<br/>cosseno sobre título+resumo+palavras-chave]
@@ -43,6 +48,7 @@ flowchart TD
     N --> T
     P --> T
     S --> T
+    Y --> T
     Z1 --> T
     Z2 --> T
     Z3 --> T

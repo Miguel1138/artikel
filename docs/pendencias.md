@@ -268,3 +268,37 @@ ONNX quantizado, ~118 MB em `models/encoder/`, CPU, sem rede em tempo de uso) + 
 
 O que mais ajudaria agora é **mais dados rotulados** com variação de vocabulário (principalmente
 `orientar_busca` x `buscar_referencias` e `avaliar_fonte`): o encoder reduz essa necessidade, não a elimina.
+
+## Pergunta de esclarecimento na faixa de confiança baixa — 23/10/2026
+
+**Antes:** abaixo de `LIMIAR_CONFIANCA` (0,60) o bot se abstinha. Perguntas legítimas que ficavam
+em 0,38–0,57 ("bactérias resistentes a antibióticos", "onde posso baixar o texto completo de
+graça?", "Que palavras-chave uso para achar artigos sobre cárie infantil?") recebiam "ainda não
+tenho um registro verificado", sem chance de o usuário confirmar o que queria.
+
+**Agora:** entre `LIMIAR_ESCLARECIMENTO` (0,35) e 0,60 o bot pergunta antes de agir
+(`fluxo._esclarecer`). A resposta tem `tipo = "esclarecimento"`, não traz artigo nenhum e oferece
+até duas ações, na ordem das probabilidades do classificador. A segunda só entra com probabilidade
+>= `MIN_SEGUNDA_OPCAO` (0,25). As opções viram botões no front. A pergunta original fica em
+`Contexto.esclarecimento` e vale **só para a mensagem seguinte**: "sim", "1"/"2", o rótulo do
+botão ou "não". Qualquer outra mensagem descarta a pergunta e segue o fluxo normal. A ação
+confirmada roda sobre a pergunta original e o traço registra "confirmado pelo usuário".
+
+**Travas:**
+* `fora_de_escopo` previsto **nunca** vira pergunta, nem com uma ação logo atrás. "escreve sobre
+  depressão" sai 0,51 fora de escopo contra 0,48 busca; oferecer busca ali enfraqueceria a
+  abstenção de pedidos de escrita (`test_esclarecimento.py`).
+* `formatar_referencia` só é oferecida quando o contexto resolve o artigo citado. Sem lista, o
+  "sim" levaria a outra abstenção, então o bot se abstém direto, como antes.
+* Abaixo de 0,35 nada muda: abstenção.
+* "sim"/"não"/"ok" **sem** pergunta em aberto (expirou, conversa limpa) recebem
+  `SEM_PERGUNTA_PENDENTE`. Antes, "sim" virava busca por tema solto, porque a palavra aparece em
+  vários artigos da base, e o bot devolvia 2 artigos.
+
+**Efeito medido:** `tests/avaliar.py` com as mesmas métricas (acurácia, Precisão@5, abstenção
+fora de escopo 1,000, 0 citações inventadas). O caso 9 continua errado na intenção, mas agora
+pergunta "artigos sobre "cárie infantil" ou dicas de como buscar?" em vez de se abster.
+
+**Limite conhecido:** a pergunta herda o erro do classificador. "quem ganhou o jogo ontem?" sai
+`avaliar_fonte` 0,41 e o bot pergunta "você quer saber se essa fonte é confiável?". É inofensivo
+(nada é recomendado, e o "não" encerra), mas soa estranho.
