@@ -28,7 +28,10 @@ from config import (
     BONUS_MESMA_AREA,
     BONUS_REVISAO,
     COBERTURA_MINIMA,
+    MAX_TERMOS_TEMA,
+    MIN_ARTIGOS_TEMA,
     MIN_COBERTURA_COMPLETA,
+    TERMOS_DO_SISTEMA,
     TOP_K,
 )
 
@@ -45,7 +48,7 @@ class Candidato:
 # Palavras que aparecem em quase toda pergunta e não distinguem tema. Entram na
 # similaridade, mas são ignoradas na hora de medir cobertura temática.
 # "saude", "clinica" e afins entram porque no projeto elas qualificam o contexto (saúde é
-# área de aplicação em Computação, Odontologia e Psicologia), não o tema buscado: sem isso,
+# área de aplicação em todas as cinco áreas da base), não o tema buscado: sem isso,
 # "aprendizado de máquina na saúde" exigiria a palavra "saúde" em todo artigo de Computação.
 GENERICAS = {
     "artigo", "artigos", "estudo", "estudos", "pesquisa", "pesquisas", "preciso",
@@ -71,6 +74,9 @@ GENERICAS = {
     "algumas", "tratam", "trata", "tratar", "dizem", "fala", "falam", "ler", "leitura",
     "leituras", "literature", "bibliography", "something", "anything",
     "primeira", "primeiras", "primeiro", "primeiros",
+    # "o que se publicou sobre dengue": o verbo não é tema e, sem equivalente, pesava o máximo.
+    "publicou", "publicaram", "publicado", "publicados", "publicada", "publicadas",
+    "publicacao", "publicacoes",
     # Adjetivos de tamanho/ligação e conectivos que não dizem o tema ("crianças pequenas",
     # "IA aplicada à saúde", "durante a pandemia"): sem correspondência, pesavam como o termo
     # mais raro da pergunta e derrubavam a cobertura.
@@ -123,6 +129,20 @@ ALIASES = {
     "workplace": {"trabalho"},
     "desenvolvimento": {"development"}, "development": {"desenvolvimento"},
     "privacidade": {"privacy"}, "privacy": {"privacidade"},
+    "medicina": {"medicine"}, "medicine": {"medicina"},
+    "hipertensao": {"hypertension"}, "hypertension": {"hipertensao"},
+    "cancer": {"cancer", "tumor", "neoplasm"},
+    "mama": {"breast"}, "breast": {"mama"},
+    "obesidade": {"obesity"}, "obesity": {"obesidade"},
+    "tuberculose": {"tuberculosis"}, "tuberculosis": {"tuberculose"},
+    "biologia": {"biology"}, "biology": {"biologia"},
+    "biodiversidade": {"biodiversity"}, "biodiversity": {"biodiversidade"},
+    "ecologia": {"ecology"}, "ecology": {"ecologia"},
+    "evolucao": {"evolution"}, "evolution": {"evolucao"},
+    "genetica": {"genetics", "genetic"}, "genetics": {"genetica"},
+    "marinho": {"marine"}, "marinhos": {"marine"}, "marinha": {"marine"}, "marine": {"marinho"},
+    "plantas": {"plants"}, "plants": {"plantas"},
+    "medicinais": {"medicinal"}, "medicinal": {"medicinais"},
 }
 
 def equivalentes(termo: str) -> set[str]:
@@ -168,6 +188,26 @@ CONCEITOS: tuple[tuple[str, ...], ...] = (
     ("dental", "implant"),
     ("desenvolvimento", "infantil"),
     ("child", "development"),
+    ("visao", "computacional"),
+    ("computer", "vision"),
+    ("internet", "coisas"),
+    ("internet", "things"),
+    ("mineracao", "dados"),
+    ("data", "mining"),
+    ("cancer", "mama"),
+    ("breast", "cancer"),
+    ("cancer", "bucal"),
+    ("oral", "cancer"),
+    ("diabetes", "mellitus"),
+    ("hipertensao", "arterial"),
+    ("doencas", "cardiovasculares"),
+    ("cardiovascular", "disease"),
+    ("resistencia", "antimicrobiana"),
+    ("antimicrobial", "resistance"),
+    ("plantas", "medicinais"),
+    ("medicinal", "plants"),
+    ("genetica", "populacoes"),
+    ("population", "genetics"),
 )
 
 
@@ -179,7 +219,15 @@ PISTAS_AREA = {
     "odontologia": ("odontologia", "dental", "dente", "carie", "periodontal",
                     "clareamento", "implante", "bucal", "flúor", "fluor"),
     "psicologia": ("psicologia", "ansiedade", "depressao", "mental", "burnout",
-                   "universitarios", "terapia", "comportamento"),
+                   "universitarios", "terapia", "comportamento", "autismo", "trauma"),
+    # Sem "doenca" e sem "cancer" soltos: "doença periodontal" e "câncer bucal" são de
+    # Odontologia, e empate fica com a área que vem antes neste dicionário.
+    "medicina": ("medicina", "medico", "hipertensao", "diabetes", "cancer de mama",
+                 "covid", "cardiovascular", "obesidade", "tuberculose", "dengue",
+                 "epidemiologia", "cardiologia", "oncologia"),
+    "biologia": ("biologia", "biodiversidade", "ecologia", "especies", "genetica",
+                 "evolucao", "microbiota", "bacteria", "marinho", "marinha",
+                 "plantas", "fauna", "flora", "antimicrobiana"),
 }
 
 
@@ -202,6 +250,7 @@ class Motor:
         self._textos_norm: list[str] = []
         self._palavras_doc: list[set[str]] = []
         self._cache_peso: dict[str, float] = {}
+        self._cache_df: dict[str, int] = {}
         self._carregar(arq_base, arq_periodicos)
 
     # ------------------------------------------------------------ carga
@@ -234,6 +283,7 @@ class Motor:
         self._textos_norm = [_MARCA_PALAVRA.sub(" ", sem_acento(d)) for d in documentos]
         self._palavras_doc = [set(t.split()) for t in self._textos_norm]
         self._cache_peso = {}
+        self._cache_df = {}
 
     @staticmethod
     def _documento(artigo: dict) -> str:
@@ -264,6 +314,33 @@ class Motor:
         )
         return {p: math.log((1 + n) / (1 + c)) + 1 for p, c in contagem.items()}
 
+    def _df(self, termo: str) -> int:
+        """Em quantos artigos aparece o termo ou qualquer equivalente pt/en dele."""
+        if termo not in self._cache_df:
+            variantes = {termo} | equivalentes(termo)
+            self._cache_df[termo] = sum(
+                1 for palavras, texto in zip(self._palavras_doc, self._textos_norm)
+                if any((v in palavras) if " " not in v else (v in texto) for v in variantes)
+            )
+        return self._cache_df[termo]
+
+    def so_tema(self, consulta: str) -> bool:
+        """A mensagem é só um tema que a base conhece? ("depressão", "cárie infantil")
+
+        Verdadeiro quando, tiradas as palavras de enchimento e as funcionais, sobram de 1 a
+        MAX_TERMOS_TEMA palavras e TODAS são tema da base: aparecem em pelo menos
+        MIN_ARTIGOS_TEMA artigos (ou têm equivalente pt/en neles) e não são vocabulário de
+        outra ação do bot (`TERMOS_DO_SISTEMA`). Vale também para palavras curtas: "faz" em
+        "faz minha introdução sobre cárie" aparece em um só artigo, logo não é tema e a
+        mensagem fica com o classificador. É a evidência de que o usuário buscou um assunto,
+        que o classificador não tem para um substantivo solto.
+        """
+        palavras = _MARCA_PALAVRA.sub(" ", sem_acento(consulta)).split()
+        conteudo = [t for t in palavras if t not in GENERICAS and t not in _FUNCIONAIS]
+        if not conteudo or len(conteudo) > MAX_TERMOS_TEMA:
+            return False
+        return all(t not in TERMOS_DO_SISTEMA and self._df(t) >= MIN_ARTIGOS_TEMA for t in conteudo)
+
     def _peso(self, termo: str) -> float:
         """Raridade do conceito: idf calculado sobre os artigos que têm QUALQUER variante pt/en.
 
@@ -276,11 +353,7 @@ class Motor:
         possível, e a similaridade (que devolve 0) é quem vai barrar.
         """
         if termo not in self._cache_peso:
-            variantes = {termo} | equivalentes(termo)
-            df = sum(
-                1 for palavras, texto in zip(self._palavras_doc, self._textos_norm)
-                if any((v in palavras) if " " not in v else (v in texto) for v in variantes)
-            )
+            df = self._df(termo)
             n = len(self.artigos) or 1
             self._cache_peso[termo] = (
                 math.log((1 + n) / (1 + df)) + 1 if df
@@ -488,9 +561,12 @@ class Motor:
         return achados
 
     def detetar_area(self, texto: str) -> str | None:
+        # A pista casa no INÍCIO de uma palavra: como substring, "terapia" (Psicologia)
+        # casava dentro de "quimioterapia" e "câncer de mama e quimioterapia" ia para Psicologia.
         alvo = sem_acento(texto)
         pontuacao = {
-            área: sum(1 for pista in lista if pista in alvo) for área, lista in PISTAS_AREA.items()
+            área: sum(1 for pista in lista if re.search(rf"(?<![0-9a-z]){re.escape(pista)}", alvo))
+            for área, lista in PISTAS_AREA.items()
         }
         melhor = max(pontuacao, key=lambda a: pontuacao[a])
         return melhor if pontuacao[melhor] else None

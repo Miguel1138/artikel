@@ -1302,5 +1302,7041 @@
     ],
     "licenca": "cc-by",
     "url": "https://www.sciopen.com/journal/1007-0214"
+  },
+  {
+    "titulo": "Brazilian Journal of Nephrology",
+    "issn": [
+      "2175-8239",
+      "0101-2800"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Diseases of the genitourinary system. Urology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/jbn/"
+  },
+  {
+    "titulo": "Radiologia Brasileira",
+    "issn": [
+      "1678-7099"
+    ],
+    "indexacao": [
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1590/0100-3984.2021.0091-en"
+  },
+  {
+    "titulo": "Revista Brasileira de Terapia Intensiva",
+    "issn": [
+      "0103-507X"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Medical emergencies. Critical care. Intensive care. First aid"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.scielo.br/scielo.php?script=sci_serial&pid=0103-507X&lng=en&nrm=iso"
+  },
+  {
+    "titulo": "Archives of Clinical Psychiatry (São Paulo)",
+    "issn": [
+      "1806-938X",
+      "0101-6083"
+    ],
+    "indexacao": [
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1590/0101-60830000000219"
+  },
+  {
+    "titulo": "Jornal Brasileiro de Patologia e Medicina Laboratorial",
+    "issn": [
+      "1676-2444"
+    ],
+    "indexacao": [
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.5935/1676-2444.20180019"
+  },
+  {
+    "titulo": "Revista Dor",
+    "issn": [
+      "1806-0013"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Medicine",
+      "Medicine (General)"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.scielo.br/scielo.php?script=sci_serial&pid=1806-0013&lng=en&nrm=iso"
+  },
+  {
+    "titulo": "Brazilian Journal of Physical Therapy",
+    "issn": [
+      "1809-9246"
+    ],
+    "indexacao": [
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1590/bjpt-rbf.2014.0186"
+  },
+  {
+    "titulo": "BrJP",
+    "issn": [
+      "2595-0118"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "Latindex",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Medicine"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://brjp.org.br/"
+  },
+  {
+    "titulo": "Trends in Psychiatry and Psychotherapy",
+    "issn": [
+      "2238-0019",
+      "2237-6089"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO",
+      "Scopus"
+    ],
+    "assuntos": [
+      "Psychiatry"
+    ],
+    "revisao": [
+      "Open peer review",
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/trends/"
+  },
+  {
+    "titulo": "International Archives of Otorhinolaryngology",
+    "issn": [
+      "1809-9777",
+      "1809-4864"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Medicine",
+      "Otorhinolaryngology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://lp.thieme.de/journals/international-archives-of-otorhinolaryngology/1809-9777"
+  },
+  {
+    "titulo": "São Paulo Medical Journal",
+    "issn": [
+      "1806-9460",
+      "1516-3180"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Medicine"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.scielo.br/spmj"
+  },
+  {
+    "titulo": "Cadernos de Saúde Coletiva",
+    "issn": [
+      "2358-291X",
+      "1414-462X"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/cadsc/"
+  },
+  {
+    "titulo": "Journal of Venomous Animals and Toxins including Tropical Diseases",
+    "issn": [
+      "1678-9199"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Arctic medicine. Tropical medicine",
+      "Toxicology. Poisons",
+      "Zoology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/jvatitd/"
+  },
+  {
+    "titulo": "PLoS ONE",
+    "issn": [
+      "1932-6203"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Medicine",
+      "Science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc0",
+    "url": "https://journals.plos.org/plosone/"
+  },
+  {
+    "titulo": "International Brazilian Journal of Urology",
+    "issn": [
+      "1677-6119",
+      "1677-5538"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Diseases of the genitourinary system. Urology"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/ibju/"
+  },
+  {
+    "titulo": "Revista Pesquisa em Fisioterapia",
+    "issn": [
+      "2238-2704"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Medicine (General)",
+      "Other systems of medicine"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www5.bahiana.edu.br/index.php/fisioterapia/index"
+  },
+  {
+    "titulo": "Brazilian Journal of Psychiatry",
+    "issn": [
+      "1516-4446",
+      "1809-452X"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE",
+      "SciELO",
+      "Scopus"
+    ],
+    "assuntos": [
+      "Psychiatry"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/rbp/"
+  },
+  {
+    "titulo": "Revista Brasileira em Promoção da Saúde",
+    "issn": [
+      "1806-1230"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Medicine (General)",
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://periodicos.unifor.br/RBPS/index"
+  },
+  {
+    "titulo": "Environmental Health Perspectives",
+    "issn": [
+      "0091-6765",
+      "1552-9924"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Environmental sciences",
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc0",
+    "url": "https://pubs.acs.org/journal/evhpaz"
+  },
+  {
+    "titulo": "Arquivos Brasileiros de Cardiologia",
+    "issn": [
+      "0066-782X"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Diseases of the circulatory (Cardiovascular) system"
+    ],
+    "revisao": [
+      "Single anonymous peer review",
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/abc/"
+  },
+  {
+    "titulo": "Arquivos de Neuro-Psiquiatria",
+    "issn": [
+      "0004-282X",
+      "1678-4227"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Neurosciences. Biological psychiatry. Neuropsychiatry"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://lp.thieme.de/journals/arquivos-de-neuro-psiquiatria-neurology-and-neuroscience/0004-282X"
+  },
+  {
+    "titulo": "Arquivos Brasileiros de Oftalmologia",
+    "issn": [
+      "0004-2749"
+    ],
+    "indexacao": [
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.5935/0004-2749.20220053"
+  },
+  {
+    "titulo": "Brazilian Journal of Medical and Biological Research",
+    "issn": [
+      "1414-431X",
+      "0100-879X"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Medicine (General)",
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/bjmbr/"
+  },
+  {
+    "titulo": "Revista Brasileira de Saúde Materno Infantil",
+    "issn": [
+      "1806-9304",
+      "1519-3829"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Gynecology and obstetrics"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/rbsmi/"
+  },
+  {
+    "titulo": "Trends in Psychiatry and Psychotherapy",
+    "issn": [
+      "2237-6089",
+      "2238-0019"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO",
+      "Scopus"
+    ],
+    "assuntos": [
+      "Psychiatry"
+    ],
+    "revisao": [
+      "Open peer review",
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/trends/"
+  },
+  {
+    "titulo": "Arquivos Brasileiros de Cardiologia",
+    "issn": [
+      "1678-4170",
+      "0066-782X"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Diseases of the circulatory (Cardiovascular) system"
+    ],
+    "revisao": [
+      "Single anonymous peer review",
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/abc/"
+  },
+  {
+    "titulo": "Frontiers in Pharmacology",
+    "issn": [
+      "1663-9812"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Therapeutics. Pharmacology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/pharmacology"
+  },
+  {
+    "titulo": "Frontiers in Endocrinology",
+    "issn": [
+      "1664-2392"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Diseases of the endocrine glands. Clinical endocrinology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/endocrinology"
+  },
+  {
+    "titulo": "Frontiers in Immunology",
+    "issn": [
+      "1664-3224"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Immunologic diseases. Allergy"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/immunology"
+  },
+  {
+    "titulo": "International Journal of Environmental Research and Public Health",
+    "issn": [
+      "1660-4601"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.3390/ijerph14121604"
+  },
+  {
+    "titulo": "Clinics",
+    "issn": [
+      "1807-5932"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Medicine (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/clinics"
+  },
+  {
+    "titulo": "Frontiers in Oncology",
+    "issn": [
+      "2234-943X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Neoplasms. Tumors. Oncology. Including cancer and carcinogens"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/oncology/"
+  },
+  {
+    "titulo": "Reproductive Health",
+    "issn": [
+      "1742-4755"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Gynecology and obstetrics"
+    ],
+    "revisao": [
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://reproductive-health-journal.biomedcentral.com/"
+  },
+  {
+    "titulo": "Fisioterapia e Pesquisa",
+    "issn": [
+      "2316-9117",
+      "1809-2950"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Therapeutics. Pharmacology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.scielo.br/scielo.php?script=sci_serial&pid=1809-2950&lng=en&nrm=iso"
+  },
+  {
+    "titulo": "International Journal of Endocrinology",
+    "issn": [
+      "1687-8337",
+      "1687-8345"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Diseases of the endocrine glands. Clinical endocrinology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://onlinelibrary.wiley.com/journal/1573"
+  },
+  {
+    "titulo": "The Pan African Medical Journal",
+    "issn": [
+      "1937-8688"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Medicine"
+    ],
+    "revisao": [
+      "Editorial review",
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://panafrican-med-journal.com"
+  },
+  {
+    "titulo": "Journal of Orthopaedic Surgery and Research",
+    "issn": [
+      "1749-799X"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Orthopedic surgery",
+      "Diseases of the musculoskeletal system"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://josr-online.biomedcentral.com/"
+  },
+  {
+    "titulo": "Jornal de Pediatria",
+    "issn": [
+      "0021-7557"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Pediatrics"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/jornal-de-pediatria"
+  },
+  {
+    "titulo": "Revista Brasileira de Geriatria e Gerontologia",
+    "issn": [
+      "1981-2256",
+      "1809-9823"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Geriatrics"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.scielo.br/scielo.php?script=sci_serial&pid=1809-9823&nrm=iso&rep=&lng=pt"
+  },
+  {
+    "titulo": "Revista Brasileira de Ginecologia e Obstetrícia",
+    "issn": [
+      "0100-7203",
+      "1806-9339"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Gynecology and obstetrics"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Open peer review",
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/rbgo/"
+  },
+  {
+    "titulo": "Revista de Saúde Pública",
+    "issn": [
+      "1518-8787",
+      "0034-8910"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/rsp/"
+  },
+  {
+    "titulo": "BioMed Research International",
+    "issn": [
+      "2314-6133",
+      "2314-6141"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1155/2017/5202684"
+  },
+  {
+    "titulo": "ABCD. Arquivos Brasileiros de Cirurgia Digestiva (São Paulo)",
+    "issn": [
+      "2317-6326",
+      "0102-6720"
+    ],
+    "indexacao": [
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1590/0102-672020220002e1681"
+  },
+  {
+    "titulo": "Critical Care Science",
+    "issn": [
+      "2965-2774"
+    ],
+    "indexacao": [
+      "LILACS",
+      "MEDLINE",
+      "SciELO",
+      "Scopus"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.5935/0103-507x.20210015"
+  },
+  {
+    "titulo": "Trabalho, Educação e Saúde",
+    "issn": [
+      "1981-7746",
+      "1678-1007"
+    ],
+    "indexacao": [
+      "SciELO"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1590/1981-7746-sol00277"
+  },
+  {
+    "titulo": "International Journal of Molecular Sciences",
+    "issn": [
+      "1422-0067"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.3390/ijms21010036"
+  },
+  {
+    "titulo": "Pharmaceutical Biology",
+    "issn": [
+      "1388-0209",
+      "1744-5116"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Therapeutics. Pharmacology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.tandfonline.com/journals/iphb"
+  },
+  {
+    "titulo": "Journal of Diabetes Research",
+    "issn": [
+      "2314-6745",
+      "2314-6753"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Diseases of the endocrine glands. Clinical endocrinology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://onlinelibrary.wiley.com/journal/1485"
+  },
+  {
+    "titulo": "Revista Brasileira de Ortopedia",
+    "issn": [
+      "0102-3616",
+      "1982-4378"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Medicine",
+      "Orthopedic surgery"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://lp.thieme.de/journals/revista-brasileira-de-ortopedia-brazilian-journal-of-orthopaedics/0102-3616"
+  },
+  {
+    "titulo": "Revista Brasileira de Saúde Ocupacional",
+    "issn": [
+      "2317-6369",
+      "0303-7657"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Open peer review",
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/rbso/"
+  },
+  {
+    "titulo": "Scientific Reports",
+    "issn": [
+      "2045-2322"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Medicine",
+      "Science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.nature.com/srep/"
+  },
+  {
+    "titulo": "Revista da Sociedade Brasileira de Medicina Tropical",
+    "issn": [
+      "1678-9849",
+      "0037-8682"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Arctic medicine. Tropical medicine"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/rsbmt/"
+  },
+  {
+    "titulo": "BMC Cancer",
+    "issn": [
+      "1471-2407"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Neoplasms. Tumors. Oncology. Including cancer and carcinogens"
+    ],
+    "revisao": [
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://bmccancer.biomedcentral.com"
+  },
+  {
+    "titulo": "Cadernos de Saúde Pública",
+    "issn": [
+      "1678-4464",
+      "0102-311X"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Medicine",
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/csp/"
+  },
+  {
+    "titulo": "Autopsy and Case Reports",
+    "issn": [
+      "2236-1960"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "Latindex",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Medicine",
+      "Internal medicine"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.autopsyandcasereports.org"
+  },
+  {
+    "titulo": "Preventing Chronic Disease",
+    "issn": [
+      "1545-1151"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.cdc.gov/pcd"
+  },
+  {
+    "titulo": "Saúde em Debate",
+    "issn": [
+      "2358-2898",
+      "0103-1104"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/sdeb/"
+  },
+  {
+    "titulo": "Physis: Revista de Saúde Coletiva",
+    "issn": [
+      "1809-4481",
+      "0103-7331"
+    ],
+    "indexacao": [
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1590/s0103-733120263601508pt"
+  },
+  {
+    "titulo": "Frontiers in Nuclear Medicine",
+    "issn": [
+      "2673-8880"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Medical physics. Medical radiology. Nuclear medicine"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/nuclear-medicine"
+  },
+  {
+    "titulo": "Brazilian Journal of Anesthesiology",
+    "issn": [
+      "0104-0014"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO",
+      "Scopus"
+    ],
+    "assuntos": [
+      "Anesthesiology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/brazilian-journal-of-anesthesiology-english-edition"
+  },
+  {
+    "titulo": "Frontiers in Radiology",
+    "issn": [
+      "2673-8740"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Medical physics. Medical radiology. Nuclear medicine"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/radiology"
+  },
+  {
+    "titulo": "Revista Brasileira de Cirurgia Plástica",
+    "issn": [
+      "2177-1235"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "Latindex",
+      "SciELO",
+      "Scopus"
+    ],
+    "assuntos": [
+      "Surgery"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://lp.thieme.de/journals/revista-brasileira-de-cirurgia-pl%C3%A1stica-%E2%80%93-brazilian-journal-of-plastic-surgery/1983-5175"
+  },
+  {
+    "titulo": "Revista Eletrônica de Enfermagem",
+    "issn": [
+      "1518-1944"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Nursing"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://revistas.ufg.br/fen/"
+  },
+  {
+    "titulo": "Jornal Brasileiro de Psiquiatria",
+    "issn": [
+      "1982-0208",
+      "0047-2085"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Psychiatry"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/jbpsiq/i/2021.v70n4/"
+  },
+  {
+    "titulo": "Current Oncology",
+    "issn": [
+      "1718-7729"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Neoplasms. Tumors. Oncology. Including cancer and carcinogens"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.mdpi.com/journal/curroncol"
+  },
+  {
+    "titulo": "Oncotarget",
+    "issn": [
+      "1949-2553"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.18632/oncotarget.27364"
+  },
+  {
+    "titulo": "Archives of Public Health",
+    "issn": [
+      "2049-3258"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://archpublichealth.biomedcentral.com"
+  },
+  {
+    "titulo": "Revista do Colégio Brasileiro de Cirurgiões",
+    "issn": [
+      "1809-4546",
+      "0100-6991"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Surgery"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Open peer review",
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/rcbc/"
+  },
+  {
+    "titulo": "The Lancet Global Health",
+    "issn": [
+      "2214-109X"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/the-lancet-global-health"
+  },
+  {
+    "titulo": "Nutrients",
+    "issn": [
+      "2072-6643"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.3390/nu11010037"
+  },
+  {
+    "titulo": "Frontiers in Medicine",
+    "issn": [
+      "2296-858X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Medicine (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/medicine"
+  },
+  {
+    "titulo": "Breast Cancer Research",
+    "issn": [
+      "1465-542X"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Neoplasms. Tumors. Oncology. Including cancer and carcinogens"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://breast-cancer-research.biomedcentral.com/"
+  },
+  {
+    "titulo": "Frontiers in Health Services",
+    "issn": [
+      "2813-0146"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Medicine"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/health-services"
+  },
+  {
+    "titulo": "Frontiers in Public Health",
+    "issn": [
+      "2296-2565"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/public-health"
+  },
+  {
+    "titulo": "Frontiers in Neurology",
+    "issn": [
+      "1664-2295"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Neurology. Diseases of the nervous system"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/neurology/"
+  },
+  {
+    "titulo": "Frontiers in Psychiatry",
+    "issn": [
+      "1664-0640"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychiatry"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/psychiatry"
+  },
+  {
+    "titulo": "Journal of Coloproctology",
+    "issn": [
+      "2237-9363",
+      "2317-6423"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO",
+      "Scopus"
+    ],
+    "assuntos": [
+      "Diseases of the digestive system. Gastroenterology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://lp.thieme.de/journals/journal-of-coloproctology/2237-9363"
+  },
+  {
+    "titulo": "Brazilian Journal of Infectious Diseases",
+    "issn": [
+      "1413-8670"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Infectious and parasitic diseases",
+      "Microbiology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/the-brazilian-journal-of-infectious-diseases"
+  },
+  {
+    "titulo": "Frontiers in Cardiovascular Medicine",
+    "issn": [
+      "2297-055X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Diseases of the circulatory (Cardiovascular) system"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/cardiovascular-medicine"
+  },
+  {
+    "titulo": "Advances in Rheumatology",
+    "issn": [
+      "2523-3106"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO",
+      "Scopus",
+      "WoS"
+    ],
+    "assuntos": [
+      "Diseases of the musculoskeletal system",
+      "Immunologic diseases. Allergy"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://advancesinrheumatology.biomedcentral.com/"
+  },
+  {
+    "titulo": "JAMA Cardiology",
+    "issn": [
+      "2380-6583"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1001/jamacardio.2019.3891"
+  },
+  {
+    "titulo": "Brazilian Journal of Cardiovascular Surgery",
+    "issn": [
+      "1678-9741"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Surgery",
+      "Diseases of the circulatory (Cardiovascular) system"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Open peer review",
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/rbccv/"
+  },
+  {
+    "titulo": "Arteriosclerosis, Thrombosis, and Vascular Biology",
+    "issn": [
+      "1079-5642",
+      "1524-4636"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1161/atvbaha.118.311804"
+  },
+  {
+    "titulo": "Frontiers in Aging",
+    "issn": [
+      "2673-6217"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Geriatrics"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/aging"
+  },
+  {
+    "titulo": "Cardiovascular Therapeutics",
+    "issn": [
+      "1755-5914",
+      "1755-5922"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Therapeutics. Pharmacology",
+      "Diseases of the circulatory (Cardiovascular) system"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://onlinelibrary.wiley.com/journal/4702"
+  },
+  {
+    "titulo": "International Journal of Clinical Pharmacy",
+    "issn": [
+      "2210-7703",
+      "2210-7711"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s11096-018-0744-3"
+  },
+  {
+    "titulo": "Arthritis Research & Therapy",
+    "issn": [
+      "1478-6362"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Diseases of the musculoskeletal system"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://arthritis-research.biomedcentral.com"
+  },
+  {
+    "titulo": "Cardiovascular Diabetology",
+    "issn": [
+      "1475-2840"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Diseases of the circulatory (Cardiovascular) system"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://cardiab.biomedcentral.com/"
+  },
+  {
+    "titulo": "Biomarker Research",
+    "issn": [
+      "2050-7771"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Therapeutics. Pharmacology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://biomarkerres.biomedcentral.com/"
+  },
+  {
+    "titulo": "Frontiers in Neuroscience",
+    "issn": [
+      "1662-453X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Neurosciences. Biological psychiatry. Neuropsychiatry"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/neuroscience"
+  },
+  {
+    "titulo": "Revista da Sociedade Portuguesa de Dermatologia e Venereologia",
+    "issn": [
+      "2182-2409",
+      "2182-2395"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Dermatology",
+      "Infectious and parasitic diseases"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://revista.spdv.com.pt"
+  },
+  {
+    "titulo": "Fisioterapia em Movimento",
+    "issn": [
+      "1980-5918"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "Latindex",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Therapeutics. Pharmacology",
+      "Sports medicine"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://periodicos.pucpr.br/index.php/fisio"
+  },
+  {
+    "titulo": "Revista Panamericana de Salud Pública",
+    "issn": [
+      "1020-4989",
+      "1680-5348"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Medicine",
+      "Arctic medicine. Tropical medicine",
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.paho.org/journal/"
+  },
+  {
+    "titulo": "Revista Brasileira de Epidemiologia",
+    "issn": [
+      "1980-5497",
+      "1415-790X"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/rbepid/"
+  },
+  {
+    "titulo": "Frontiers in Allergy",
+    "issn": [
+      "2673-6101"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Immunologic diseases. Allergy"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/allergy"
+  },
+  {
+    "titulo": "Pensar Enfermagem",
+    "issn": [
+      "1647-5526",
+      "0873-8904"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Nursing"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://pensarenfermagem.esel.pt/"
+  },
+  {
+    "titulo": "Frontiers in Pediatrics",
+    "issn": [
+      "2296-2360"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Pediatrics"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/pediatrics"
+  },
+  {
+    "titulo": "PLoS Medicine",
+    "issn": [
+      "1549-1676"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Medicine"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc0",
+    "url": "https://journals.plos.org/plosmedicine/"
+  },
+  {
+    "titulo": "Journal of the Endocrine Society",
+    "issn": [
+      "2472-1972"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Diseases of the endocrine glands. Clinical endocrinology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc0",
+    "url": "https://academic.oup.com/jes"
+  },
+  {
+    "titulo": "Revista da Escola de Enfermagem da USP",
+    "issn": [
+      "1980-220X",
+      "0080-6234"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Public aspects of medicine",
+      "Nursing",
+      "Mental healing",
+      "Education (General)"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Open peer review",
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/reeusp/"
+  },
+  {
+    "titulo": "Revista Enfermagem Contemporânea",
+    "issn": [
+      "2317-3378"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Nursing"
+    ],
+    "revisao": [
+      "Double anonymous peer review",
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www5.bahiana.edu.br/index.php/enfermagem"
+  },
+  {
+    "titulo": "Revista Brasileira de Cirurgia Plástica",
+    "issn": [
+      "1983-5175",
+      "2177-1235"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "Latindex",
+      "SciELO",
+      "Scopus"
+    ],
+    "assuntos": [
+      "Surgery"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://lp.thieme.de/journals/revista-brasileira-de-cirurgia-pl%C3%A1stica-%E2%80%93-brazilian-journal-of-plastic-surgery/1983-5175"
+  },
+  {
+    "titulo": "Jornal Vascular Brasileiro",
+    "issn": [
+      "1677-7301",
+      "1677-5449"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Surgery",
+      "Diseases of the circulatory (Cardiovascular) system"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/jvb/"
+  },
+  {
+    "titulo": "Revista Latino-Americana de Enfermagem",
+    "issn": [
+      "1518-8345"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Nursing"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.scielo.br/rlae"
+  },
+  {
+    "titulo": "Revista Paulista de Pediatria",
+    "issn": [
+      "0103-0582"
+    ],
+    "indexacao": [
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.rpped.2016.01.003"
+  },
+  {
+    "titulo": "Brazilian Journal of Otorhinolaryngology",
+    "issn": [
+      "1808-8694"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Otorhinolaryngology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/brazilian-journal-of-otorhinolaryngology"
+  },
+  {
+    "titulo": "Revista Paulista de Pediatria",
+    "issn": [
+      "1984-0462",
+      "0103-0582"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Pediatrics"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/rpp/"
+  },
+  {
+    "titulo": "Frontiers in Antibiotics",
+    "issn": [
+      "2813-2467"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Therapeutics. Pharmacology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/antibiotics"
+  },
+  {
+    "titulo": "Anais Brasileiros de Dermatologia",
+    "issn": [
+      "0365-0596"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Dermatology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/abd/"
+  },
+  {
+    "titulo": "Hansenologia Internationalis",
+    "issn": [
+      "1982-5161"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Infectious and parasitic diseases"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://periodicos.saude.sp.gov.br/index.php/hansenologia"
+  },
+  {
+    "titulo": "Brazilian Journal of Nephrology",
+    "issn": [
+      "0101-2800"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Diseases of the genitourinary system. Urology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/jbn/"
+  },
+  {
+    "titulo": "Tuberculosis",
+    "issn": [
+      "1472-9792"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.tube.2016.08.001"
+  },
+  {
+    "titulo": "Frontiers in Tuberculosis",
+    "issn": [
+      "2813-7868"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Medicine"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/tuberculosis"
+  },
+  {
+    "titulo": "Virulence",
+    "issn": [
+      "2150-5594",
+      "2150-5608"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Infectious and parasitic diseases"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc0",
+    "url": "https://www.tandfonline.com/journals/kvir"
+  },
+  {
+    "titulo": "BMC Infectious Diseases",
+    "issn": [
+      "1471-2334"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Infectious and parasitic diseases"
+    ],
+    "revisao": [
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://bmcinfectdis.biomedcentral.com"
+  },
+  {
+    "titulo": "Tropical Medicine and Infectious Disease",
+    "issn": [
+      "2414-6366"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Medicine"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.mdpi.com/journal/tropicalmed"
+  },
+  {
+    "titulo": "PLoS Pathogens",
+    "issn": [
+      "1553-7374"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Immunologic diseases. Allergy",
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc0",
+    "url": "https://journals.plos.org/plospathogens/"
+  },
+  {
+    "titulo": "African Journal of Laboratory Medicine",
+    "issn": [
+      "2225-2010",
+      "2225-2002"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Public aspects of medicine",
+      "Medicine (General)"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://ajlmonline.org/index.php/ajlm"
+  },
+  {
+    "titulo": "Hematology, Transfusion and Cell Therapy",
+    "issn": [
+      "2531-1379"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO",
+      "Scopus"
+    ],
+    "assuntos": [
+      "Diseases of the blood and blood-forming organs"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/hematology-transfusion-and-cell-therapy"
+  },
+  {
+    "titulo": "Bulletin of the World Health Organization",
+    "issn": [
+      "0042-9686"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Editorial review",
+      "Single anonymous peer review",
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.who.int/publications/journals/bulletin"
+  },
+  {
+    "titulo": "The Journal of Infectious Diseases",
+    "issn": [
+      "0022-1899",
+      "1537-6613"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1093/infdis/jix335"
+  },
+  {
+    "titulo": "The Lancet Infectious Diseases",
+    "issn": [
+      "1473-3099"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/s1473-3099(18)30625-x"
+  },
+  {
+    "titulo": "Journal of Infection in Developing Countries",
+    "issn": [
+      "1972-2680"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Internal medicine",
+      "Microbiology"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.jidc.org"
+  },
+  {
+    "titulo": "BMC Health Services Research",
+    "issn": [
+      "1472-6963"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://bmchealthservres.biomedcentral.com"
+  },
+  {
+    "titulo": "PLoS Neglected Tropical Diseases",
+    "issn": [
+      "1935-2735"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Arctic medicine. Tropical medicine",
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc0",
+    "url": "https://journals.plos.org/plosntds/"
+  },
+  {
+    "titulo": "Diagnostics",
+    "issn": [
+      "2075-4418"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Medicine (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.mdpi.com/journal/diagnostics"
+  },
+  {
+    "titulo": "Case Reports in Ophthalmological Medicine",
+    "issn": [
+      "2090-6722",
+      "2090-6730"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Ophthalmology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://onlinelibrary.wiley.com/journal/1727"
+  },
+  {
+    "titulo": "Memorias do Instituto Oswaldo Cruz",
+    "issn": [
+      "1678-8060",
+      "0074-0276"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Microbiology",
+      "Infectious and parasitic diseases"
+    ],
+    "revisao": [
+      "Single anonymous peer review",
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://memorias.ioc.fiocruz.br/"
+  },
+  {
+    "titulo": "JMIR Public Health and Surveillance",
+    "issn": [
+      "2369-2960"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://publichealth.jmir.org"
+  },
+  {
+    "titulo": "Pharmacy",
+    "issn": [
+      "2226-4787"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Pharmacy and materia medica"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.mdpi.com/journal/pharmacy"
+  },
+  {
+    "titulo": "Journal of Medical Case Reports",
+    "issn": [
+      "1752-1947"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Medicine"
+    ],
+    "revisao": [
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://jmedicalcasereports.biomedcentral.com/"
+  },
+  {
+    "titulo": "Journal of Research in Health Sciences",
+    "issn": [
+      "2228-7795",
+      "2228-7809"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.34172/jrhs.2023.131"
+  },
+  {
+    "titulo": "Journal of Tropical Medicine",
+    "issn": [
+      "1687-9694",
+      "1687-9686"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Arctic medicine. Tropical medicine"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://onlinelibrary.wiley.com/journal/2720"
+  },
+  {
+    "titulo": "Egyptian Liver Journal",
+    "issn": [
+      "2090-6226"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Surgery",
+      "Diseases of the digestive system. Gastroenterology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://eglj.springeropen.com/"
+  },
+  {
+    "titulo": "Eurosurveillance",
+    "issn": [
+      "1560-7917"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Public aspects of medicine"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.eurosurveillance.org/"
+  },
+  {
+    "titulo": "Genetics and Molecular Biology",
+    "issn": [
+      "1678-4685",
+      "1415-4757"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Genetics"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.scielo.br/scielo.php?pid=1415-4757&script=sci_serial"
+  },
+  {
+    "titulo": "Nauplius",
+    "issn": [
+      "2358-2936"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Science",
+      "Biology (General)",
+      "Zoology"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/nau/"
+  },
+  {
+    "titulo": "Revista Brasileira de Entomologia",
+    "issn": [
+      "1806-9665"
+    ],
+    "indexacao": [
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1590/1806-9665-rbent-2025-0076"
+  },
+  {
+    "titulo": "Frontiers in Microbiology",
+    "issn": [
+      "1664-302X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Microbiology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/microbiology"
+  },
+  {
+    "titulo": "Papéis Avulsos de Zoologia",
+    "issn": [
+      "1807-0205",
+      "0031-1049"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Zoology"
+    ],
+    "revisao": [
+      "Single anonymous peer review",
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/paz/"
+  },
+  {
+    "titulo": "Acta Botânica Brasílica",
+    "issn": [
+      "1677-941X",
+      "0102-3306"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Botany"
+    ],
+    "revisao": [
+      "Open peer review",
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/abb/"
+  },
+  {
+    "titulo": "Hoehnea",
+    "issn": [
+      "2236-8906",
+      "0073-2877"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Botany"
+    ],
+    "revisao": [
+      "Open peer review",
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/hoehnea/"
+  },
+  {
+    "titulo": "PeerJ",
+    "issn": [
+      "2167-8359"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Medicine",
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://peerj.com/"
+  },
+  {
+    "titulo": "Biota Neotropica",
+    "issn": [
+      "1676-0611"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Ecology"
+    ],
+    "revisao": [
+      "Open peer review",
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/bn/"
+  },
+  {
+    "titulo": "BMC Genomics",
+    "issn": [
+      "1471-2164"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Biotechnology",
+      "Genetics"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://bmcgenomics.biomedcentral.com"
+  },
+  {
+    "titulo": "Biodiversity Data Journal",
+    "issn": [
+      "1314-2828",
+      "1314-2836"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://bdj.pensoft.net"
+  },
+  {
+    "titulo": "Entomological Communications",
+    "issn": [
+      "2675-1305"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Zoology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.entomologicalcommunications.org"
+  },
+  {
+    "titulo": "PLoS Biology",
+    "issn": [
+      "1545-7885"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://journals.plos.org/plosbiology/"
+  },
+  {
+    "titulo": "Ecology and Evolution",
+    "issn": [
+      "2045-7758",
+      "2045-7758"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Ecology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://onlinelibrary.wiley.com/journal/20457758"
+  },
+  {
+    "titulo": "Brazilian Journal of Biology",
+    "issn": [
+      "1678-4375",
+      "1519-6984"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Science",
+      "Biology (General)",
+      "Zoology",
+      "Botany"
+    ],
+    "revisao": [
+      "Open peer review",
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/bjb/"
+  },
+  {
+    "titulo": "Proceedings of the Royal Society B: Biological Sciences",
+    "issn": [
+      "0962-8452",
+      "1471-2954"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1098/rspb.2015.3005"
+  },
+  {
+    "titulo": "Summa Phytopathologica",
+    "issn": [
+      "1980-5454",
+      "0100-5405"
+    ],
+    "indexacao": [
+      "SciELO"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1590/0100-5405/187851"
+  },
+  {
+    "titulo": "Planta Daninha",
+    "issn": [
+      "1806-9681",
+      "0100-8358"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Biology (General)",
+      "Botany"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.scielo.br/scielo.php?script=sci_serial&pid=0100-8358&nrm=iso&lng=en"
+  },
+  {
+    "titulo": "Nauplius",
+    "issn": [
+      "0104-6497"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Science",
+      "Biology (General)",
+      "Zoology"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/nau/"
+  },
+  {
+    "titulo": "Neotropical Ichthyology",
+    "issn": [
+      "1982-0224",
+      "1679-6225"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Zoology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/ni/"
+  },
+  {
+    "titulo": "Frontiers in Genetics",
+    "issn": [
+      "1664-8021"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Genetics"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/genetics"
+  },
+  {
+    "titulo": "PLoS Genetics",
+    "issn": [
+      "1553-7404"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Genetics"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc0",
+    "url": "https://journals.plos.org/plosgenetics/"
+  },
+  {
+    "titulo": "Frontiers in Insect Science",
+    "issn": [
+      "2673-8600"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/insect-science"
+  },
+  {
+    "titulo": "Zoologia (Curitiba)",
+    "issn": [
+      "1984-4689"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Zoology"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/zool/"
+  },
+  {
+    "titulo": "Neotropical Ichthyology",
+    "issn": [
+      "1679-6225"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Zoology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/ni/"
+  },
+  {
+    "titulo": "Theoretical Population Biology",
+    "issn": [
+      "0040-5809"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.tpb.2019.07.012"
+  },
+  {
+    "titulo": "Genetics and Molecular Biology",
+    "issn": [
+      "1415-4757"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Genetics"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.scielo.br/scielo.php?pid=1415-4757&script=sci_serial"
+  },
+  {
+    "titulo": "BMC Genetics",
+    "issn": [
+      "1471-2156"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Genetics"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://bmcgenomdata.biomedcentral.com"
+  },
+  {
+    "titulo": "Genes",
+    "issn": [
+      "2073-4425"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.3390/genes14010038"
+  },
+  {
+    "titulo": "Plants",
+    "issn": [
+      "2223-7747"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Botany"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.mdpi.com/journal/plants"
+  },
+  {
+    "titulo": "International Journal of Legal Medicine",
+    "issn": [
+      "0937-9827",
+      "1437-1596"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s00414-019-02180-4"
+  },
+  {
+    "titulo": "eLife",
+    "issn": [
+      "2050-084X"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Medicine",
+      "Science",
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://elifesciences.org"
+  },
+  {
+    "titulo": "NeoBiota",
+    "issn": [
+      "1314-2488",
+      "1619-0033"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://neobiota.pensoft.net/"
+  },
+  {
+    "titulo": "G3: Genes, Genomes, Genetics",
+    "issn": [
+      "2160-1836"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Genetics"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://academic.oup.com/g3journal"
+  },
+  {
+    "titulo": "PLoS Computational Biology",
+    "issn": [
+      "1553-7358"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://journals.plos.org/ploscompbiol/"
+  },
+  {
+    "titulo": "Frontiers in Cellular and Infection Microbiology",
+    "issn": [
+      "2235-2988"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Microbiology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/cellular-and-infection-microbiology"
+  },
+  {
+    "titulo": "Frontiers in Microbiomes",
+    "issn": [
+      "2813-4338"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Microbial ecology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/microbiomes"
+  },
+  {
+    "titulo": "Frontiers in Physiology",
+    "issn": [
+      "1664-042X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Physiology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/physiology"
+  },
+  {
+    "titulo": "Frontiers in Cell and Developmental Biology",
+    "issn": [
+      "2296-634X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/cell-and-developmental-biology"
+  },
+  {
+    "titulo": "Microbiome",
+    "issn": [
+      "2049-2618"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Microbial ecology"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://microbiomejournal.biomedcentral.com"
+  },
+  {
+    "titulo": "Frontiers in Molecular Biosciences",
+    "issn": [
+      "2296-889X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/molecular-biosciences"
+  },
+  {
+    "titulo": "BMC Microbiology",
+    "issn": [
+      "1471-2180"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Microbiology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.biomedcentral.com/bmcmicrobiol/"
+  },
+  {
+    "titulo": "Vaccine",
+    "issn": [
+      "0264-410X"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.vaccine.2017.09.053"
+  },
+  {
+    "titulo": "Microorganisms",
+    "issn": [
+      "2076-2607"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.mdpi.com/journal/microorganisms"
+  },
+  {
+    "titulo": "Annals of Clinical Microbiology and Antimicrobials",
+    "issn": [
+      "1476-0711"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Therapeutics. Pharmacology",
+      "Infectious and parasitic diseases",
+      "Microbiology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://ann-clinmicrob.biomedcentral.com"
+  },
+  {
+    "titulo": "Journal of Global Antimicrobial Resistance",
+    "issn": [
+      "2213-7165"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Microbiology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/journal-of-global-antimicrobial-resistance"
+  },
+  {
+    "titulo": "Animals",
+    "issn": [
+      "2076-2615"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Veterinary medicine",
+      "Zoology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.mdpi.com/journal/animals/"
+  },
+  {
+    "titulo": "Journal of Antimicrobial Chemotherapy",
+    "issn": [
+      "0305-7453",
+      "1460-2091"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1093/jac/dkx260"
+  },
+  {
+    "titulo": "International Journal of Microbiology",
+    "issn": [
+      "1687-918X",
+      "1687-9198"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Microbiology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://onlinelibrary.wiley.com/journal/8472"
+  },
+  {
+    "titulo": "Microbial Genomics",
+    "issn": [
+      "2057-5858"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Genetics",
+      "Microbiology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.microbiologyresearch.org/content/journal/mgen"
+  },
+  {
+    "titulo": "MicrobiologyOpen",
+    "issn": [
+      "2045-8827",
+      "2045-8827"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Microbiology"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://onlinelibrary.wiley.com/journal/20458827"
+  },
+  {
+    "titulo": "mBio",
+    "issn": [
+      "2161-2129",
+      "2150-7511"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Microbiology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://journals.asm.org/journal/mbio"
+  },
+  {
+    "titulo": "Open Biology",
+    "issn": [
+      "2046-2441"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://royalsocietypublishing.org/journal/rsob"
+  },
+  {
+    "titulo": "Microbial Ecology",
+    "issn": [
+      "1432-184X"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s00248-025-02684-0"
+  },
+  {
+    "titulo": "Clinical Infectious Diseases",
+    "issn": [
+      "1058-4838",
+      "1537-6591"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1093/cid/ciad548"
+  },
+  {
+    "titulo": "Genome Medicine",
+    "issn": [
+      "1756-994X"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Medicine",
+      "Genetics"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://genomemedicine.biomedcentral.com/"
+  },
+  {
+    "titulo": "FEMS Microbiology Reviews",
+    "issn": [
+      "1574-6976"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Microbiology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://academic.oup.com/femsre"
+  },
+  {
+    "titulo": "npj Antimicrobials and Resistance",
+    "issn": [
+      "2731-8745"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Microbiology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.nature.com/npjamar/"
+  },
+  {
+    "titulo": "Biology",
+    "issn": [
+      "2079-7737"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.mdpi.com/journal/biology"
+  },
+  {
+    "titulo": "Diversity",
+    "issn": [
+      "1424-2818"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.mdpi.com/journal/diversity/"
+  },
+  {
+    "titulo": "Journal of Eukaryotic Microbiology",
+    "issn": [
+      "1066-5234",
+      "1550-7408"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/jeu.70130"
+  },
+  {
+    "titulo": "Microbiology Research",
+    "issn": [
+      "2036-7481"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Microbiology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.mdpi.com/journal/microbiolres/"
+  },
+  {
+    "titulo": "Marine Pollution Bulletin",
+    "issn": [
+      "0025-326X"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.marpolbul.2026.120073"
+  },
+  {
+    "titulo": "Proceedings of the National Academy of Sciences",
+    "issn": [
+      "0027-8424",
+      "1091-6490"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1073/pnas.2416012121"
+  },
+  {
+    "titulo": "FEMS Microbes",
+    "issn": [
+      "2633-6685"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Microbiology"
+    ],
+    "revisao": [
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://academic.oup.com/femsmicrobes"
+  },
+  {
+    "titulo": "Journal of Fungi",
+    "issn": [
+      "2309-608X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.mdpi.com/journal/jof"
+  },
+  {
+    "titulo": "Frontiers in Marine Science",
+    "issn": [
+      "2296-7745"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Science",
+      "General. Including nature conservation, geographical distribution"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/marine-science"
+  },
+  {
+    "titulo": "Marine Drugs",
+    "issn": [
+      "1660-3397"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.mdpi.com/journal/marinedrugs"
+  },
+  {
+    "titulo": "Biomolecules",
+    "issn": [
+      "2218-273X"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Microbiology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.mdpi.com/journal/biomolecules"
+  },
+  {
+    "titulo": "Communications Biology",
+    "issn": [
+      "2399-3642"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.nature.com/commsbio/"
+  },
+  {
+    "titulo": "Journal of Animal Ecology",
+    "issn": [
+      "0021-8790",
+      "1365-2656"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/1365-2656.13831"
+  },
+  {
+    "titulo": "Ambio",
+    "issn": [
+      "0044-7447",
+      "1654-7209"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s13280-017-0959-x"
+  },
+  {
+    "titulo": "Environmental Science: Processes &amp; Impacts",
+    "issn": [
+      "2050-7887",
+      "2050-7895"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1039/d2em00439a"
+  },
+  {
+    "titulo": "Proceedings of the Royal Society B: Biological Sciences",
+    "issn": [
+      "1471-2954"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1098/rspb.2026.0357"
+  },
+  {
+    "titulo": "Science of The Total Environment",
+    "issn": [
+      "0048-9697"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.scitotenv.2025.181083"
+  },
+  {
+    "titulo": "Global Change Biology",
+    "issn": [
+      "1354-1013",
+      "1365-2486"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/gcb.71123"
+  },
+  {
+    "titulo": "Journal of Environmental Management",
+    "issn": [
+      "0301-4797"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.jenvman.2025.128112"
+  },
+  {
+    "titulo": "Philosophical Transactions of the Royal Society B: Biological Sciences",
+    "issn": [
+      "0962-8436",
+      "1471-2970"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1098/rstb.2019.0459"
+  },
+  {
+    "titulo": "Ecology",
+    "issn": [
+      "0012-9658",
+      "1939-9170"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1002/ecy.4205"
+  },
+  {
+    "titulo": "Frontiers in Systems Biology",
+    "issn": [
+      "2674-0702"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Physiology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/systems-biology"
+  },
+  {
+    "titulo": "Viruses",
+    "issn": [
+      "1999-4915"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Microbiology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.mdpi.com/journal/viruses"
+  },
+  {
+    "titulo": "ZooKeys",
+    "issn": [
+      "1313-2970",
+      "1313-2989"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Zoology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://zookeys.pensoft.net/"
+  },
+  {
+    "titulo": "Evolution",
+    "issn": [
+      "0014-3820",
+      "1558-5646"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/evo.14137"
+  },
+  {
+    "titulo": "Animal Reproduction",
+    "issn": [
+      "1984-3143",
+      "1806-9614"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "SciELO",
+      "Scopus",
+      "WoS"
+    ],
+    "assuntos": [
+      "Animal culture",
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.animal-reproduction.org"
+  },
+  {
+    "titulo": "Rodriguésia",
+    "issn": [
+      "2175-7860",
+      "0370-6583"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "Latindex",
+      "SciELO",
+      "Scopus"
+    ],
+    "assuntos": [
+      "Biology (General)",
+      "Botany"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.scielo.br/scielo.php?script=sci_serial&pid=2175-7860&lng=en&nrm=iso"
+  },
+  {
+    "titulo": "CoDAS",
+    "issn": [
+      "2317-1782"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1590/2317-1782/20192018274"
+  },
+  {
+    "titulo": "Journal of Ethnobiology and Ethnomedicine",
+    "issn": [
+      "1746-4269"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Other systems of medicine",
+      "Botany"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://ethnobiomed.biomedcentral.com/"
+  },
+  {
+    "titulo": "Journal of Medicinal Plants for Economic Development",
+    "issn": [
+      "2616-4809",
+      "2519-559X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Botany",
+      "Pharmacy and materia medica"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://jomped.org"
+  },
+  {
+    "titulo": "Botanical Studies",
+    "issn": [
+      "1999-3110"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Botany"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.as-botanicalstudies.com/"
+  },
+  {
+    "titulo": "BMC Ecology",
+    "issn": [
+      "1472-6785"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Ecology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://bmcecol.biomedcentral.com"
+  },
+  {
+    "titulo": "Oxidative Medicine and Cellular Longevity",
+    "issn": [
+      "1942-0900",
+      "1942-0994"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1155/2019/2075614"
+  },
+  {
+    "titulo": "Discover Plants",
+    "issn": [
+      "3005-1207"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Plant culture",
+      "Botany"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://link.springer.com/journal/44372"
+  },
+  {
+    "titulo": "Metabolites",
+    "issn": [
+      "2218-1989"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Microbiology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.mdpi.com/journal/metabolites"
+  },
+  {
+    "titulo": "Journal of Medicinal Plants for Economic Development",
+    "issn": [
+      "2519-559X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Botany",
+      "Pharmacy and materia medica"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://jomped.org"
+  },
+  {
+    "titulo": "Frontiers in Bioscience-Landmark",
+    "issn": [
+      "2768-6701",
+      "2768-6698"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Biochemistry",
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.imrpress.com/journal/FBL"
+  },
+  {
+    "titulo": "Journal of Pure and Applied Microbiology",
+    "issn": [
+      "0973-7510"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Microbiology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.microbiologyjournal.org/"
+  },
+  {
+    "titulo": "Journal of Ethnopharmacology",
+    "issn": [
+      "0378-8741"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.jep.2016.08.050"
+  },
+  {
+    "titulo": "Frontiers in Digital Health",
+    "issn": [
+      "2673-253X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Medicine",
+      "Public aspects of medicine",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/digital-health"
+  },
+  {
+    "titulo": "Annual Review of Public Health",
+    "issn": [
+      "0163-7525",
+      "1545-2093"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1146/annurev-publhealth-040119-094437"
+  },
+  {
+    "titulo": "npj Digital Medicine",
+    "issn": [
+      "2398-6352"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer applications to medicine. Medical informatics"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.nature.com/npjdigitalmed/"
+  },
+  {
+    "titulo": "PLOS Digital Health",
+    "issn": [
+      "2767-3170"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer applications to medicine. Medical informatics"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://journals.plos.org/digitalhealth/"
+  },
+  {
+    "titulo": "Applied Computer Science",
+    "issn": [
+      "2353-6977"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Information technology",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://acs.pollub.pl/"
+  },
+  {
+    "titulo": "The Lancet: Digital Health",
+    "issn": [
+      "2589-7500"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Computer applications to medicine. Medical informatics"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/the-lancet-digital-health"
+  },
+  {
+    "titulo": "Digital Health",
+    "issn": [
+      "2055-2076",
+      "2055-2076"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer applications to medicine. Medical informatics"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://journals.sagepub.com/home/dhj"
+  },
+  {
+    "titulo": "Computer Sciences & Mathematics Forum",
+    "issn": [
+      "2813-0324"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.mdpi.com/journal/csmf"
+  },
+  {
+    "titulo": "Ciência &amp; Saúde Coletiva",
+    "issn": [
+      "1678-4561",
+      "1413-8123"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1590/1413-81232025306.03522025"
+  },
+  {
+    "titulo": "PeerJ Computer Science",
+    "issn": [
+      "2376-5992"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://peerj.com/computer-science/"
+  },
+  {
+    "titulo": "Frontiers in Artificial Intelligence",
+    "issn": [
+      "2624-8212"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/artificial-intelligence"
+  },
+  {
+    "titulo": "Healthcare Analytics",
+    "issn": [
+      "2772-4425"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer applications to medicine. Medical informatics"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/healthcare-analytics"
+  },
+  {
+    "titulo": "Patterns",
+    "issn": [
+      "2666-3899"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer software"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/patterns"
+  },
+  {
+    "titulo": "Journal of Open Source Software",
+    "issn": [
+      "2475-9066"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer software"
+    ],
+    "revisao": [
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://joss.theoj.org/"
+  },
+  {
+    "titulo": "International Journal of Language &amp; Communication Disorders",
+    "issn": [
+      "1368-2822",
+      "1460-6984"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/1460-6984.12870"
+  },
+  {
+    "titulo": "Наукові записки НаУКМА. Комп'ютерні науки",
+    "issn": [
+      "2617-7323",
+      "2617-3808"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://nrpcomp.ukma.edu.ua/index"
+  },
+  {
+    "titulo": "Software",
+    "issn": [
+      "2674-113X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer software"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.mdpi.com/journal/software"
+  },
+  {
+    "titulo": "Journal of Cloud Computing: Advances, Systems and Applications",
+    "issn": [
+      "2192-113X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer engineering. Computer hardware",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://journalofcloudcomputing.springeropen.com"
+  },
+  {
+    "titulo": "IET Information Security",
+    "issn": [
+      "1751-8709"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer engineering. Computer hardware",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://ietresearch.onlinelibrary.wiley.com/journal/ietis"
+  },
+  {
+    "titulo": "EURASIP Journal on Information Security",
+    "issn": [
+      "2510-523X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer engineering. Computer hardware",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://jis.eurasipjournals.com/"
+  },
+  {
+    "titulo": "Journal of Computer Networks and Communications",
+    "issn": [
+      "2090-7141",
+      "2090-715X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://onlinelibrary.wiley.com/journal/9613"
+  },
+  {
+    "titulo": "Труды СПИИРАН",
+    "issn": [
+      "2078-9599",
+      "2078-9181"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://proceedings.spiiras.nw.ru"
+  },
+  {
+    "titulo": "Network",
+    "issn": [
+      "2673-8732"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer engineering. Computer hardware",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.mdpi.com/journal/network"
+  },
+  {
+    "titulo": "IEEE Open Journal of the Computer Society",
+    "issn": [
+      "2644-1268"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science",
+      "Information technology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8782664"
+  },
+  {
+    "titulo": "Data Science",
+    "issn": [
+      "2451-8484",
+      "2451-8492"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://journals.sagepub.com/home/DSC"
+  },
+  {
+    "titulo": "IET Software",
+    "issn": [
+      "1751-8806"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer software"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://ietresearch.onlinelibrary.wiley.com/journal/ietsfw"
+  },
+  {
+    "titulo": "APL Machine Learning",
+    "issn": [
+      "2770-9019"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Physics",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://pubs.aip.org/aip/aml"
+  },
+  {
+    "titulo": "Ergodesign & HCI",
+    "issn": [
+      "2317-8876"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Drawing. Design. Illustration",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://periodicos.puc-rio.br/index.php/revistaergodesign-hci"
+  },
+  {
+    "titulo": "Труды Института системного программирования РАН",
+    "issn": [
+      "2079-8156",
+      "2220-6426"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://ispranproceedings.elpub.ru/jour/index"
+  },
+  {
+    "titulo": "Applied Artificial Intelligence",
+    "issn": [
+      "0883-9514",
+      "1087-6545"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science",
+      "Cybernetics"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.tandfonline.com/journals/uaai"
+  },
+  {
+    "titulo": "Artificial Intelligence in Medicine",
+    "issn": [
+      "0933-3657"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.artmed.2026.103442"
+  },
+  {
+    "titulo": "Computers and Education: Artificial Intelligence",
+    "issn": [
+      "2666-920X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/computers-and-education-artificial-intelligence"
+  },
+  {
+    "titulo": "Digital",
+    "issn": [
+      "2673-6470"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.mdpi.com/journal/digital"
+  },
+  {
+    "titulo": "Intelligent Computing",
+    "issn": [
+      "2771-5892"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://spj.sciencemag.org/journals/icomputing/"
+  },
+  {
+    "titulo": "Journal of Engineering Science (Chişinău)",
+    "issn": [
+      "2587-3482",
+      "2587-3474"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Engineering (General). Civil engineering (General)",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://jes.utm.md/"
+  },
+  {
+    "titulo": "Journal of Computer Networks and Communications",
+    "issn": [
+      "2090-715X",
+      "2090-7141"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://onlinelibrary.wiley.com/journal/9613"
+  },
+  {
+    "titulo": "CAAI Artificial Intelligence Research",
+    "issn": [
+      "2097-194X",
+      "2097-3691"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciopen.com/journal/2097-194X"
+  },
+  {
+    "titulo": "Computers in Human Behavior: Artificial Humans",
+    "issn": [
+      "2949-8821"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science",
+      "Information technology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/computers-in-human-behavior-artificial-humans"
+  },
+  {
+    "titulo": "New Trends in Computer Sciences",
+    "issn": [
+      "2783-6851"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://journals.vilniustech.lt/index.php/NTCS/index"
+  },
+  {
+    "titulo": "Systems and Soft Computing",
+    "issn": [
+      "2772-9419"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Information technology",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/systems-and-soft-computing"
+  },
+  {
+    "titulo": "Computer Methods in Materials Science",
+    "issn": [
+      "2720-4081",
+      "2720-3948"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science",
+      "Computer applications to medicine. Medical informatics"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.cmms.agh.edu.pl/"
+  },
+  {
+    "titulo": "IET Intelligent Transport Systems",
+    "issn": [
+      "1751-956X",
+      "1751-9578"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Transportation engineering",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://ietresearch.onlinelibrary.wiley.com/journal/17519578"
+  },
+  {
+    "titulo": "IET Computer Vision",
+    "issn": [
+      "1751-9632",
+      "1751-9640"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer applications to medicine. Medical informatics",
+      "Computer software"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://ietresearch.onlinelibrary.wiley.com/journal/17519640"
+  },
+  {
+    "titulo": "Visual Intelligence",
+    "issn": [
+      "2731-9008"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science",
+      "Neurophysiology and neuropsychology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://link.springer.com/journal/44267"
+  },
+  {
+    "titulo": "Discover Internet of Things",
+    "issn": [
+      "2730-7239"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer engineering. Computer hardware",
+      "Computer software"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.springer.com/journal/43926"
+  },
+  {
+    "titulo": "Frontiers in the Internet of Things",
+    "issn": [
+      "2813-3110"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/the-internet-of-things"
+  },
+  {
+    "titulo": "IET Computers & Digital Techniques",
+    "issn": [
+      "1751-8601"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer engineering. Computer hardware",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://ietresearch.onlinelibrary.wiley.com/journal/ietcdt"
+  },
+  {
+    "titulo": "Journal of Big Data",
+    "issn": [
+      "2196-1115"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer engineering. Computer hardware",
+      "Information technology",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://journalofbigdata.springeropen.com"
+  },
+  {
+    "titulo": "Discover Data",
+    "issn": [
+      "2731-6955"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Information technology",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://link.springer.com/journal/44248"
+  },
+  {
+    "titulo": "The Programming Historian em Português",
+    "issn": [
+      "2753-9296"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "History of scholarship and learning. The humanities",
+      "Computer software"
+    ],
+    "revisao": [
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://programminghistorian.org/pt/"
+  },
+  {
+    "titulo": "Data Science and Engineering",
+    "issn": [
+      "2364-1185",
+      "2364-1541"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Information technology",
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.springer.com/41019"
+  },
+  {
+    "titulo": "BioData Mining",
+    "issn": [
+      "1756-0381"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer applications to medicine. Medical informatics",
+      "Analysis"
+    ],
+    "revisao": [
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://biodatamining.biomedcentral.com/"
+  },
+  {
+    "titulo": "Data in Brief",
+    "issn": [
+      "2352-3409"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer applications to medicine. Medical informatics",
+      "Science (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/data-in-brief"
+  },
+  {
+    "titulo": "AI",
+    "issn": [
+      "2673-2688"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Electronic computers. Computer science"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.mdpi.com/journal/ai"
+  },
+  {
+    "titulo": "EPJ Data Science",
+    "issn": [
+      "2193-1127"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Computer applications to medicine. Medical informatics"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.epjdatascience.com/"
+  },
+  {
+    "titulo": "BMC Bioinformatics",
+    "issn": [
+      "1471-2105"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Computer applications to medicine. Medical informatics",
+      "Biology (General)"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.biomedcentral.com/bmcbioinformatics/"
+  },
+  {
+    "titulo": "Український стоматологічний альманах",
+    "issn": [
+      "2410-1427",
+      "2409-0255"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://dental-almanac.org/index.php/journal"
+  },
+  {
+    "titulo": "Journal of Applied Oral Science",
+    "issn": [
+      "1678-7757"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Open peer review",
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/jaos/"
+  },
+  {
+    "titulo": "Case Reports in Dentistry",
+    "issn": [
+      "2090-6447",
+      "2090-6455"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://onlinelibrary.wiley.com/journal/2415"
+  },
+  {
+    "titulo": "International Journal of Dentistry",
+    "issn": [
+      "1687-8728",
+      "1687-8736"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://onlinelibrary.wiley.com/journal/6164"
+  },
+  {
+    "titulo": "Frontiers in Dental Medicine",
+    "issn": [
+      "2673-4915"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/dental-medicine"
+  },
+  {
+    "titulo": "Journal of Dental Research, Dental Clinics, Dental Prospects",
+    "issn": [
+      "2008-210X",
+      "2008-2118"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://joddd.tbzmed.ac.ir/"
+  },
+  {
+    "titulo": "Oral",
+    "issn": [
+      "2673-6373"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.mdpi.com/journal/oral"
+  },
+  {
+    "titulo": "Biomaterial Investigations in Dentistry",
+    "issn": [
+      "2641-5275"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://medicaljournalssweden.se/biid"
+  },
+  {
+    "titulo": "International Journal of Dentistry",
+    "issn": [
+      "1687-8736",
+      "1687-8728"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://onlinelibrary.wiley.com/journal/6164"
+  },
+  {
+    "titulo": "International Journal of Oral Science",
+    "issn": [
+      "1674-2818",
+      "2049-3169"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Unspecified peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.nature.com/ijos/index.html"
+  },
+  {
+    "titulo": "Dental and Medical Problems",
+    "issn": [
+      "1644-387X",
+      "2300-9020"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Medicine",
+      "Dentistry"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://dmp.umw.edu.pl/en/home/"
+  },
+  {
+    "titulo": "International Journal of Paediatric Dentistry",
+    "issn": [
+      "0960-7439",
+      "1365-263X"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/ipd.70158"
+  },
+  {
+    "titulo": "Saudi Dental Journal",
+    "issn": [
+      "1013-9052"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Medicine",
+      "Dentistry"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://link.springer.com/journal/44445"
+  },
+  {
+    "titulo": "Community Dentistry and Oral Epidemiology",
+    "issn": [
+      "0301-5661",
+      "1600-0528"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/cdoe.12795"
+  },
+  {
+    "titulo": "Periodontology 2000",
+    "issn": [
+      "0906-6713",
+      "1600-0757"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/prd.12320"
+  },
+  {
+    "titulo": "Rheumatology International",
+    "issn": [
+      "0172-8172",
+      "1437-160X"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s00296-019-04460-z"
+  },
+  {
+    "titulo": "Journal of Advanced Periodontology and Implant Dentistry",
+    "issn": [
+      "2645-5390"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://japid.tbzmed.ac.ir/"
+  },
+  {
+    "titulo": "Journal of Periodontal Research",
+    "issn": [
+      "0022-3484",
+      "1600-0765"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/jre.13083"
+  },
+  {
+    "titulo": "Medicina Oral Patología Oral y Cirugia Bucal",
+    "issn": [
+      "1698-6946"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.4317/medoral.21786"
+  },
+  {
+    "titulo": "International Journal of Implant Dentistry",
+    "issn": [
+      "2198-4034"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Medicine",
+      "Dentistry"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.journalimplantdent.com"
+  },
+  {
+    "titulo": "Progress in Orthodontics",
+    "issn": [
+      "2196-1042"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.progressinorthodontics.com/"
+  },
+  {
+    "titulo": "Dental Press Journal of Orthodontics",
+    "issn": [
+      "2176-9451"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "LILACS",
+      "MEDLINE",
+      "SciELO"
+    ],
+    "assuntos": [
+      "Dentistry"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.scielo.br/j/dpjo/"
+  },
+  {
+    "titulo": "Journal of Cancer Education",
+    "issn": [
+      "0885-8195",
+      "1543-0154"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s13187-017-1257-9"
+  },
+  {
+    "titulo": "Aging",
+    "issn": [
+      "1945-4589"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.18632/aging.101343"
+  },
+  {
+    "titulo": "Oral Surgery, Oral Medicine, Oral Pathology and Oral Radiology",
+    "issn": [
+      "2212-4403"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.oooo.2026.07.006"
+  },
+  {
+    "titulo": "Human Cell",
+    "issn": [
+      "1749-0774"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s13577-025-01332-6"
+  },
+  {
+    "titulo": "Medical Oncology",
+    "issn": [
+      "1559-131X"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s12032-026-03428-x"
+  },
+  {
+    "titulo": "Archives of Pharmacal Research",
+    "issn": [
+      "0253-6269",
+      "1976-3786"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s12272-026-01635-8"
+  },
+  {
+    "titulo": "Cancer Epidemiology",
+    "issn": [
+      "1877-7821"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.canep.2020.101840"
+  },
+  {
+    "titulo": "Journal of Oral Medicine and Oral Surgery",
+    "issn": [
+      "2608-1326"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Dentistry",
+      "Surgery"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.jomos.org/"
+  },
+  {
+    "titulo": "Oral Diseases",
+    "issn": [
+      "1354-523X",
+      "1601-0825"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/odi.14811"
+  },
+  {
+    "titulo": "JAMA Otolaryngology–Head &amp; Neck Surgery",
+    "issn": [
+      "2168-6181"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1001/jamaoto.2023.1975"
+  },
+  {
+    "titulo": "Frontiers in Psychology",
+    "issn": [
+      "1664-1078"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.frontiersin.org/journals/psychology"
+  },
+  {
+    "titulo": "JMIR Mental Health",
+    "issn": [
+      "2368-7959"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://mental.jmir.org"
+  },
+  {
+    "titulo": "Acta Psychologica",
+    "issn": [
+      "0001-6918"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.sciencedirect.com/journal/acta-psychologica"
+  },
+  {
+    "titulo": "Behavioral Sciences",
+    "issn": [
+      "2076-328X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.mdpi.com/journal/behavsci"
+  },
+  {
+    "titulo": "BMC Psychology",
+    "issn": [
+      "2050-7283"
+    ],
+    "indexacao": [
+      "DOAJ",
+      "MEDLINE"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Open peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.biomedcentral.com/bmcpsychol"
+  },
+  {
+    "titulo": "European Journal of Investigation in Health, Psychology and Education",
+    "issn": [
+      "2254-9625"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Public aspects of medicine",
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.mdpi.com/journal/ejihpe"
+  },
+  {
+    "titulo": "Psicologia: Reflexão e Crítica",
+    "issn": [
+      "1678-7153"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://prc.springeropen.com"
+  },
+  {
+    "titulo": "International Journal of Medical Education",
+    "issn": [
+      "2042-6372"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.5116/ijme.57f8.c468"
+  },
+  {
+    "titulo": "Indigenous",
+    "issn": [
+      "2541-450X",
+      "0854-2880"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://journals.ums.ac.id/index.php/indigenous"
+  },
+  {
+    "titulo": "African Health Sciences",
+    "issn": [
+      "1680-6905"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.4314/ahs.v21i4.6"
+  },
+  {
+    "titulo": "Ágora: Estudos em Teoria Psicanalítica",
+    "issn": [
+      "1809-4414",
+      "1516-1498"
+    ],
+    "indexacao": [
+      "SciELO"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1590/s1516-14982018003006"
+  },
+  {
+    "titulo": "Estudos de Psicologia",
+    "issn": [
+      "1678-4669"
+    ],
+    "indexacao": [
+      "LILACS",
+      "SciELO"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.5935/1678-4669.20160011"
+  },
+  {
+    "titulo": "Revista de Psicologia da IMED",
+    "issn": [
+      "2175-5027",
+      "2175-5027"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://seer.imed.edu.br/index.php/revistapsico"
+  },
+  {
+    "titulo": "Psico",
+    "issn": [
+      "1980-8623",
+      "0103-5371"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://revistaseletronicas.pucrs.br/index.php/revistapsico/index"
+  },
+  {
+    "titulo": "Infant Mental Health Journal: Infancy and Early Childhood",
+    "issn": [
+      "0163-9641",
+      "1097-0355"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1002/imhj.70117"
+  },
+  {
+    "titulo": "Estudos Interdisciplinares em Psicologia",
+    "issn": [
+      "2236-6407"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www.uel.br/revistas/uel/index.php/eip/index"
+  },
+  {
+    "titulo": "Journal of Community Psychology",
+    "issn": [
+      "0090-4392",
+      "1520-6629"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1002/jcop.70155"
+  },
+  {
+    "titulo": "Bipolar Disorders",
+    "issn": [
+      "1398-5647",
+      "1399-5618"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/bdi.70185"
+  },
+  {
+    "titulo": "Memorandum: memória e história em psicologia",
+    "issn": [
+      "1676-1669"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://periodicos.ufmg.br/index.php/memorandum"
+  },
+  {
+    "titulo": "Human Genetics",
+    "issn": [
+      "0340-6717",
+      "1432-1203"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s00439-026-02877-8"
+  },
+  {
+    "titulo": "The Canadian Journal of Psychiatry",
+    "issn": [
+      "0706-7437",
+      "1497-0015"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1177/07067437261490170"
+  },
+  {
+    "titulo": "INFAD",
+    "issn": [
+      "0214-9877"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://revista.infad.eu/index.php/IJODAEP/index"
+  },
+  {
+    "titulo": "Depression and Anxiety",
+    "issn": [
+      "1520-6394",
+      "1091-4269"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1155/2023/4453663"
+  },
+  {
+    "titulo": "International Journal of Psychology",
+    "issn": [
+      "0020-7594",
+      "1464-066X"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1002/ijop.70258"
+  },
+  {
+    "titulo": "Ciencias Psicológicas",
+    "issn": [
+      "1688-4221"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://revistas.ucu.edu.uy/index.php/cienciaspsicologicas/index"
+  },
+  {
+    "titulo": "Depression and Anxiety",
+    "issn": [
+      "1091-4269",
+      "1520-6394"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1155/da/2938819"
+  },
+  {
+    "titulo": "Der Nervenarzt",
+    "issn": [
+      "0028-2804",
+      "1433-0407"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s00115-017-0316-0"
+  },
+  {
+    "titulo": "Journal of Occupational Rehabilitation",
+    "issn": [
+      "1053-0487",
+      "1573-3688"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s10926-016-9670-1"
+  },
+  {
+    "titulo": "Occupational Medicine",
+    "issn": [
+      "0962-7480",
+      "1471-8405"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1093/occmed/kqad138"
+  },
+  {
+    "titulo": "Social Psychiatry and Psychiatric Epidemiology",
+    "issn": [
+      "0933-7954",
+      "1433-9285"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s00127-016-1278-4"
+  },
+  {
+    "titulo": "Revista Psicologia, Diversidade e Saúde",
+    "issn": [
+      "2317-3394"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://www5.bahiana.edu.br/index.php/psicologia"
+  },
+  {
+    "titulo": "Journal of Nursing Management",
+    "issn": [
+      "0966-0429",
+      "1365-2834"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1155/jonm/1175290"
+  },
+  {
+    "titulo": "Australian Journal of Psychology",
+    "issn": [
+      "0004-9530",
+      "1742-9536"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.tandfonline.com/raup"
+  },
+  {
+    "titulo": "Social Science &amp; Medicine",
+    "issn": [
+      "0277-9536"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.socscimed.2022.115520"
+  },
+  {
+    "titulo": "Child: Care, Health and Development",
+    "issn": [
+      "0305-1862",
+      "1365-2214"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/cch.13194"
+  },
+  {
+    "titulo": "Research in Nursing &amp; Health",
+    "issn": [
+      "0160-6891",
+      "1098-240X"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1002/nur.21839"
+  },
+  {
+    "titulo": "American Journal of Reproductive Immunology",
+    "issn": [
+      "1046-7408",
+      "1600-0897"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/aji.13046"
+  },
+  {
+    "titulo": "Journal of Epidemiology and Community Health",
+    "issn": [
+      "0143-005X",
+      "1470-2738"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1136/jech-2024-222040"
+  },
+  {
+    "titulo": "Prevention Science",
+    "issn": [
+      "1389-4986",
+      "1573-6695"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s11121-016-0727-3"
+  },
+  {
+    "titulo": "Developmental Science",
+    "issn": [
+      "1363-755X",
+      "1467-7687"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/desc.70274"
+  },
+  {
+    "titulo": "British Journal of Nutrition",
+    "issn": [
+      "0007-1145",
+      "1475-2662"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1017/s000711451800140x"
+  },
+  {
+    "titulo": "Child Abuse &amp; Neglect",
+    "issn": [
+      "0145-2134"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.chiabu.2017.07.021"
+  },
+  {
+    "titulo": "NeuroToxicology",
+    "issn": [
+      "0161-813X"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.neuro.2016.02.006"
+  },
+  {
+    "titulo": "Journal of Child Language",
+    "issn": [
+      "0305-0009",
+      "1469-7602"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1017/s0305000925100378"
+  },
+  {
+    "titulo": "Ágora: Estudos em Teoria Psicanalítica",
+    "issn": [
+      "1516-1498"
+    ],
+    "indexacao": [
+      "SciELO"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1590/1809-44142017002005"
+  },
+  {
+    "titulo": "Journal of Autism and Developmental Disorders",
+    "issn": [
+      "0162-3257",
+      "1573-3432"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s10803-026-07475-1"
+  },
+  {
+    "titulo": "Autism",
+    "issn": [
+      "1362-3613",
+      "1461-7005"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1177/13623613261489842"
+  },
+  {
+    "titulo": "Autism Research",
+    "issn": [
+      "1939-3792",
+      "1939-3806"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1002/aur.70378"
+  },
+  {
+    "titulo": "Health Psychology and Behavioral Medicine",
+    "issn": [
+      "2164-2850"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Medicine",
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.tandfonline.com/journals/rhpb"
+  },
+  {
+    "titulo": "Current Psychiatry Reports",
+    "issn": [
+      "1535-1645"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s11920-026-01719-8"
+  },
+  {
+    "titulo": "The American Journal of Human Genetics",
+    "issn": [
+      "0002-9297"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.ajhg.2026.09.011"
+  },
+  {
+    "titulo": "Biological Psychiatry",
+    "issn": [
+      "0006-3223"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.biopsych.2026.10.003"
+  },
+  {
+    "titulo": "Current Psychiatry Reports",
+    "issn": [
+      "1523-3812",
+      "1535-1645"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s11920-019-1122-0"
+  },
+  {
+    "titulo": "Brain Imaging and Behavior",
+    "issn": [
+      "1931-7557",
+      "1931-7565"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s11682-018-9853-9"
+  },
+  {
+    "titulo": "Integrative Psychological and Behavioral Science",
+    "issn": [
+      "1932-4502",
+      "1936-3567"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s12124-019-09506-2"
+  },
+  {
+    "titulo": "Journal of Clinical Psychology in Medical Settings",
+    "issn": [
+      "1068-9583",
+      "1573-3572"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s10880-019-09607-5"
+  },
+  {
+    "titulo": "Clinical Psychology in Europe",
+    "issn": [
+      "2625-3410"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://cpe.psychopen.eu/index.php/cpe"
+  },
+  {
+    "titulo": "Molecular Psychiatry",
+    "issn": [
+      "1359-4184",
+      "1476-5578"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1038/s41380-018-0201-7"
+  },
+  {
+    "titulo": "SLEEP",
+    "issn": [
+      "0161-8105",
+      "1550-9109"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1093/sleep/zsad184"
+  },
+  {
+    "titulo": "Psychological Reports",
+    "issn": [
+      "0033-2941",
+      "1558-691X"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1177/00332941251399176"
+  },
+  {
+    "titulo": "JAMA Psychiatry",
+    "issn": [
+      "2168-622X"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1001/jamapsychiatry.2021.1844"
+  },
+  {
+    "titulo": "Sleep Medicine",
+    "issn": [
+      "1389-9457"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.sleep.2024.10.010"
+  },
+  {
+    "titulo": "Psycho-Oncology",
+    "issn": [
+      "1057-9249",
+      "1099-1611"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1002/pon.70593"
+  },
+  {
+    "titulo": "Skin Research and Technology",
+    "issn": [
+      "0909-752X",
+      "1600-0846"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/srt.70095"
+  },
+  {
+    "titulo": "Behavior Therapy",
+    "issn": [
+      "0005-7894"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.beth.2023.07.011"
+  },
+  {
+    "titulo": "Journal of Neural Transmission",
+    "issn": [
+      "0300-9564",
+      "1435-1463"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s00702-021-02409-w"
+  },
+  {
+    "titulo": "Stroke",
+    "issn": [
+      "0039-2499",
+      "1524-4628"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1161/strokeaha.120.029042"
+  },
+  {
+    "titulo": "Europe's Journal of Psychology",
+    "issn": [
+      "1841-0413"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "http://ejop.psychopen.eu/index.php/ejop"
+  },
+  {
+    "titulo": "Discover Psychology",
+    "issn": [
+      "2731-4537"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.springer.com/journal/44202"
+  },
+  {
+    "titulo": "Trauma Care",
+    "issn": [
+      "2673-866X"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.mdpi.com/journal/traumacare"
+  },
+  {
+    "titulo": "Journal of Traumatic Stress",
+    "issn": [
+      "0894-9867",
+      "1573-6598"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1002/jts.22215"
+  },
+  {
+    "titulo": "Cognitive Neuropsychiatry",
+    "issn": [
+      "1354-6805",
+      "1464-0619"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1080/13546805.2016.1236014"
+  },
+  {
+    "titulo": "Psychological Medicine",
+    "issn": [
+      "0033-2917",
+      "1469-8978"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1017/s0033291724002629"
+  },
+  {
+    "titulo": "African Health Sciences",
+    "issn": [
+      "1729-0503",
+      "1680-6905"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.4314/ahs.v22i4.22"
+  },
+  {
+    "titulo": "Pediatric Emergency Care",
+    "issn": [
+      "1535-1815",
+      "0749-5161"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1097/pec.0000000000000535"
+  },
+  {
+    "titulo": "European Journal of Trauma and Emergency Surgery",
+    "issn": [
+      "1863-9941"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s00068-026-03325-y"
+  },
+  {
+    "titulo": "Clinical Psychology &amp; Psychotherapy",
+    "issn": [
+      "1063-3995",
+      "1099-0879"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1002/cpp.70008"
+  },
+  {
+    "titulo": "Cogent Psychology",
+    "issn": [
+      "2331-1908"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology",
+      "Neurophysiology and neuropsychology"
+    ],
+    "revisao": [
+      "Single anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://www.tandfonline.com/journals/oaps"
+  },
+  {
+    "titulo": "Midwifery",
+    "issn": [
+      "0266-6138"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.midw.2026.104977"
+  },
+  {
+    "titulo": "Psychology and Psychotherapy: Theory, Research and Practice",
+    "issn": [
+      "1476-0835",
+      "2044-8341"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1111/papt.70103"
+  },
+  {
+    "titulo": "British Dental Journal",
+    "issn": [
+      "0007-0610",
+      "1476-5373"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1038/s41415-022-5271-x"
+  },
+  {
+    "titulo": "Violence Against Women",
+    "issn": [
+      "1077-8012",
+      "1552-8448"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1177/10778012261488880"
+  },
+  {
+    "titulo": "American Journal of Law &amp; Medicine",
+    "issn": [
+      "0098-8588",
+      "2375-835X"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1017/amj.2023.6"
+  },
+  {
+    "titulo": "Journal of Interpersonal Violence",
+    "issn": [
+      "0886-2605",
+      "1552-6518"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1177/08862605261477447"
+  },
+  {
+    "titulo": "International Review of Psychiatry",
+    "issn": [
+      "0954-0261",
+      "1369-1627"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1080/09540261.2016.1223608"
+  },
+  {
+    "titulo": "Nursing Ethics",
+    "issn": [
+      "0969-7330",
+      "1477-0989"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1177/09697330261476258"
+  },
+  {
+    "titulo": "Human Nature",
+    "issn": [
+      "1045-6767",
+      "1936-4776"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s12110-019-09350-8"
+  },
+  {
+    "titulo": "Psychiatric Quarterly",
+    "issn": [
+      "0033-2720",
+      "1573-6709"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1007/s11126-017-9560-5"
+  },
+  {
+    "titulo": "Psicologia Revista",
+    "issn": [
+      "2594-3871",
+      "1413-4063"
+    ],
+    "indexacao": [
+      "DOAJ"
+    ],
+    "assuntos": [
+      "Psychology"
+    ],
+    "revisao": [
+      "Double anonymous peer review"
+    ],
+    "licenca": "cc-by",
+    "url": "https://revistas.pucsp.br/psicorevista"
+  },
+  {
+    "titulo": "Trauma, Violence, &amp; Abuse",
+    "issn": [
+      "1524-8380",
+      "1552-8324"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1177/15248380221126189"
+  },
+  {
+    "titulo": "Journal of Injury and Violence Research",
+    "issn": [
+      "2008-2053",
+      "2008-4072"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.5249/jivr.v11i2.1238"
+  },
+  {
+    "titulo": "International Journal of Drug Policy",
+    "issn": [
+      "0955-3959"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.drugpo.2016.03.010"
+  },
+  {
+    "titulo": "L'Encéphale",
+    "issn": [
+      "0013-7006"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1016/j.encep.2026.03.012"
+  },
+  {
+    "titulo": "British Journal of General Practice",
+    "issn": [
+      "0960-1643",
+      "1478-5242"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.3399/bjgp17x689353"
+  },
+  {
+    "titulo": "Revista da Associação Médica Brasileira",
+    "issn": [
+      "1806-9282",
+      "0104-4230"
+    ],
+    "indexacao": [
+      "MEDLINE"
+    ],
+    "assuntos": [],
+    "revisao": [],
+    "licenca": "cc-by",
+    "url": "https://doi.org/10.1590/1806-9282.2025718edit"
   }
 ]

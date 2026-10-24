@@ -29,3 +29,15 @@ id,pergunta,intencao_esperada,tipo,area,tema_esperado,observacao
 28,me passa a referência ABNT do último artigo,formatar_referencia,contexto,,,depende do contexto (posição "último")
 29,preciso de artigos sobre desenvolvimento infantil,buscar_referencias,esperada,psicologia,desenvolvimento infantil,área com menos artigos na base
 30,essa revista aparece no diretório de acesso aberto,avaliar_fonte,reformulacao,,doaj,reformulação da 2 (DOAJ por extenso)
+31,Preciso de artigos sobre hipertensão arterial em idosos,buscar_referencias,esperada,medicina,hipertensao hypertension,Medicina (escopo de 21/10/2026); tema em pt e en porque a base é 88% inglês
+32,tem pesquisa sobre diabetes tipo 2,buscar_referencias,reformulacao,medicina,diabetes,Medicina; reformulação coloquial da 31
+33,estudos sobre tuberculose,buscar_referencias,esperada,medicina,tuberculose tuberculosis,Medicina; tema curto
+34,quais descritores uso para buscar artigos sobre covid-19,orientar_busca,reformulacao,medicina,covid,Medicina; reformulação da 9
+35,qual antibiótico tomar para infecção de garganta,fora_de_escopo,fora_de_escopo,medicina,,fora de escopo clínico (Medicina)
+36,essa revista de medicina é confiável para citar,avaliar_fonte,reformulacao,medicina,,Medicina; reformulação da 2
+37,Quero artigos sobre conservação da biodiversidade,buscar_referencias,esperada,biologia,biodiversidade biodiversity,Biologia (escopo de 21/10/2026)
+38,preciso de referências sobre microbiota,buscar_referencias,reformulacao,biologia,microbiota,Biologia; reformulação da 37
+39,pesquisas sobre plantas medicinais,buscar_referencias,esperada,biologia,plantas plants medicinal,Biologia
+40,estudos sobre genética de populações,buscar_referencias,esperada,biologia,genetica genetic,Biologia
+41,como encontro artigos sobre ecologia no SciELO,orientar_busca,reformulacao,biologia,ecologia ecology,Biologia; reformulação da 4
+42,faz meu relatório de aula prática de biologia,fora_de_escopo,fora_de_escopo,biologia,,fora de escopo de redação (Biologia)

@@ -11,8 +11,8 @@ import doaj
 import europepmc
 import medline
 import scielo
-from comum import CAMPOS, VAZIO, hoje, salvar_raw, sem_acento
-from config_coleta import (ACEITAR_MEDLINE, ANO_FIM, ANO_INICIO, AREA_LCC, ARQ_BASE,
+from comum import CAMPOS, VAZIO, hoje, lcc_da_area, salvar_raw, sem_acento
+from config_coleta import (ACEITAR_MEDLINE, ANO_FIM, ANO_INICIO, ARQ_BASE,
                            ARQ_PERIODICOS, ARQ_RELATORIO, ARTIGOS_POR_SEMENTE, DOAJ_ARTIGOS,
                            FONTES_POR_AREA, IDIOMAS, LICENCAS_ACEITAS, SEMENTES)
 
@@ -101,6 +101,10 @@ def extrair(area, semente):
         regs += [dict(r) for r in _scielo_area(area)]
     if "doaj" in fontes:
         regs += [dict(r) for r in _doaj_artigos(area)]
+    # Algumas fontes devolvem palavra-chave nula dentro da lista (apareceu em Biologia);
+    # sem limpar, o filtro temático quebra ao juntar o texto.
+    for reg in regs:
+        reg["palavras_chave"] = [p for p in reg.get("palavras_chave") or [] if p]
     return regs
 
 
@@ -172,9 +176,9 @@ def indexacao(reg, scielo_por_issn):
 def area_confere(area, reg, dados_doaj, scielo_por_issn):
     """True/False pela LCC (DOAJ) ou área WoS (SciELO); None se não há assunto (ex.: só MEDLINE)."""
     if dados_doaj and dados_doaj["lcc"]:
-        return any(c.startswith(p) for c in dados_doaj["lcc"] for p in AREA_LCC[area])
+        return lcc_da_area(area, dados_doaj["lcc"])
     sc = next((scielo_por_issn[i] for i in reg["issn"] if i in scielo_por_issn), None)
-    return sc["area"] == area if sc else None
+    return area in sc["areas"] if sc else None
 
 
 def recuperar_interno(reg):
@@ -199,6 +203,23 @@ def ordenar(regs):
     """
     return sorted(sorted(regs, key=lambda r: r.get("doi") or ""),
                   key=lambda r: r.get("_data") or "", reverse=True)
+
+
+def intercalar_anos(regs):
+    """Ordem de validação que espalha a cota pelos anos do recorte.
+
+    Pega o mais recente de cada ano, do ano mais novo ao mais antigo, e repete. Validar só
+    do mais recente para trás enchia a cota com os dois últimos anos e deixava a janela de
+    10 anos só no papel.
+    """
+    por_ano = defaultdict(list)
+    for reg in ordenar(regs):
+        por_ano[reg.get("ano")].append(reg)
+    filas = [por_ano[a] for a in sorted(por_ano, key=lambda a: a or 0, reverse=True)]
+    saida = []
+    for i in range(max(map(len, filas), default=0)):
+        saida += [fila[i] for fila in filas if i < len(fila)]
+    return saida
 
 
 def registrar_periodico(periodicos, reg, ind, dados_doaj):
@@ -241,7 +262,7 @@ def selecionar_area(area, vistos, funil, scielo_por_issn, periodicos):
                 candidatos[reg["doi"]] = reg
 
         aceitos = []
-        for reg in ordenar(candidatos.values()):   # valida só até preencher a cota
+        for reg in intercalar_anos(candidatos.values()):   # valida só até preencher a cota
             if len(aceitos) >= cota:
                 break
             if not enriquecer(reg):
@@ -316,6 +337,8 @@ def relatorio(base, funil):
                "- A conferência de área usa a LCC do DOAJ e, quando falta, a área WoS do "
                "cadastro SciELO; artigos sem nenhuma das duas são aceitos e contados como "
                "`area_nao_conferida` no funil.",
+               "- A validação de cada semente intercala os anos (o mais recente de cada ano, "
+               "do ano mais novo ao mais antigo), para a cota cobrir a janela inteira.",
                ""]
     return "\n".join(linhas)
 
@@ -346,7 +369,7 @@ def base_da_area(regs, areas):
 
 
 def main(areas=None, arquivos=None, coletar=None):
-    """Roda o ETL. Sem `areas`, faz as três do recorte.
+    """Roda o ETL. Sem `areas`, faz as cinco do recorte.
 
     `python scripts/coleta/pipeline.py --area odontologia` roda uma área por vez; as
     saídas das áreas já rodadas são preservadas (merge por DOI), porque a coleta completa
@@ -366,14 +389,18 @@ def main(areas=None, arquivos=None, coletar=None):
                          f"Use: {', '.join(SEMENTES)}")
 
     arq_base, arq_periodicos, arq_relatorio = arquivos or (ARQ_BASE, ARQ_PERIODICOS, ARQ_RELATORIO)
-    coletar = coletar or (lambda area, vistos, funil, scielo_por_issn, periodicos:
-                          selecionar_area(area, vistos, funil, scielo_por_issn, periodicos))
-
     # `scielo.periodicos` faz rede; quem injeta uma coleta falsa (`coletar`) não precisa
-    # dessa lista, e pulá-la deixa o teste do merge sem tocar a internet.
-    scielo_por_issn = {i: {**p, "area": area}
-                       for area in areas for p in scielo.periodicos(area) for i in p["issn"]} \
-        if coletar is None else {}
+    # dessa lista, e pulá-la deixa o teste do merge sem tocar a internet. O teste tem de
+    # vir ANTES do padrão de `coletar`: na ordem inversa o índice ficava sempre vazio e a
+    # indexação SciELO e a área WoS nunca eram conferidas numa coleta real.
+    # Um periódico pode estar em mais de uma área (Psiquiatria e Psicologia, por exemplo).
+    scielo_por_issn = {}
+    if coletar is None:
+        for area in areas:
+            for p in scielo.periodicos(area):
+                for i in p["issn"]:
+                    scielo_por_issn.setdefault(i, {**p, "areas": set()})["areas"].add(area)
+    coletar = coletar or selecionar_area
     vistos, periodicos, funil = set(), {}, defaultdict(Counter)
 
     # Estado inicial: o que já está gravado entra no merge; a área que vai rodar sai e é

@@ -50,7 +50,7 @@ async function main() {
     conferir('  intenção válida', ['buscar_referencias', 'avaliar_fonte', 'formatar_referencia',
                                    'orientar_busca', 'fora_de_escopo'].includes(r.intencao));
     conferir('  tipo conhecido pelo front', ['recomendacao', 'parecer_fonte', 'referencia_abnt',
-                                             'orientacao_busca', 'abstencao'].includes(r.tipo));
+                                             'orientacao_busca', 'abstencao', 'esclarecimento'].includes(r.tipo));
     conferir('  lista de artigos', Array.isArray(r.artigos));
     conferir('  sugestões', Array.isArray(r.sugestoes) && r.sugestoes.length > 0);
 

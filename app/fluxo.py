@@ -9,12 +9,15 @@ ABNT (`abnt`).
 """
 from __future__ import annotations
 
+import re
 from datetime import date
 
 from config import (
     FORA_DE_ESCOPO,
     LIMIAR_CONFIANCA,
+    LIMIAR_ESCLARECIMENTO,
     LIMIAR_SCORE,
+    MIN_SEGUNDA_OPCAO,
     TOP_K,
 )
 import abstencao
@@ -23,8 +26,11 @@ import faq as modulo_faq
 import intencoes
 import periodicos as modulo_periodicos
 import recuperacao
-from contexto import sessoes
+from contexto import Esclarecimento, resposta_curta, sessoes
 from schemas import Resposta, RespostaArtigo, Traco
+
+# Intenções que, com confiança, prevalecem sobre a regra do tema solto.
+ACOES_COM_CONFIANCA = {"avaliar_fonte", "formatar_referencia", "orientar_busca"}
 
 
 def _resposta(traco: Traco, intencao: str, tipo: str, texto: str, sugestoes: list[str],
@@ -229,11 +235,137 @@ def _acao_fora_de_escopo(ctx, traco: Traco) -> Resposta:
     return _abster(abstencao.mensagem_fora_de_escopo(ctx.abstencao_aos_seguidos), traco)
 
 
+def _executar(intencao: str, mensagem: str, ctx, traco: Traco) -> Resposta:
+    if intencao == "buscar_referencias":
+        return _acao_buscar(mensagem, ctx, traco)
+    if intencao == "avaliar_fonte":
+        ctx.abstencao_aos_seguidos = 0
+        return _acao_avaliar(mensagem, traco)
+    if intencao == "formatar_referencia":
+        return _acao_formatar(mensagem, ctx, traco)
+    if intencao == "orientar_busca":
+        ctx.abstencao_aos_seguidos = 0
+        return _acao_orientar(mensagem, traco)
+    return _acao_fora_de_escopo(ctx, traco)
+
+
+# ------------------------------------------------------------------ esclarecimento
+def _tema(mensagem: str, limite: int = 80) -> str:
+    tema = mensagem.strip().rstrip("?!.: ")
+    return tema if len(tema) <= limite else tema[:limite].rsplit(" ", 1)[0] + "…"
+
+
+_SOBRE = re.compile(r".*\bsobre\s+(.+)$", re.I | re.S)
+
+
+def _assunto(mensagem: str) -> str | None:
+    """O que citar entre aspas na pergunta: o trecho depois do último "sobre" ou a mensagem
+    curta inteira ("bactérias resistentes a antibióticos"). Pergunta longa sem "sobre" fica
+    sem aspas: repetir a frase toda soa como eco, não como pergunta."""
+    texto = mensagem.strip().rstrip("?!.: ")
+    m = _SOBRE.match(texto)
+    if m:
+        return _tema(m.group(1))
+    if len(texto.split()) <= 6 and "?" not in mensagem:
+        return _tema(texto)
+    return None
+
+
+def _descrever_opcao(intencao: str, mensagem: str, ctx) -> tuple[str, str] | None:
+    """(rótulo do botão, descrição para a pergunta), ou None quando a ação não se aplica."""
+    if intencao == "buscar_referencias":
+        assunto = _assunto(mensagem)
+        descricao = (f"que eu procure artigos sobre \"{assunto}\" na base curada" if assunto
+                     else "que eu procure artigos sobre isso na base curada")
+        return "Procurar artigos sobre isso", descricao
+    if intencao == "orientar_busca":
+        return "Dicas de como buscar", "dicas de como buscar isso em bases acadêmicas"
+    if intencao == "avaliar_fonte":
+        return "Avaliar se a fonte é confiável", "saber se essa fonte é confiável para o TCC"
+    if intencao == "formatar_referencia":
+        # Sem um artigo da lista identificado, confirmar só levaria a outra abstenção.
+        artigo = ctx.artigo_citado(mensagem)
+        if artigo is None:
+            return None
+        posicao = ctx.posicao(mensagem)
+        titulo = _tema(artigo.get("titulo") or "sem título", 60)
+        return f"Referência ABNT do artigo {posicao}", f"a referência ABNT do artigo {posicao} (\"{titulo}\")"
+    return None
+
+
+def _esclarecer(mensagem: str, ctx, classificador, intencao: str, confianca: float,
+                traco: Traco) -> Resposta | None:
+    """Pergunta "você quer X?" na faixa de confiança baixa, ou None (segue para a abstenção).
+
+    O bot ainda não age: a ação escolhida roda na mensagem seguinte, sobre a pergunta original
+    guardada no contexto. Oferece até duas ações, na ordem das probabilidades do classificador.
+    """
+    if intencao == FORA_DE_ESCOPO or confianca < LIMIAR_ESCLARECIMENTO:
+        return None
+    probabilidades = getattr(classificador, "probabilidades", None)
+    probs = probabilidades(mensagem) if probabilidades else {intencao: confianca}
+    acoes = [(i, p) for i, p in sorted(probs.items(), key=lambda kv: -kv[1]) if i != FORA_DE_ESCOPO]
+
+    opcoes = []
+    for posicao, (candidata, p) in enumerate(acoes[:2]):
+        if posicao == 1 and p < MIN_SEGUNDA_OPCAO:
+            break
+        descrita = _descrever_opcao(candidata, mensagem, ctx)
+        if descrita is not None:
+            opcoes.append((candidata, *descrita))
+    if not opcoes:
+        return None
+
+    descricoes = [d for _, _, d in opcoes]
+    if len(opcoes) == 1:
+        texto = f"{abstencao.ESCLARECER_UMA.format(a=descricoes[0])}\n\n{abstencao.ESCLARECER_RODAPE_UMA}"
+    else:
+        texto = (f"{abstencao.ESCLARECER_DUAS.format(a=descricoes[0], b=descricoes[1])}\n\n"
+                 f"{abstencao.ESCLARECER_RODAPE_DUAS}")
+    ctx.esclarecimento = Esclarecimento(mensagem, [(i, r) for i, r, _ in opcoes], confianca)
+
+    traco.confianca_abaixo_do_limiar = True
+    traco.acao = "esclarecimento"
+    traco.regra = (f"confiança {confianca:.2f} entre {LIMIAR_ESCLARECIMENTO} e {LIMIAR_CONFIANCA}: "
+                   "pergunta antes de agir")
+    return _resposta(traco, intencao, "esclarecimento", texto,
+                     [r for _, r, _ in opcoes] + [abstencao.NAO_E_ISSO])
+
+
+def _responder_esclarecimento(pendente: Esclarecimento, escolha: str, ctx) -> Resposta:
+    """Resposta à pergunta de esclarecimento: executa a ação escolhida ou aceita o "não"."""
+    traco = Traco(
+        intencao_prevista=escolha or FORA_DE_ESCOPO,
+        confianca=round(pendente.confianca, 4),
+        limiar_confianca=LIMIAR_CONFIANCA,
+        acao="",
+        regra="",
+        contexto_usado=True,
+    )
+    if not escolha:
+        traco.acao, traco.regra = "abstencao", "esclarecimento recusado pelo usuário"
+        return _abster(abstencao.RECUSA_ESCLARECIMENTO, traco)
+    resposta = _executar(escolha, pendente.pergunta, ctx, traco)
+    resposta.traco.regra += f" · confirmado pelo usuário (\"{_tema(pendente.pergunta, 60)}\")"
+    return resposta
+
+
 # ------------------------------------------------------------------ porta de entrada
 def responder(mensagem: str, sessao: str = "default") -> Resposta:
     """Fluxo completo de uma mensagem. Sempre devolve `Resposta` com traço."""
     ctx = sessoes.obter(sessao)
+    # Resposta curta à pergunta de esclarecimento anterior ("sim", o botão, "não"). Qualquer
+    # outra mensagem descarta a pergunta e segue o fluxo normal.
+    pendente = ctx.tomar_esclarecimento()
+    escolha = pendente.resolver(mensagem) if pendente else None
+    if escolha is not None:
+        return _responder_esclarecimento(pendente, escolha, ctx)
+
     classificador = intencoes.obter()
+    if resposta_curta(mensagem):
+        traco = Traco(intencao_prevista=FORA_DE_ESCOPO, confianca=0.0, limiar_confianca=LIMIAR_CONFIANCA,
+                      acao="abstencao", regra="resposta curta sem pergunta em aberto")
+        return _abster(abstencao.SEM_PERGUNTA_PENDENTE, traco)
     intencao, confianca = classificador.prever(mensagem)
 
     traco = Traco(
@@ -248,21 +380,27 @@ def responder(mensagem: str, sessao: str = "default") -> Resposta:
         traco.acao, traco.regra = "abstencao", "modelo ausente"
         return _abster(abstencao.SEM_BASE, traco)
 
-    # Confiança baixa: o caminho mais seguro é a abstenção, não um palpite.
+    # Um assunto solto ("depressão") é uma busca. O classificador decide pela palavra e, para
+    # um substantivo sem verbo, erra (aprendeu "ansiedade" nas perguntas clínicas fora de
+    # escopo). A evidência melhor é a base reconhecer o tema. A trava: se ele está CONFIANTE
+    # de que é outra ação ("scielo" -> avaliar fonte), a decisão dele vale.
+    acao_confiante = intencao in ACOES_COM_CONFIANCA and confianca >= LIMIAR_CONFIANCA
+    if intencao != "buscar_referencias" or confianca < LIMIAR_CONFIANCA:
+        if not acao_confiante and recuperacao.obter().so_tema(mensagem):
+            traco.regra = "tema solto reconhecido pela base"
+            resposta = _acao_buscar(mensagem, ctx, traco)
+            resposta.traco.regra += f" · tema solto (modelo: {intencao} {confianca:.2f})"
+            return resposta
+
+    # Confiança baixa: perguntar antes de agir; sem uma ação plausível para oferecer, a
+    # abstenção continua sendo o caminho mais seguro, não um palpite.
     if intencao != FORA_DE_ESCOPO and confianca < LIMIAR_CONFIANCA:
+        pergunta = _esclarecer(mensagem, ctx, classificador, intencao, confianca, traco)
+        if pergunta is not None:
+            return pergunta
         traco.confianca_abaixo_do_limiar = True
         traco.acao, traco.regra = "abstencao", f"confiança {confianca:.2f} < {LIMIAR_CONFIANCA}"
         ctx.abstencao_aos_seguidos += 1
         return _abster(abstencao.CURTA, traco)
 
-    if intencao == "buscar_referencias":
-        return _acao_buscar(mensagem, ctx, traco)
-    if intencao == "avaliar_fonte":
-        ctx.abstencao_aos_seguidos = 0
-        return _acao_avaliar(mensagem, traco)
-    if intencao == "formatar_referencia":
-        return _acao_formatar(mensagem, ctx, traco)
-    if intencao == "orientar_busca":
-        ctx.abstencao_aos_seguidos = 0
-        return _acao_orientar(mensagem, traco)
-    return _acao_fora_de_escopo(ctx, traco)
+    return _executar(intencao, mensagem, ctx, traco)

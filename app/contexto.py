@@ -1,13 +1,15 @@
 """Contexto mínimo de conversa (R1).
 
 Guarda a última lista de artigos exibida para resolver referências como "o segundo
-artigo", "a última referência", "formata o terceiro". Em memória, por sessão, sem dado
-pessoal — o documento proíbe histórico por usuário.
+artigo", "a última referência", "formata o terceiro", e a pergunta de esclarecimento
+pendente ("você quer artigos sobre X?") até a próxima mensagem. Em memória, por sessão,
+sem dado pessoal — o documento proíbe histórico por usuário.
 """
 from __future__ import annotations
 
 import re
 import time
+import unicodedata
 from dataclasses import dataclass, field
 
 # Quanto tempo o contexto continua válido (segundos). Depois disso o bot pede a busca de novo.
@@ -28,6 +30,48 @@ _REFERENCIA = re.compile(
     re.I,
 )
 
+# Respostas curtas a uma pergunta de esclarecimento. Casam a mensagem INTEIRA: "quero artigos
+# sobre cárie" e "sim, mas sobre crianças" são perguntas novas, não confirmações.
+_SIM = re.compile(r"(sim|s|isso|isso mesmo|exato|exatamente|pode|pode ser|quero|claro|ok|certo|"
+                  r"correto|beleza|isso ai|com certeza)( (sim|pode|quero|isso|por favor|obrigad[oa]))*")
+_NAO = re.compile(r"(nao|n|nenhum|nenhuma|errado|negativo|outra coisa|nao obrigad[oa]|"
+                  r"nao (e|era) (isso|outra coisa|nada disso))")
+
+
+def _normalizar_resposta(texto: str) -> str:
+    sem = "".join(c for c in unicodedata.normalize("NFKD", texto.lower()) if not unicodedata.combining(c))
+    return " ".join(re.sub(r"[^a-z0-9\s]", " ", sem).split())
+
+
+def resposta_curta(texto: str) -> bool:
+    """True para "sim", "não", "ok"... sozinhos: só fazem sentido com uma pergunta em aberto."""
+    t = _normalizar_resposta(texto)
+    return bool(_SIM.fullmatch(t) or _NAO.fullmatch(t))
+
+
+@dataclass
+class Esclarecimento:
+    """Pergunta feita ao usuário: a mensagem original e as ações oferecidas, em ordem."""
+
+    pergunta: str
+    opcoes: list[tuple[str, str]]          # (intenção, rótulo do botão)
+    confianca: float
+    criado_em: float = field(default_factory=time.time)
+
+    def resolver(self, texto: str) -> str | None:
+        """Intenção escolhida, "" para recusa ou None quando a mensagem é outra pergunta."""
+        t = _normalizar_resposta(texto)
+        for intencao, rotulo in self.opcoes:
+            if t == _normalizar_resposta(rotulo):
+                return intencao
+        if t.isdigit() and 1 <= int(t) <= len(self.opcoes):
+            return self.opcoes[int(t) - 1][0]
+        if _NAO.fullmatch(t):
+            return ""
+        if _SIM.fullmatch(t):
+            return self.opcoes[0][0]
+        return None
+
 
 @dataclass
 class Contexto:
@@ -36,6 +80,14 @@ class Contexto:
     ultima_busca: str | None = None
     ultima_intencao: str | None = None
     abstencao_aos_seguidos: int = 0
+    esclarecimento: Esclarecimento | None = None
+
+    def tomar_esclarecimento(self) -> Esclarecimento | None:
+        """Devolve e apaga a pergunta pendente: ela vale só para a mensagem seguinte."""
+        pendente, self.esclarecimento = self.esclarecimento, None
+        if pendente is None or time.time() - pendente.criado_em > TTL:
+            return None
+        return pendente
 
     # ------------------------------------------------------------ ciclo de vida
     def expirado(self, agora: float | None = None) -> bool:
@@ -49,6 +101,7 @@ class Contexto:
     def limpar(self) -> None:
         self.artigos = []
         self.ultima_busca = None
+        self.esclarecimento = None
         self.atualizado_em = 0.0
 
     @property

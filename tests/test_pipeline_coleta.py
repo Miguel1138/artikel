@@ -172,3 +172,34 @@ def test_area_desconhecida_falha_antes_de_qualquer_coisa(arquivos):
         pipeline.main(areas=["astronomia"], arquivos=(base, revistas, relatorio),
                       coletar=coletor_fixo({}))
     assert not base.exists()
+
+
+# ------------------------------------------------------------------ área e período
+def test_medicina_nao_absorve_odontologia_nem_informatica_medica():
+    """O prefixo LCC "R" de Medicina contém RK (Odontologia) e R858 (informática médica)."""
+    assert pipeline.lcc_da_area("medicina", ["RC254-282"])
+    assert pipeline.lcc_da_area("medicina", ["R"])
+    assert not pipeline.lcc_da_area("medicina", ["RK1-715"])
+    assert not pipeline.lcc_da_area("medicina", ["R858-859.7"])
+    assert pipeline.lcc_da_area("odontologia", ["RK1-715"])
+    assert pipeline.lcc_da_area("biologia", ["QH301-705.5"])
+    assert not pipeline.lcc_da_area("biologia", ["QA75.5-76.95"])
+
+
+def test_area_wos_de_odontologia_nao_conta_como_medicina():
+    """'DENTISTRY, ORAL SURGERY & MEDICINE' contém MEDICINE e SURGERY."""
+    import comum
+    assert not comum.wos_da_area("medicina", ["DENTISTRY, ORAL SURGERY & MEDICINE"])
+    assert comum.wos_da_area("odontologia", ["DENTISTRY, ORAL SURGERY & MEDICINE"])
+    assert comum.wos_da_area("medicina", ["MEDICINE, GENERAL & INTERNAL"])
+    assert comum.wos_da_area("biologia", ["MARINE & FRESHWATER BIOLOGY"])
+    assert not comum.wos_da_area("biologia", ["PSYCHOLOGY, BIOLOGICAL"])
+
+
+def test_intercalar_anos_espalha_a_cota_pelo_periodo():
+    """Validar do mais recente para trás enchia a cota com os últimos dois anos."""
+    regs = [{"doi": f"{ano}/{n}", "ano": ano, "_data": f"{ano}-0{n}-01"}
+            for ano in (2016, 2025, 2026) for n in (1, 2)]
+    ordem = [r["ano"] for r in pipeline.intercalar_anos(regs)]
+    assert ordem == [2026, 2025, 2016, 2026, 2025, 2016]
+    assert pipeline.intercalar_anos([]) == []

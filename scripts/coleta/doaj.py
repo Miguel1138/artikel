@@ -50,11 +50,18 @@ def buscar_artigos(consulta, limite=CANDIDATOS_POR_CONSULTA):
     """Artigos do DOAJ que casam com a consulta (sintaxe Elasticsearch do DOAJ).
 
     O índice do DOAJ traz `bibjson.abstract` quase sempre preenchido, o que é o que a
-    recuperação do Artikel usa para casar tema.
+    recuperação do Artikel usa para casar tema. A API entrega no máximo 100 por página.
     """
     url = BASE_ARTIGOS + quote(consulta, safe="")
-    dados = get_json(url, {"pageSize": limite}) or {}
-    return dados.get("results", [])
+    resultados, pagina = [], 1
+    while len(resultados) < limite:
+        dados = get_json(url, {"page": pagina, "pageSize": min(100, limite)}) or {}
+        lote = dados.get("results") or []
+        resultados += lote
+        if len(lote) < min(100, limite) or len(resultados) >= (dados.get("total") or 0):
+            break
+        pagina += 1
+    return resultados[:limite]
 
 
 def _autores(b):
