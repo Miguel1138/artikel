@@ -269,6 +269,33 @@ ONNX quantizado, ~118 MB em `models/encoder/`, CPU, sem rede em tempo de uso) + 
 O que mais ajudaria agora é **mais dados rotulados** com variação de vocabulário (principalmente
 `orientar_busca` x `buscar_referencias` e `avaliar_fonte`): o encoder reduz essa necessidade, não a elimina.
 
+## Tema solto: palavra de assunto sem verbo é busca — 12/10/2026
+
+**Sintoma:** "depressão" não trazia artigos, "artigos sobre depressão" trazia 5. O classificador
+mandava "depressão" (0,47), "ansiedade" (0,71) e "cárie" (0,70) para `fora_de_escopo`: essas
+palavras aparecem nas perguntas clínicas fora de escopo do `intents.csv` ("qual remédio tomar para
+ansiedade"), então o modelo aprendeu a palavra, não a frase. A base tinha os artigos.
+
+**Correção sem ampliar o CSV:** `Motor.so_tema` (recuperacao.py) + um passo em `fluxo.responder`.
+A mensagem é "só um tema" quando, tiradas as palavras de enchimento e funcionais, restam de 1 a 4
+palavras e todas existem em pelo menos 2 artigos (ou têm equivalente pt/en neles) e nenhuma é
+vocabulário de outra ação (`TERMOS_DO_SISTEMA`: scielo, pubmed, capes, introdução...). Nesse caso
+busca, a menos que o modelo esteja confiante (>= limiar) de que é avaliar fonte, formatar ou orientar.
+
+**Efeito medido** (com a regra ligada e desligada, ~330 frases rotuladas): 0 mudanças no treino, no
+teste oficial, nas paráfrases, nos temas ausentes e nas outras intenções. Mudou: 9 temas soltos
+passaram a buscar (depressão, ansiedade, cárie, periodontia, clareamento, suicídio, pandemia,
+autismo, estresse) e 2 buscas de integração que ficavam logo abaixo do limiar.
+
+**O que a regra NÃO cobre (de propósito):**
+* Tema que aparece em **um só artigo** ("burnout"): é menção incidental ("faz" e "psicólogo" também
+  aparecem em um artigo). Esses seguem a decisão do classificador.
+* Palavras do vocabulário do sistema: `TERMOS_DO_SISTEMA` é uma lista mantida à mão; ao adicionar
+  uma base ou portal novo ao bot, acrescente o nome lá.
+* Palavras com menos de 4 letras ("dor", "TDAH") não são reconhecidas como tema, a menos que estejam
+  em 2+ artigos.
+
+
 ## Pergunta de esclarecimento na faixa de confiança baixa — 23/10/2026
 
 **Antes:** abaixo de `LIMIAR_CONFIANCA` (0,60) o bot se abstinha. Perguntas legítimas que ficavam

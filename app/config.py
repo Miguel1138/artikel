@@ -69,6 +69,23 @@ COBERTURA_MINIMA = 0.60
 # Com pelo menos este número de artigos que cobrem TODOS os termos da pergunta, os de
 # cobertura parcial (>= COBERTURA_MINIMA) ficam de fora; sem isso eles só preenchem a lista.
 MIN_COBERTURA_COMPLETA = 3
+# --- Tema solto ("depressão", sem verbo): ver Motor.so_tema e o passo correspondente de fluxo.py
+# Um termo só é tema da base se aparece em pelo menos tantos artigos; menções únicas são
+# incidentais ("faz", "psicólogo" aparecem em um artigo cada).
+MIN_ARTIGOS_TEMA = 2
+# No máximo tantas palavras de conteúdo para a mensagem contar como "só um tema".
+MAX_TERMOS_TEMA = 4
+# Palavras que pertencem a OUTRAS ações do bot (bases e portais, tarefas de escrita) e nunca
+# contam como tema, mesmo que apareçam na base: "scielo" é avaliar fonte, "pubmed" é orientar
+# busca, "introdução" é pedido de escrita. Sem eles uma palavra solta do sistema viraria busca.
+TERMOS_DO_SISTEMA = frozenset({
+    "scielo", "pubmed", "capes", "doaj", "medline", "lilacs", "scopus", "crossref", "google",
+    "scholar", "academico", "qualis", "portal", "wikipedia", "abnt", "nbr", "doi", "issn",
+    "preprint", "preprints", "journal", "periodico", "periodicos", "revista", "revistas",
+    "indexacao", "predatoria", "predatorio", "impacto",
+    "introducao", "conclusao", "metodologia", "capitulo", "redacao", "paragrafo", "resumo",
+    "apresentacao", "slides", "cronograma", "fichamento", "tradução", "traducao",
+})
 # Quantos artigos a resposta de busca devolve (documento: top 3–5).
 TOP_K = 5
 # Artigos usados para calcular a Precisão@5 na avaliação.

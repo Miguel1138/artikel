@@ -150,9 +150,7 @@ _INTENCAO = "classificador: pergunta só com o tema fica abaixo do limiar de con
 _LIMIAR = "classificador: intenção correta, mas a confiança fica logo abaixo do limiar"
 _PARCIAL = "cobertura parcial: poucos artigos cobrem todos os termos e o resto da lista é fraco"
 LACUNAS = {
-    "relação entre pais e filhos": _INTENCAO,
     "análise de sentimentos em textos": _INTENCAO,
-    "implantes osseointegrados e perda óssea": _LIMIAR,
     "onde posso baixar o texto completo de graça?": _LIMIAR,
     "quais pesquisas recentes tratam de gengivite e doença periodontal?": _PARCIAL,
     "pesquisas sobre testes de software e qualidade de código": _PARCIAL,

@@ -28,7 +28,10 @@ from config import (
     BONUS_MESMA_AREA,
     BONUS_REVISAO,
     COBERTURA_MINIMA,
+    MAX_TERMOS_TEMA,
+    MIN_ARTIGOS_TEMA,
     MIN_COBERTURA_COMPLETA,
+    TERMOS_DO_SISTEMA,
     TOP_K,
 )
 
@@ -202,6 +205,7 @@ class Motor:
         self._textos_norm: list[str] = []
         self._palavras_doc: list[set[str]] = []
         self._cache_peso: dict[str, float] = {}
+        self._cache_df: dict[str, int] = {}
         self._carregar(arq_base, arq_periodicos)
 
     # ------------------------------------------------------------ carga
@@ -234,6 +238,7 @@ class Motor:
         self._textos_norm = [_MARCA_PALAVRA.sub(" ", sem_acento(d)) for d in documentos]
         self._palavras_doc = [set(t.split()) for t in self._textos_norm]
         self._cache_peso = {}
+        self._cache_df = {}
 
     @staticmethod
     def _documento(artigo: dict) -> str:
@@ -264,6 +269,33 @@ class Motor:
         )
         return {p: math.log((1 + n) / (1 + c)) + 1 for p, c in contagem.items()}
 
+    def _df(self, termo: str) -> int:
+        """Em quantos artigos aparece o termo ou qualquer equivalente pt/en dele."""
+        if termo not in self._cache_df:
+            variantes = {termo} | equivalentes(termo)
+            self._cache_df[termo] = sum(
+                1 for palavras, texto in zip(self._palavras_doc, self._textos_norm)
+                if any((v in palavras) if " " not in v else (v in texto) for v in variantes)
+            )
+        return self._cache_df[termo]
+
+    def so_tema(self, consulta: str) -> bool:
+        """A mensagem é só um tema que a base conhece? ("depressão", "cárie infantil")
+
+        Verdadeiro quando, tiradas as palavras de enchimento e as funcionais, sobram de 1 a
+        MAX_TERMOS_TEMA palavras e TODAS são tema da base: aparecem em pelo menos
+        MIN_ARTIGOS_TEMA artigos (ou têm equivalente pt/en neles) e não são vocabulário de
+        outra ação do bot (`TERMOS_DO_SISTEMA`). Vale também para palavras curtas: "faz" em
+        "faz minha introdução sobre cárie" aparece em um só artigo, logo não é tema e a
+        mensagem fica com o classificador. É a evidência de que o usuário buscou um assunto,
+        que o classificador não tem para um substantivo solto.
+        """
+        palavras = _MARCA_PALAVRA.sub(" ", sem_acento(consulta)).split()
+        conteudo = [t for t in palavras if t not in GENERICAS and t not in _FUNCIONAIS]
+        if not conteudo or len(conteudo) > MAX_TERMOS_TEMA:
+            return False
+        return all(t not in TERMOS_DO_SISTEMA and self._df(t) >= MIN_ARTIGOS_TEMA for t in conteudo)
+
     def _peso(self, termo: str) -> float:
         """Raridade do conceito: idf calculado sobre os artigos que têm QUALQUER variante pt/en.
 
@@ -276,11 +308,7 @@ class Motor:
         possível, e a similaridade (que devolve 0) é quem vai barrar.
         """
         if termo not in self._cache_peso:
-            variantes = {termo} | equivalentes(termo)
-            df = sum(
-                1 for palavras, texto in zip(self._palavras_doc, self._textos_norm)
-                if any((v in palavras) if " " not in v else (v in texto) for v in variantes)
-            )
+            df = self._df(termo)
             n = len(self.artigos) or 1
             self._cache_peso[termo] = (
                 math.log((1 + n) / (1 + df)) + 1 if df

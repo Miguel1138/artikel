@@ -29,6 +29,9 @@ import recuperacao
 from contexto import Esclarecimento, resposta_curta, sessoes
 from schemas import Resposta, RespostaArtigo, Traco
 
+# Intenções que, com confiança, prevalecem sobre a regra do tema solto.
+ACOES_COM_CONFIANCA = {"avaliar_fonte", "formatar_referencia", "orientar_busca"}
+
 
 def _resposta(traco: Traco, intencao: str, tipo: str, texto: str, sugestoes: list[str],
               artigos: list[RespostaArtigo] | None = None, fontes: list[str] | None = None) -> Resposta:
@@ -376,6 +379,18 @@ def responder(mensagem: str, sessao: str = "default") -> Resposta:
     if not classificador.carregado:
         traco.acao, traco.regra = "abstencao", "modelo ausente"
         return _abster(abstencao.SEM_BASE, traco)
+
+    # Um assunto solto ("depressão") é uma busca. O classificador decide pela palavra e, para
+    # um substantivo sem verbo, erra (aprendeu "ansiedade" nas perguntas clínicas fora de
+    # escopo). A evidência melhor é a base reconhecer o tema. A trava: se ele está CONFIANTE
+    # de que é outra ação ("scielo" -> avaliar fonte), a decisão dele vale.
+    acao_confiante = intencao in ACOES_COM_CONFIANCA and confianca >= LIMIAR_CONFIANCA
+    if intencao != "buscar_referencias" or confianca < LIMIAR_CONFIANCA:
+        if not acao_confiante and recuperacao.obter().so_tema(mensagem):
+            traco.regra = "tema solto reconhecido pela base"
+            resposta = _acao_buscar(mensagem, ctx, traco)
+            resposta.traco.regra += f" · tema solto (modelo: {intencao} {confianca:.2f})"
+            return resposta
 
     # Confiança baixa: perguntar antes de agir; sem uma ação plausível para oferecer, a
     # abstenção continua sendo o caminho mais seguro, não um palpite.
