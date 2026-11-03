@@ -1,0 +1,46 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    commit-message:
+      prefix: "chore(deps)"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "America/Sao_Paulo"
+    open-pull-requests-limit: 5
+    
+    groups:
+      # Group data collection tools together
+      data-collection:
+        patterns:
+          - "requests"
+          - "xylose"
+
+      # Group heavy ML runtimes and processing libraries to avoid breaking local execution/onnx compatibility
+      ml-core:
+        patterns:
+          - "scikit-learn"
+          - "joblib"
+          - "numpy"
+          - "rank-bm25"
+          - "onnxruntime"
+          - "tokenizers"
+
+      # Group web infrastructure components
+      api-server:
+        patterns:
+          - "fastapi"
+          - "uvicorn"
+
+      # Group testing and evaluation utilities
+      testing-evaluation:
+        patterns:
+          - "pytest"
+          - "pandas"
