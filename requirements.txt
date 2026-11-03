@@ -21,8 +21,8 @@ fastapi>=0.162.0
 uvicorn>=0.54.0
 
 # --- Testes e avaliação ------------------------------------------------
-pytest>=8.0
-pandas>=2.2           # leitura de casos_teste.csv e cálculo das métricas
+pytest>=9.2.0
+pandas>=3.1.0           # leitura de casos_teste.csv e cálculo das métricas
 
 # --- Opcional: regenerar data/glossario_pt_en.json (scripts/gerar_glossario.py) ---------
 # A API NÃO precisa de NLTK: ela só lê o JSON já gerado e versionado.
