@@ -168,8 +168,9 @@ def test_orientacao_de_busca_vem_da_faq(ambiente):
     r = fluxo.responder("como procuro artigos no SciELO?", sessao="t7")
     assert r.tipo == "orientacao_busca"
     urls = re.findall(r"https?://[^\s)]+", r.resposta)
-    hosts = [urlparse(u).hostname for u in urls]
-    assert "search.scielo.org" in hosts
+    hosts = [h.lower() for h in (urlparse(u).hostname for u in urls) if h]
+    allowed_hosts = {"search.scielo.org"}
+    assert any(h in allowed_hosts for h in hosts)
     assert "1. Digite os termos" in r.resposta
 
 
