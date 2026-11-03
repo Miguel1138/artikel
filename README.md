@@ -1,4 +1,6 @@
 # Artikel — assistente de referências confiáveis
+[![CodeQL](https://github.com/Miguel1138/artikel/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/Miguel1138/artikel/actions/workflows/github-code-scanning/codeql)
+[![CI](https://github.com/Miguel1138/artikel/actions/workflows/ci.yml/badge.svg)](https://github.com/Miguel1138/artikel/actions/workflows/ci.yml)
 
 Chatbot acadêmico que recomenda **artigos científicos de uma base curada** e se abstém
 quando não há registro confiável. Projeto da disciplina de Inteligência Artificial (A3
