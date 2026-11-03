@@ -2,11 +2,11 @@
 # Instalar com:  pip install -r requirements.txt
 
 # --- Coleta (scripts/coleta) -------------------------------------------
-requests>=2.31
+requests>=2.34.2
 # xylose lê o ArticleMeta do SciELO. O cliente `scielo.py` NÃO depende dele (lê o JSON
 # bruto); fica na lista porque é a biblioteca oficial da coleção e é usada em conferência
 # manual dos campos contra a coleção do Insomnia.
-xylose>=1.6
+xylose>=1.35.4
 
 # --- IA: classificador e recuperação -----------------------------------
 scikit-learn>=1.9.1
