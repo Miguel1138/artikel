@@ -5,8 +5,10 @@ invariantes que o documento exige: abstenção no lugar de invenção, contexto 
 artigo" e traço da decisão em toda resposta.
 """
 import json
+import re
 import sys
 from pathlib import Path
+from urllib.parse import urlparse
 
 import pytest
 
@@ -165,7 +167,10 @@ def test_parecer_de_fonte_desconhecida(ambiente):
 def test_orientacao_de_busca_vem_da_faq(ambiente):
     r = fluxo.responder("como procuro artigos no SciELO?", sessao="t7")
     assert r.tipo == "orientacao_busca"
-    assert "search.scielo.org" in r.resposta
+    urls = re.findall(r"https?://[^\s)]+", r.resposta)
+    hosts = [h.lower() for h in (urlparse(u).hostname for u in urls) if h]
+    allowed_hosts = {"search.scielo.org"}
+    assert any(h in allowed_hosts for h in hosts)
     assert "1. Digite os termos" in r.resposta
 
 
