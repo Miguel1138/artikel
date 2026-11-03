@@ -68,7 +68,8 @@ def investigar(pergunta: str, sem_guarda: bool = False) -> None:
         ]))
         detalhe = []
         for termo in sorted(termos):
-            variantes = sorted({termo} | recuperacao.ALIASES.get(termo, set()))
+            # equivalentes() = ALIASES + glossário; só o ALIASES dava "NAO" falso
+            variantes = sorted({termo} | recuperacao.equivalentes(termo))
             casou = [v for v in variantes if motor._contem(alvo, v)]
             detalhe.append(f"{termo}={'sim' if casou else 'NAO'}({','.join(casou)})")
         print(f"  [{a.get('area')}] {' '.join(detalhe)}")

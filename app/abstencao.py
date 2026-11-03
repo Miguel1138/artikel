@@ -37,6 +37,28 @@ SEM_FAQ = (
     "que quer usar (SciELO, Google Acadêmico, PubMed) e o tema, que eu indico os termos."
 )
 
+# Pergunta de esclarecimento (confiança entre LIMIAR_ESCLARECIMENTO e LIMIAR_CONFIANCA): o bot
+# não age nem se abstém, pergunta. `{a}`/`{b}` são as descrições das ações montadas em fluxo.py.
+ESCLARECER_UMA = "Só para confirmar: você quer {a}?"
+ESCLARECER_DUAS = "Não entendi bem. Você quer {a} ou {b}?"
+ESCLARECER_RODAPE_UMA = "Responda \"sim\" ou \"não\", ou reformule a pergunta."
+# Com duas opções o "sim" é ambíguo (ficaria com a primeira): o texto pede a escolha.
+ESCLARECER_RODAPE_DUAS = "Escolha uma das opções abaixo (1 ou 2) ou reformule a pergunta."
+NAO_E_ISSO = "Não, é outra coisa"
+
+RECUSA_ESCLARECIMENTO = (
+    "Tudo bem. Me diga com outras palavras o que você precisa: posso procurar artigos sobre "
+    "um tema, avaliar uma fonte, montar a referência ABNT de um artigo que eu já tenha "
+    "indicado ou orientar a sua busca em bases acadêmicas."
+)
+
+# "sim"/"não" sem pergunta em aberto (expirou, conversa limpa): sem isso "sim" virava tema solto.
+SEM_PERGUNTA_PENDENTE = (
+    "Não tenho nenhuma pergunta em aberto para confirmar. Me diga o que você precisa: posso "
+    "procurar artigos sobre um tema, avaliar uma fonte ou montar a referência ABNT de um "
+    "artigo que eu já tenha indicado."
+)
+
 SUGESTOES = [
     "Preciso de artigos sobre aprendizado de máquina na saúde",
     "A revista X é confiável?",

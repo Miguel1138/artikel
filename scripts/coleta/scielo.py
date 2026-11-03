@@ -27,8 +27,8 @@ from __future__ import annotations
 import re
 
 from comum import (get_json, ler_raw, limpar_texto, normalizar_doi, normalizar_idioma,
-                   normalizar_licenca, novo_registro, salvar_raw)
-from config_coleta import ANO_FIM, ANO_INICIO, AREA_WOS, MAX_ARTIGOS_POR_PERIODICO
+                   normalizar_licenca, novo_registro, salvar_raw, wos_da_area)
+from config_coleta import ANO_FIM, ANO_INICIO, MAX_ARTIGOS_POR_PERIODICO
 
 BASE = "http://articlemeta.scielo.org/api/v1"
 COLECAO = "scl"
@@ -79,30 +79,40 @@ def _candidatos_periodicos():
             return
 
 
+def _cadastro_periodicos():
+    """Cadastro de todos os periódicos SciELO Brasil (cache em data/raw/scielo).
+
+    Uma leitura serve a todas as áreas: sem o cache, cada área nova baixava de novo o
+    cadastro inteiro (uma requisição por periódico).
+    """
+    cache = ler_raw("scielo", "periodicos_cadastro")
+    if cache is not None:
+        return cache
+    lista = []
+    for obj in _candidatos_periodicos():
+        bruto = _json(f"{BASE}/journal/", {"collection": COLECAO, "issn": obj["code"]})
+        if not bruto:
+            continue
+        lista.append({
+            "titulo": _texto(bruto.get("v100")),
+            "issn": [i for i in (bruto.get("issns") or []) if i],
+            # v854 = área WoS do periódico (equivalente a `wos_subject_areas` do xylose).
+            "areas_wos": [a["_"].upper() for a in _valores(bruto.get("v854")) if a.get("_")],
+            "assuntos": [a["_"] for a in _valores(bruto.get("v440")) if a.get("_")],
+            "indexadores": [a["_"] for a in _valores(bruto.get("v450")) if a.get("_")],
+            "licenca": normalizar_licenca(_texto(bruto.get("v541"))),
+        })
+    salvar_raw("scielo", "periodicos_cadastro", lista)
+    return lista
+
+
 def periodicos(area):
     """Periódicos SciELO Brasil da área (cache em data/raw/scielo)."""
     nome = f"periodicos_{area}"
     cache = ler_raw("scielo", nome)
     if cache is not None:
         return cache
-
-    lista = []
-    for obj in _candidatos_periodicos():
-        bruto = _json(f"{BASE}/journal/", {"collection": COLECAO, "issn": obj["code"]})
-        if not bruto:
-            continue
-        # v854 = área WoS do periódico (equivalente a `wos_subject_areas` do xylose).
-        areas = [a["_"].upper() for a in _valores(bruto.get("v854")) if a.get("_")]
-        if not any(alvo in a for a in areas for alvo in AREA_WOS[area]):
-            continue
-        lista.append({
-            "titulo": _texto(bruto.get("v100")),
-            "issn": [i for i in (bruto.get("issns") or []) if i],
-            "areas_wos": areas,
-            "assuntos": [a["_"] for a in _valores(bruto.get("v440")) if a.get("_")],
-            "indexadores": [a["_"] for a in _valores(bruto.get("v450")) if a.get("_")],
-            "licenca": normalizar_licenca(_texto(bruto.get("v541"))),
-        })
+    lista = [p for p in _cadastro_periodicos() if wos_da_area(area, p["areas_wos"])]
     salvar_raw("scielo", nome, lista)
     return lista
 

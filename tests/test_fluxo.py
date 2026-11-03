@@ -193,10 +193,19 @@ def test_toda_resposta_tem_traco(ambiente):
 
 
 def test_confianca_baixa_vira_abstencao(ambiente, monkeypatch):
+    """Mensagem com palavra que a base não conhece não é "só um tema": vale o limiar."""
     monkeypatch.setattr(intencoes, "obter", lambda: ClassificadorFalso(confianca=0.1))
-    r = fluxo.responder("preciso de artigos sobre clareamento dental", sessao="t10")
+    r = fluxo.responder("preciso de artigos sobre zorblax", sessao="t10")
     assert r.tipo == "abstencao"
     assert r.traco.confianca_abaixo_do_limiar is True
+
+
+def test_confianca_baixa_com_tema_reconhecido_pela_base_busca(ambiente, monkeypatch):
+    """Tema solto: o classificador hesita, mas a base conhece o assunto (ver test_tema_solto.py)."""
+    monkeypatch.setattr(intencoes, "obter", lambda: ClassificadorFalso(confianca=0.1))
+    r = fluxo.responder("preciso de artigos sobre clareamento dental", sessao="t10b")
+    assert r.tipo == "recomendacao" and r.artigos
+    assert "tema solto" in r.traco.regra
 
 
 def test_termos_do_traco_e_limiar_registrados(ambiente):

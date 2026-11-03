@@ -143,10 +143,12 @@ node web/_verificar_contrato.js http://127.0.0.1:8000  # API real contra o que o
 | 4 | Confirmar o DOAJ Article Search como fonte complementar de Computação e registrar a decisão | `docs/especificacao.md`, seção 7 | 3 |
 | 5 | Revisar os limiares de confiança e de score com a distribuição real de scores | `app/config.py` | 3 |
 | 6 | Desenhar o `docs/fluxograma.png` a partir de `docs/fluxograma.md` (Mermaid) | `docs/` | 3 |
-| 7 | Levar Computação de 46 para perto de 100 artigos (ampliar sementes ou fontes) | `scripts/coleta/config_coleta.py` | 2–3 |
-| 8 | Ampliar a amostra julgada da Precisão@5 (hoje 7 dos 30 casos) com dois juízes | `tests/casos_teste.csv` | 5–6 |
+| 7 | Computação foi de 46 para 495 artigos (cota de 600, 23/10/2026); fechar a diferença exige outra fonte de artigos da área | `scripts/coleta/config_coleta.py` | 2–3 |
+| 8 | Ampliar a amostra julgada da Precisão@5 (hoje 14 dos 42 casos) com dois juízes | `tests/casos_teste.csv` | 5–6 |
 | 9 | Escrever o relatório de 6+ páginas e o roteiro da demonstração de 8 minutos | `docs/` | 6 |
 | 10 | Preencher a declaração de uso de IA generativa | `docs/contribuicoes.md` | 6 |
+| 11 | O funil de `data/relatorio_coleta.md` mostra só as áreas da última execução (a coleta de 23/10 rodou uma área por vez e o funil ficou só com Psicologia); rodar a coleta inteira de uma vez ou acumular o funil entre execuções | `scripts/coleta/pipeline.py` | 2–3 |
+| 12 | "ensino de matemática no ensino médio" devolve artigos que cobrem "ensino" e "médio" sem "matemática": a cobertura conta a expressão como duas palavras | `app/recuperacao.py` | 4–5 |
 
 ## De infraestrutura — do ambiente, não do código
 
@@ -268,3 +270,64 @@ ONNX quantizado, ~118 MB em `models/encoder/`, CPU, sem rede em tempo de uso) + 
 
 O que mais ajudaria agora é **mais dados rotulados** com variação de vocabulário (principalmente
 `orientar_busca` x `buscar_referencias` e `avaliar_fonte`): o encoder reduz essa necessidade, não a elimina.
+
+## Tema solto: palavra de assunto sem verbo é busca — 12/10/2026
+
+**Sintoma:** "depressão" não trazia artigos, "artigos sobre depressão" trazia 5. O classificador
+mandava "depressão" (0,47), "ansiedade" (0,71) e "cárie" (0,70) para `fora_de_escopo`: essas
+palavras aparecem nas perguntas clínicas fora de escopo do `intents.csv` ("qual remédio tomar para
+ansiedade"), então o modelo aprendeu a palavra, não a frase. A base tinha os artigos.
+
+**Correção sem ampliar o CSV:** `Motor.so_tema` (recuperacao.py) + um passo em `fluxo.responder`.
+A mensagem é "só um tema" quando, tiradas as palavras de enchimento e funcionais, restam de 1 a 4
+palavras e todas existem em pelo menos 2 artigos (ou têm equivalente pt/en neles) e nenhuma é
+vocabulário de outra ação (`TERMOS_DO_SISTEMA`: scielo, pubmed, capes, introdução...). Nesse caso
+busca, a menos que o modelo esteja confiante (>= limiar) de que é avaliar fonte, formatar ou orientar.
+
+**Efeito medido** (com a regra ligada e desligada, ~330 frases rotuladas): 0 mudanças no treino, no
+teste oficial, nas paráfrases, nos temas ausentes e nas outras intenções. Mudou: 9 temas soltos
+passaram a buscar (depressão, ansiedade, cárie, periodontia, clareamento, suicídio, pandemia,
+autismo, estresse) e 2 buscas de integração que ficavam logo abaixo do limiar.
+
+**O que a regra NÃO cobre (de propósito):**
+* Tema que aparece em **um só artigo** ("burnout"): é menção incidental ("faz" e "psicólogo" também
+  aparecem em um artigo). Esses seguem a decisão do classificador.
+* Palavras do vocabulário do sistema: `TERMOS_DO_SISTEMA` é uma lista mantida à mão; ao adicionar
+  uma base ou portal novo ao bot, acrescente o nome lá.
+* Palavras com menos de 4 letras ("dor", "TDAH") não são reconhecidas como tema, a menos que estejam
+  em 2+ artigos.
+
+
+## Pergunta de esclarecimento na faixa de confiança baixa — 23/10/2026
+
+**Antes:** abaixo de `LIMIAR_CONFIANCA` (0,60) o bot se abstinha. Perguntas legítimas que ficavam
+em 0,38–0,57 ("bactérias resistentes a antibióticos", "onde posso baixar o texto completo de
+graça?", "Que palavras-chave uso para achar artigos sobre cárie infantil?") recebiam "ainda não
+tenho um registro verificado", sem chance de o usuário confirmar o que queria.
+
+**Agora:** entre `LIMIAR_ESCLARECIMENTO` (0,35) e 0,60 o bot pergunta antes de agir
+(`fluxo._esclarecer`). A resposta tem `tipo = "esclarecimento"`, não traz artigo nenhum e oferece
+até duas ações, na ordem das probabilidades do classificador. A segunda só entra com probabilidade
+>= `MIN_SEGUNDA_OPCAO` (0,25). As opções viram botões no front. A pergunta original fica em
+`Contexto.esclarecimento` e vale **só para a mensagem seguinte**: "sim", "1"/"2", o rótulo do
+botão ou "não". Qualquer outra mensagem descarta a pergunta e segue o fluxo normal. A ação
+confirmada roda sobre a pergunta original e o traço registra "confirmado pelo usuário".
+
+**Travas:**
+* `fora_de_escopo` previsto **nunca** vira pergunta, nem com uma ação logo atrás. "escreve sobre
+  depressão" sai 0,51 fora de escopo contra 0,48 busca; oferecer busca ali enfraqueceria a
+  abstenção de pedidos de escrita (`test_esclarecimento.py`).
+* `formatar_referencia` só é oferecida quando o contexto resolve o artigo citado. Sem lista, o
+  "sim" levaria a outra abstenção, então o bot se abstém direto, como antes.
+* Abaixo de 0,35 nada muda: abstenção.
+* "sim"/"não"/"ok" **sem** pergunta em aberto (expirou, conversa limpa) recebem
+  `SEM_PERGUNTA_PENDENTE`. Antes, "sim" virava busca por tema solto, porque a palavra aparece em
+  vários artigos da base, e o bot devolvia 2 artigos.
+
+**Efeito medido:** `tests/avaliar.py` com as mesmas métricas (acurácia, Precisão@5, abstenção
+fora de escopo 1,000, 0 citações inventadas). O caso 9 continua errado na intenção, mas agora
+pergunta "artigos sobre "cárie infantil" ou dicas de como buscar?" em vez de se abster.
+
+**Limite conhecido:** a pergunta herda o erro do classificador. "quem ganhou o jogo ontem?" sai
+`avaliar_fonte` 0,41 e o bot pergunta "você quer saber se essa fonte é confiável?". É inofensivo
+(nada é recomendado, e o "não" encerra), mas soa estranho.

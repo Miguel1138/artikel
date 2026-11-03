@@ -25,7 +25,7 @@ ARQ_CASOS = RAIZ / "tests" / "casos_teste.csv"
 # Recorte da base curada, espelhado de `scripts/coleta/config_coleta.py`. Fica duplicado de
 # propósito: a API não importa nada dos scripts de coleta (coleta isolada de app/, seção 8
 # do documento). Se o recorte mudar, mude nos dois lugares.
-ANO_INICIO, ANO_FIM = 2020, 2026
+ANO_INICIO, ANO_FIM = 2016, 2026   # 10 anos contados de 21/10/2026
 
 # --- Intenções ---------------------------------------------------------
 # A ordem define a legenda da matriz de confusão.
@@ -43,6 +43,16 @@ FORA_DE_ESCOPO = "fora_de_escopo"
 # aceita ~88% das perguntas com ~98% de precisão. 0,80 aceitava 72% e, em perguntas de tema
 # novo, abstinha de quase toda busca legítima (curva em docs/pendencias.md).
 LIMIAR_CONFIANCA = 0.60
+# Faixa de esclarecimento: entre este valor e LIMIAR_CONFIANCA o bot não se abstém de cara,
+# pergunta "você quer X?" e só age depois do "sim". Abaixo dele, abstenção como antes.
+# 0,35 cobre as perguntas legítimas que ficavam em 0,38–0,57 (tema novo, "e a do terceiro").
+LIMIAR_ESCLARECIMENTO = 0.35
+# Uma segunda intenção entra como alternativa na pergunta se tiver pelo menos esta probabilidade
+# ("palavras-chave para achar artigos": buscar 0,55 / orientar 0,43 -> pergunta qual dos dois).
+MIN_SEGUNDA_OPCAO = 0.25
+# Fora de escopo previsto nunca vira pergunta, mesmo com uma ação logo atrás: "escreve sobre
+# depressão" sai 0,51 fora de escopo contra 0,48 busca, e oferecer busca ali enfraquece a
+# abstenção de pedidos de escrita (tests/test_esclarecimento.py).
 # [Marco 3] similaridade de cosseno mínima para recomendar um artigo.
 LIMIAR_SCORE = 0.10
 # Fração mínima dos termos de conteúdo da pergunta que precisam aparecer no artigo.
@@ -59,6 +69,27 @@ COBERTURA_MINIMA = 0.60
 # Com pelo menos este número de artigos que cobrem TODOS os termos da pergunta, os de
 # cobertura parcial (>= COBERTURA_MINIMA) ficam de fora; sem isso eles só preenchem a lista.
 MIN_COBERTURA_COMPLETA = 3
+# --- Tema solto ("depressão", sem verbo): ver Motor.so_tema e o passo correspondente de fluxo.py
+# Um termo só é tema da base se aparece em pelo menos tantos artigos; menções únicas são
+# incidentais ("faz", "psicólogo" aparecem em um artigo cada).
+MIN_ARTIGOS_TEMA = 2
+# No máximo tantas palavras de conteúdo para a mensagem contar como "só um tema".
+MAX_TERMOS_TEMA = 4
+# Palavras que pertencem a OUTRAS ações do bot (bases e portais, tarefas de escrita) e nunca
+# contam como tema, mesmo que apareçam na base: "scielo" é avaliar fonte, "pubmed" é orientar
+# busca, "introdução" é pedido de escrita. Sem eles uma palavra solta do sistema viraria busca.
+TERMOS_DO_SISTEMA = frozenset({
+    "scielo", "pubmed", "capes", "doaj", "medline", "lilacs", "scopus", "crossref", "google",
+    "scholar", "academico", "qualis", "portal", "wikipedia", "abnt", "nbr", "doi", "issn",
+    "preprint", "preprints", "journal", "periodico", "periodicos", "revista", "revistas",
+    "indexacao", "predatoria", "predatorio", "impacto",
+    "introducao", "conclusao", "metodologia", "capitulo", "redacao", "paragrafo", "resumo",
+    "apresentacao", "slides", "cronograma", "fichamento", "tradução", "traducao",
+    # Ordinais apontam para um artigo já indicado ("e a do terceiro"): são de formatar
+    # referência. Com a base de 2895 artigos eles passaram a aparecer em vários resumos.
+    "segundo", "segunda", "terceiro", "terceira", "quarto", "quarta", "quinto", "quinta",
+    "ultimo", "ultima", "penultimo", "penultima", "anterior",
+})
 # Quantos artigos a resposta de busca devolve (documento: top 3–5).
 TOP_K = 5
 # Artigos usados para calcular a Precisão@5 na avaliação.
@@ -74,7 +105,11 @@ BONUS_REVISAO = {"dupla_cega": 0.06, "pares": 0.04, "editorial": 0.0, None: 0.0}
 BONUS_INDEXACAO = {"DOAJ": 0.03, "SciELO": 0.03, "MEDLINE": 0.02}
 BONUS_INDEXACAO_MAX = 0.05
 BONUS_ANO_RECENTE = 0.03          # artigos dos últimos 2 anos do recorte
-BONUS_MESMA_AREA = 0.02           # quando a pergunta cita uma das três áreas
+# Quando a pergunta indica uma das cinco áreas. Era 0,02 com três áreas; com Medicina e
+# Biologia os temas passaram a ter artigo relevante em área vizinha (saúde mental em periódico
+# médico, câncer de mama em Biologia) e 0,02 não desempatava. 0,04 é o menor valor que põe a
+# área certa em primeiro nas perguntas do teste de integração, sem mudar a Precisão@5.
+BONUS_MESMA_AREA = 0.04
 
 # --- Modelo ------------------------------------------------------------
 # TF-IDF + Regressão Logística é o padrão do documento; Naive Bayes é a alternativa.

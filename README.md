@@ -87,20 +87,21 @@ Contrato completo da interface: [`web/README.md`](web/README.md).
 
 ---
 
-## Estado atual (11/10/2026)
+## Estado atual (23/10/2026)
 
 | Item | Resultado |
 |---|---|
-| Base curada | 246 artigos · 107 periódicos · 100% CC-BY · 3 áreas |
+| Base curada | 2895 artigos · 671 periódicos · 100% CC-BY/CC0 · 5 áreas · 2016–2026 |
 | Dataset de intenções | 199 frases · 5 intenções (39–40 por intenção) |
-| Testes automatizados | 120 passando offline (`python -m pytest -q`) + integração contra a API no ar |
-| Acurácia de intenções | 0,933 (meta ≥ 0,85) · limiar de confiança 0,60 |
-| Precisão@5 da recuperação | 0,743 (meta ≥ 0,60) |
+| Testes automatizados | 203 passando offline (`python -m pytest -q`) + integração contra a API no ar (50 passando, 3 limites conhecidos) |
+| Acurácia de intenções | 0,952 (meta ≥ 0,85) · limiar de confiança 0,60 |
+| Precisão@5 da recuperação | 0,886 (meta ≥ 0,60) |
 | Abstenção correta fora de escopo | 1,000 (meta ≥ 0,90) |
 | Citações inventadas | 0 (meta = 0) |
 
-Métricas medidas por `python tests/avaliar.py` sobre os 30 casos de
-`tests/casos_teste.csv`; a análise das três falhas encontradas no caminho está em
+Métricas medidas por `python tests/avaliar.py` sobre os 42 casos de
+`tests/casos_teste.csv` (30 originais + 12 de Medicina e Biologia; nos 30 originais a
+acurácia é 0,933 e a Precisão@5, 0,771); a análise das três falhas encontradas no caminho está em
 [`docs/avaliacao.md`](docs/avaliacao.md).
 
 ---
@@ -150,9 +151,11 @@ ArticleMeta**, **Europe PMC**, **DOAJ** (indexação e assunto do periódico, e 
 artigos em Computação) e **NLM Catalog** (MEDLINE). Nenhuma exige chave de API; nada é
 consultado em tempo de conversa.
 
-Recorte: **2020–2026**, idiomas **pt/en**, licenças **CC-BY e CC0** (SA/NC/ND ficam de
-fora), cota de **25 artigos por semente** e **100 por área**, em Computação, Odontologia e
-Psicologia.
+Recorte: **2016–2026** (10 anos contados de 21/10/2026), idiomas **pt/en**, licenças
+**CC-BY e CC0** (SA/NC/ND ficam de fora), **8 sementes por área**, cota de **75 artigos por
+semente** e **600 por área** (meta de ~3000), em Ciência da Computação, Odontologia,
+Psicologia, Medicina e Biologia. Crossref e Europe PMC não ordenam por data e a validação
+intercala os anos, para a amostra cobrir a janela inteira e não só o último ano.
 
 Um artigo entra na base quando: tem DOI, está no período, tem idioma e licença aceitos,
 casa com uma semente temática, o DOI existe no Crossref, o periódico está indexado em
@@ -174,17 +177,20 @@ python scripts/coleta/pipeline.py --area odontologia
 
 ### Estado da base
 
-| Área | Artigos |
-|---|---|
-| Computação | 46 |
-| Odontologia | 100 |
-| Psicologia | 100 |
-| **Total** | **246** (107 periódicos, 100% CC-BY) |
+| Área | Artigos | 2016–2019 | 2020–2023 | 2024–2026 |
+|---|---|---|---|---|
+| Ciência da Computação | 495 | 53 | 185 | 257 |
+| Odontologia | 600 | 161 | 221 | 218 |
+| Psicologia | 600 | 177 | 223 | 200 |
+| Medicina | 600 | 193 | 198 | 209 |
+| Biologia | 600 | 135 | 221 | 244 |
+| **Total** | **2895** | | | |
 
-Computação fica abaixo da cota de 100: o Crossref, fonte principal, não sustenta essa área
-no recorte temático (devolve domínios vizinhos) e o SciELO tem poucos periódicos de
-Computação. A lacuna foi reduzida com o `Article Search` do DOAJ como fonte complementar de
-artigos dessa área — a decisão está registrada em
+671 periódicos; 2546 artigos em inglês e 349 em português; 484 sem resumo (ficam com
+título e palavras-chave). Computação fica abaixo da cota de 600: o Crossref, fonte principal,
+não sustenta essa área no recorte temático (devolve domínios vizinhos) e o SciELO tem poucos
+periódicos de Computação. A lacuna foi reduzida com o `Article Search` do DOAJ como fonte
+complementar de artigos dessa área — a decisão está registrada em
 [`docs/especificacao.md`](docs/especificacao.md) e deve ser confirmada no Marco 3.
 
 ---

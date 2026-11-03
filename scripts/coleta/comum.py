@@ -8,7 +8,7 @@ from datetime import date
 
 import requests
 
-from config_coleta import DIR_RAW, MAILTO
+from config_coleta import AREA_LCC, AREA_LCC_EXCLUI, AREA_WOS, AREA_WOS_EXCLUI, DIR_RAW, MAILTO
 
 _sessao = requests.Session()
 _sessao.headers["User-Agent"] = (
@@ -50,6 +50,21 @@ def get_json(url, params=None, tentativas=4, pausa=1.0):
         except ValueError:
             return None
     raise RuntimeError(f"Falha após {tentativas} tentativas: {url}")
+
+
+# --- Área do periódico -------------------------------------------------
+def lcc_da_area(area, codigos):
+    """True se algum código LCC do periódico começa com um prefixo da área (e não de exclusão)."""
+    exclui = AREA_LCC_EXCLUI.get(area, ())
+    return any(c.startswith(p) and not c.startswith(exclui)
+               for c in codigos for p in AREA_LCC[area])
+
+
+def wos_da_area(area, areas_wos):
+    """True se alguma área WoS do periódico contém um trecho da área (e nenhum de exclusão)."""
+    exclui = AREA_WOS_EXCLUI.get(area, ())
+    return any(alvo in a and not any(x in a for x in exclui)
+               for a in areas_wos for alvo in AREA_WOS[area])
 
 
 # --- data/raw ----------------------------------------------------------

@@ -107,6 +107,7 @@ class Resposta(BaseModel):
         "referencia_abnt",
         "orientacao_busca",
         "abstencao",
+        "esclarecimento",
     ]
     artigos: list[RespostaArtigo] = Field(default_factory=list)
     fontes: list[str] = Field(default_factory=list)

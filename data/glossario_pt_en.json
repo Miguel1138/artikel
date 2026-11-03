@@ -26,39 +26,140 @@
  "algoritmos": [
   "algorithms"
  ],
+ "alimentacao": [
+  "diet",
+  "dietary",
+  "feeding"
+ ],
  "analise": [
   "analysis"
  ],
+ "anfibios": [
+  "amphibians"
+ ],
+ "antibiotico": [
+  "antibiotic"
+ ],
+ "antibioticos": [
+  "antibiotics",
+  "antibiotic"
+ ],
+ "antimicrobiana": [
+  "antimicrobial"
+ ],
  "aplicativo": [
+  "apps",
   "application"
  ],
  "aplicativos": [
+  "apps",
   "applications"
+ ],
+ "arterial": [
+  "arterial",
+  "blood pressure"
+ ],
+ "atividade": [
+  "activity"
  ],
  "autismo": [
   "autism"
+ ],
+ "automatizado": [
+  "automated"
+ ],
+ "automatizados": [
+  "automated"
+ ],
+ "avc": [
+  "stroke"
+ ],
+ "aves": [
+  "birds",
+  "bird"
+ ],
+ "bacteria": [
+  "bacteria",
+  "bacterial"
+ ],
+ "bacterias": [
+  "bacteria",
+  "bacterial"
  ],
  "bebe": [
   "infant",
   "infants"
  ],
+ "biodiversidade": [
+  "biodiversity"
+ ],
+ "biologia": [
+  "biology"
+ ],
  "branqueamento": [
   "whitening",
   "bleaching"
  ],
+ "brasil": [
+  "brazil"
+ ],
+ "brasileira": [
+  "brazilian"
+ ],
+ "brasileiras": [
+  "brazilian"
+ ],
+ "brasileiro": [
+  "brazilian"
+ ],
+ "brasileiros": [
+  "brazilian"
+ ],
  "bucal": [
   "oral"
+ ],
+ "canal": [
+  "canal"
+ ],
+ "cancer": [
+  "cancer"
  ],
  "carbamida": [
   "carbamide"
  ],
+ "cardiaco": [
+  "cardiac",
+  "heart"
+ ],
+ "cardiovascular": [
+  "cardiovascular"
+ ],
+ "cardiovasculares": [
+  "cardiovascular"
+ ],
  "carie": [
   "caries"
+ ],
+ "celula": [
+  "cell"
+ ],
+ "celulas": [
+  "cells",
+  "cell"
  ],
  "ciberseguranca": [
   "cybersecurity",
   "cyber",
   "security"
+ ],
+ "cientifica": [
+  "scientific"
+ ],
+ "cientifico": [
+  "scientific"
+ ],
+ "cientificos": [
+  "scientific"
  ],
  "cirurgia": [
   "surgery"
@@ -70,11 +171,20 @@
  "classificacao": [
   "classification"
  ],
+ "clima": [
+  "climate"
+ ],
+ "climaticas": [
+  "climate"
+ ],
  "codigo": [
   "code"
  ],
  "cognitivo": [
   "cognitive"
+ ],
+ "coisas": [
+  "things"
  ],
  "comportamental": [
   "behavioral"
@@ -82,6 +192,20 @@
  "comportamento": [
   "behavior",
   "behaviour"
+ ],
+ "computacional": [
+  "computer",
+  "computational"
+ ],
+ "conservacao": [
+  "conservation"
+ ],
+ "coracao": [
+  "heart"
+ ],
+ "corais": [
+  "coral",
+  "corals"
  ],
  "crianca": [
   "child",
@@ -131,11 +255,17 @@
   "depressive",
   "depression"
  ],
+ "derrame": [
+  "stroke"
+ ],
  "deteccao": [
   "detection"
  ],
  "diagnostico": [
   "diagnosis"
+ ],
+ "dieta": [
+  "diet"
  ],
  "doenca": [
   "disease",
@@ -145,8 +275,46 @@
   "disease",
   "diseases"
  ],
+ "domestica": [
+  "domestic"
+ ],
+ "domestico": [
+  "domestic"
+ ],
+ "ecologia": [
+  "ecology"
+ ],
+ "ecossistema": [
+  "ecosystem"
+ ],
+ "ecossistemas": [
+  "ecosystems",
+  "ecosystem"
+ ],
+ "educacionais": [
+  "educational"
+ ],
+ "educacional": [
+  "educational"
+ ],
+ "eletronico": [
+  "electronic"
+ ],
  "emocional": [
   "emotional"
+ ],
+ "empatia": [
+  "empathy"
+ ],
+ "empirica": [
+  "empirical"
+ ],
+ "empirico": [
+  "empirical"
+ ],
+ "endodontia": [
+  "endodontic",
+  "endodontics"
  ],
  "envelhecimento": [
   "aging"
@@ -155,10 +323,25 @@
   "school"
  ],
  "esgotamento": [
-  "burnout"
+  "burnout",
+  "exhaustion"
  ],
  "esmalte": [
   "enamel"
+ ],
+ "especie": [
+  "species"
+ ],
+ "especies": [
+  "species"
+ ],
+ "estrategia": [
+  "strategy",
+  "strategies"
+ ],
+ "estrategias": [
+  "strategies",
+  "strategy"
  ],
  "estresse": [
   "stress"
@@ -166,22 +349,63 @@
  "estudante": [
   "students"
  ],
+ "etica": [
+  "ethics",
+  "ethical"
+ ],
+ "evolucao": [
+  "evolution"
+ ],
+ "evolutivo": [
+  "evolutionary"
+ ],
+ "exercicio": [
+  "exercise"
+ ],
  "familia": [
   "family"
  ],
  "familiar": [
   "family"
  ],
+ "figado": [
+  "liver"
+ ],
  "filho": [
   "child",
-  "children"
+  "children",
+  "offspring"
  ],
  "filhos": [
   "child",
-  "children"
+  "children",
+  "offspring"
+ ],
+ "fisica": [
+  "physical"
+ ],
+ "floresta": [
+  "forest"
+ ],
+ "florestas": [
+  "forests",
+  "forest"
+ ],
+ "fluor": [
+  "fluoride"
  ],
  "fluoreto": [
   "fluoride"
+ ],
+ "gene": [
+  "gene"
+ ],
+ "genes": [
+  "genes"
+ ],
+ "genetica": [
+  "genetic",
+  "genetics"
  ],
  "gengival": [
   "gingival"
@@ -189,8 +413,58 @@
  "gengivite": [
   "gingivitis"
  ],
+ "genoma": [
+  "genome"
+ ],
+ "genomica": [
+  "genomic",
+  "genomics"
+ ],
+ "gestante": [
+  "pregnant"
+ ],
+ "gestantes": [
+  "pregnant"
+ ],
+ "gestao": [
+  "management"
+ ],
+ "glicemia": [
+  "glucose",
+  "glycemic"
+ ],
+ "graduacao": [
+  "undergraduate"
+ ],
+ "graduandos": [
+  "undergraduate"
+ ],
+ "gravidez": [
+  "pregnancy"
+ ],
  "hidrogenio": [
   "hydrogen"
+ ],
+ "hipertensao": [
+  "hypertension"
+ ],
+ "hospital": [
+  "hospital"
+ ],
+ "idoso": [
+  "older",
+  "elderly"
+ ],
+ "idosos": [
+  "older",
+  "elderly"
+ ],
+ "imagem": [
+  "image"
+ ],
+ "imagens": [
+  "images",
+  "image"
  ],
  "implante": [
   "implant"
@@ -202,8 +476,37 @@
   "childhood",
   "early childhood"
  ],
+ "infarto": [
+  "infarction"
+ ],
+ "infeccao": [
+  "infection"
+ ],
+ "infeccoes": [
+  "infections",
+  "infection"
+ ],
+ "inseto": [
+  "insect"
+ ],
+ "insetos": [
+  "insects",
+  "insect"
+ ],
+ "insuficiencia": [
+  "failure"
+ ],
+ "insulina": [
+  "insulin"
+ ],
  "inteligencia": [
   "intelligence"
+ ],
+ "internacao": [
+  "hospitalization"
+ ],
+ "intestinal": [
+  "intestinal"
  ],
  "jovem": [
   "young",
@@ -216,6 +519,33 @@
  "mae": [
   "parent",
   "mother"
+ ],
+ "maloclusao": [
+  "malocclusion"
+ ],
+ "mama": [
+  "breast"
+ ],
+ "mamiferos": [
+  "mammals"
+ ],
+ "marinha": [
+  "marine"
+ ],
+ "marinho": [
+  "marine"
+ ],
+ "marinhos": [
+  "marine"
+ ],
+ "medicina": [
+  "medicine"
+ ],
+ "medicinais": [
+  "medicinal"
+ ],
+ "medicinal": [
+  "medicinal"
  ],
  "medico": [
   "medical"
@@ -234,9 +564,31 @@
   "model",
   "models"
  ],
+ "mortalidade": [
+  "mortality"
+ ],
+ "mudancas": [
+  "change",
+  "changes"
+ ],
+ "neurais": [
+  "neural"
+ ],
+ "nuvem": [
+  "cloud"
+ ],
+ "obesidade": [
+  "obesity"
+ ],
+ "organizacional": [
+  "organizational"
+ ],
  "ortodontia": [
   "orthodontic",
   "orthodontics"
+ ],
+ "ortodontico": [
+  "orthodontic"
  ],
  "ossea": [
   "bone"
@@ -248,6 +600,7 @@
   "osseointegration"
  ],
  "osseointegrado": [
+  "osseointegrated",
   "osseointegration"
  ],
  "osso": [
@@ -265,6 +618,12 @@
   "pandemic",
   "covid"
  ],
+ "peixe": [
+  "fish"
+ ],
+ "peixes": [
+  "fish"
+ ],
  "perda": [
   "loss"
  ],
@@ -275,8 +634,25 @@
  "peroxido": [
   "peroxide"
  ],
+ "planta": [
+  "plant"
+ ],
+ "plantas": [
+  "plants",
+  "plant"
+ ],
  "polpa": [
   "pulp"
+ ],
+ "populacao": [
+  "population"
+ ],
+ "populacoes": [
+  "populations",
+  "population"
+ ],
+ "pressao": [
+  "pressure"
  ],
  "prevalencia": [
   "prevalence"
@@ -313,8 +689,28 @@
  "psicologico": [
   "psychological"
  ],
+ "pulmao": [
+  "lung"
+ ],
+ "pulmonar": [
+  "pulmonary",
+  "lung"
+ ],
  "qualidade": [
   "quality"
+ ],
+ "quimioterapia": [
+  "chemotherapy"
+ ],
+ "radicular": [
+  "root"
+ ],
+ "recife": [
+  "reef"
+ ],
+ "recifes": [
+  "reefs",
+  "reef"
  ],
  "rede": [
   "network",
@@ -330,6 +726,10 @@
  "relacionamento": [
   "relationship"
  ],
+ "renal": [
+  "kidney",
+  "renal"
+ ],
  "requisito": [
   "requirements"
  ],
@@ -339,9 +739,24 @@
  "resina": [
   "resin"
  ],
+ "resistencia": [
+  "resistance"
+ ],
+ "resistente": [
+  "resistant"
+ ],
+ "resistentes": [
+  "resistant"
+ ],
  "restauracao": [
   "restoration",
   "restorations"
+ ],
+ "revisao": [
+  "review"
+ ],
+ "rim": [
+  "kidney"
  ],
  "risco": [
   "risk"
@@ -361,6 +776,12 @@
  "sintomas": [
   "symptoms"
  ],
+ "sistematica": [
+  "systematic"
+ ],
+ "sobrepeso": [
+  "overweight"
+ ],
  "sofrimento": [
   "distress"
  ],
@@ -378,6 +799,9 @@
  "tecnologia": [
   "technology",
   "technologies"
+ ],
+ "teledontologia": [
+  "teledentistry"
  ],
  "tensao": [
   "stress"
@@ -430,6 +854,13 @@
  "tratamento": [
   "treatment"
  ],
+ "tuberculose": [
+  "tuberculosis"
+ ],
+ "tumor": [
+  "tumor",
+  "tumour"
+ ],
  "universidade": [
   "university"
  ],
@@ -443,7 +874,32 @@
   "college",
   "undergraduate"
  ],
+ "urbana": [
+  "urban"
+ ],
+ "urbano": [
+  "urban"
+ ],
+ "vacina": [
+  "vaccine"
+ ],
+ "vacinacao": [
+  "vaccination"
+ ],
+ "vacinas": [
+  "vaccines",
+  "vaccine"
+ ],
  "vicio": [
   "addiction"
+ ],
+ "violencia": [
+  "violence"
+ ],
+ "virus": [
+  "virus"
+ ],
+ "visao": [
+  "vision"
  ]
 }

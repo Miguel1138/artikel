@@ -100,7 +100,16 @@ def test_detetar_area(dir_temporario):
     assert motor.detetar_area("preciso de artigos sobre clareamento dental") == "odontologia"
     assert motor.detetar_area("artigos sobre ansiedade em universitários") == "psicologia"
     assert motor.detetar_area("aprendizado de máquina em saúde") == "computacao"
+    assert motor.detetar_area("estudos sobre dengue e tuberculose") == "medicina"
+    assert motor.detetar_area("perda de biodiversidade marinha") == "biologia"
     assert motor.detetar_area("bom dia") is None
+
+
+def test_pista_de_area_nao_casa_no_meio_da_palavra(dir_temporario):
+    """'terapia' (Psicologia) casava dentro de 'quimioterapia' e empatava com Medicina."""
+    motor = montar_motor(dir_temporario)
+    assert motor.detetar_area("pesquisas sobre câncer de mama e quimioterapia") == "medicina"
+    assert motor.detetar_area("terapia cognitiva") == "psicologia"
 
 
 def test_base_ausente_nao_quebra(dir_temporario):
