@@ -17,8 +17,8 @@ onnxruntime>=1.31.1     # encoder de sentenças LOCAL do classificador de inten�
 tokenizers>=0.23.3      #   modelo baixado por: python scripts/baixar_encoder.py (~128 MB, fora do git)
 
 # --- API ---------------------------------------------------------------
-fastapi>=0.110
-uvicorn>=0.29
+fastapi>=0.162.0
+uvicorn>=0.54.0
 
 # --- Testes e avaliação ------------------------------------------------
 pytest>=8.0
