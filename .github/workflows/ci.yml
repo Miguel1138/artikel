@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Cancela execuções antigas da mesma branch/PR quando chega um commit novo.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Instalar dependências
+        run: python -m pip install -r requirements.txt
+
+      # O encoder ONNX (models/encoder/, ~128 MB) não é versionado: é baixado do Hugging Face
+      # pelo script do projeto e guardado em cache entre execuções.
+      - name: Cache do encoder
+        id: cache-encoder
+        uses: actions/cache@v4
+        with:
+          path: models/encoder
+          key: encoder-${{ hashFiles('scripts/baixar_encoder.py') }}
+
+      - name: Baixar encoder
+        if: steps.cache-encoder.outputs.cache-hit != 'true'
+        run: python scripts/baixar_encoder.py
+
+      # Os testes de integração pulam sem a API no ar.
+      - name: Rodar testes
+        run: python -m pytest
