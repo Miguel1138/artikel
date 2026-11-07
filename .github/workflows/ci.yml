@@ -33,7 +33,19 @@ jobs:
       - name: Instalar dependências
         run: python -m pip install -r requirements.txt
 
-      # Offline: o encoder ONNX (models/encoder/, ~128 MB) não é versionado e os testes
-      # que dependem dele são pulados. Os de integração também pulam sem a API no ar.
+      # O encoder ONNX (models/encoder/, ~128 MB) não é versionado: é baixado do Hugging Face
+      # pelo script do projeto e guardado em cache entre execuções.
+      - name: Cache do encoder
+        id: cache-encoder
+        uses: actions/cache@v4
+        with:
+          path: models/encoder
+          key: encoder-${{ hashFiles('scripts/baixar_encoder.py') }}
+
+      - name: Baixar encoder
+        if: steps.cache-encoder.outputs.cache-hit != 'true'
+        run: python scripts/baixar_encoder.py
+
+      # Os testes de integração pulam sem a API no ar.
       - name: Rodar testes
         run: python -m pytest
