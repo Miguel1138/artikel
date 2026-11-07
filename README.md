@@ -16,7 +16,7 @@ em [`docs/especificacao.md`](docs/especificacao.md).
 
 ## Como rodar (só o que está aqui)
 
-Requisitos: Python 3.11+ e uma venv. A coleta usa apenas APIs públicas, **sem chave**.
+Requisitos: Python 3.12+ e uma venv. A coleta usa apenas APIs públicas, **sem chave**.
 
 ```bash
 python -m venv venv
