@@ -11,9 +11,9 @@ xylose>=1.35.4
 # --- IA: classificador e recuperação -----------------------------------
 scikit-learn>=1.9.1
 joblib>=1.6.0
-numpy>=2.5.4
+numpy>=2.5.5
 rank-bm25>=0.2.2      # alternativa ao TF-IDF na recuperação (ver README)
-onnxruntime>=1.31.1     # encoder de sentenças LOCAL do classificador de intenções (app/encoder.py)
+onnxruntime>=1.32.0     # encoder de sentenças LOCAL do classificador de intenções (app/encoder.py)
 tokenizers>=0.23.3      #   modelo baixado por: python scripts/baixar_encoder.py (~128 MB, fora do git)
 
 # --- API ---------------------------------------------------------------
